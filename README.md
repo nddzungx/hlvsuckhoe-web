@@ -6,6 +6,7 @@ Trang chủ chia sẻ kiến thức sức khỏe, vi chất, tập thể dục, 
 
 - Trang chủ: **https://hlvsuckhoe.com/**
 - Ứng dụng HLV Sức Khỏe: **https://app.hlvsuckhoe.com/** (repo `hlv-suc-khoe`)
+- Ứng dụng Xưởng kính thiên văn: **https://thienvan.hlvsuckhoe.com/** (repo `xuong-kinh-thien-van`)
 - Liên hệ: nddzungx@gmail.com
 
 Trang tĩnh một tệp `index.html`, không cần build. Tệp `CNAME` giữ tên miền – không xóa.

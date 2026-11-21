@@ -152,6 +152,13 @@ td b{font-family:var(--display)}
 .app h2{color:#fff}
 .app p{opacity:.9;margin-top:6px}
 .app .btn{background:var(--sun);color:#2a1d00}
+.app.tv{background:linear-gradient(135deg,#1e2c4f,#0a101d);color:#e6ecf6;margin-top:14px}
+.tvbox{margin-top:16px;background:var(--card);border:1px solid var(--line);border-radius:24px;padding:24px}
+.tvbox .tvgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:12px;margin:14px 0 18px}
+.tvbox .tvgrid div{border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+.tvbox .tvgrid b{display:block;font-family:var(--display);font-size:1.02rem;margin-bottom:4px}
+.tvbox .tvgrid span{font-size:.88rem;color:var(--muted)}
+.tvbox .cta{display:flex;flex-wrap:wrap;gap:10px}
 @media (max-width:760px){.app{grid-template-columns:1fr;justify-items:start}}
 footer{border-top:1px solid var(--line);padding:36px 0 50px;color:var(--muted);font-size:.9rem}
 .foot{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:24px}
@@ -211,7 +218,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 50px;color:var(--muted);f
       <a class="cat" href="#thien"><span class="dot"><svg viewBox="0 0 24 24"><path d="M4 12h3l2-4 3 8 2-4h6"/></svg></span><h3>Tập thở</h3><p>Thở bụng, thở hộp, 4–7–8: khi nào dùng, làm thế nào cho đúng.</p><span class="n">Thử ngay ở đầu trang</span></a>
       <a class="cat" href="#thien"><span class="dot"><svg viewBox="0 0 24 24"><circle cx="12" cy="6" r="2.5"/><path d="M5 19c2-1 4-1.5 7-1.5s5 .5 7 1.5M8 14l4-4 4 4"/></svg></span><h3>Thiền</h3><p>Năm phút ngồi yên mỗi sáng. Hẹn giờ có chuông nhẹ.</p><span class="n">Hẹn giờ bên dưới</span></a>
       <a class="cat" href="#am-nhac"><span class="dot"><svg viewBox="0 0 24 24"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg></span><h3>Âm nhạc</h3><p>Những bài hát tự sáng tác, nghe để thư giãn, đi bộ, tập thở.</p><span class="n">Trên YouTube</span></a>
-      <a class="cat sky" href="#bau-troi"><span class="dot"><svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg></span><h3>Thiên văn</h3><p>Trăng đêm nay, mưa sao băng, cách nhìn các hành tinh bằng mắt thường.</p><span class="n">Cập nhật theo ngày</span></a>
+      <a class="cat sky" href="#bau-troi"><span class="dot"><svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg></span><h3>Thiên văn</h3><p>Trăng đêm nay, mưa sao băng, dự báo nhật nguyệt thực, tự chế kính thiên văn với ứng dụng Xưởng kính.</p><span class="n">Có ứng dụng riêng</span></a>
       <a class="cat sky" href="#bai-viet"><span class="dot"><svg viewBox="0 0 24 24"><path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 2 3h10a2 2 0 0 0 2-3l-5-9V3"/></svg></span><h3>Khoa học</h3><p>Cơ thể, não bộ, vũ trụ: giải thích bằng ngôn ngữ đời thường.</p><span class="n">Sắp có</span></a>
       <a class="cat sky" href="#bai-viet"><span class="dot"><svg viewBox="0 0 24 24"><path d="M4 19V8l8-4 8 4v11M4 19h16M8 19v-7M12 19v-7M16 19v-7"/></svg></span><h3>Lịch sử</h3><p>Chuyện y học và đời sống người Việt qua các thời kỳ.</p><span class="n">Sắp có</span></a>
     </div>
@@ -311,6 +318,18 @@ footer{border-top:1px solid var(--line);padding:36px 0 50px;color:var(--muted);f
         </div>
       </div>
     </div>
+    <div class="tvbox">
+      <span class="tag">Ứng dụng thiên văn</span>
+      <h2>Xưởng kính thiên văn</h2>
+      <p style="margin-top:8px;max-width:68ch">Học thiên văn từ con số không, tự thiết kế và chế tạo kính thiên văn, rồi xem đêm nay có gì trên trời. Miễn phí, tiếng Việt, cài lên điện thoại và dùng được khi không có mạng.</p>
+      <div class="tvgrid">
+        <div><b>Bầu trời đêm nay</b><span>Hành tinh nào đang lên, bản đồ vòm trời theo nơi bạn đứng.</span></div>
+        <div><b>Dự báo hiện tượng</b><span>Nhật thực, nguyệt thực, xung đối, mưa sao băng trong 1–3 năm tới.</span></div>
+        <div><b>Tự chế kính</b><span>Hướng dẫn từng bước cho kính khúc xạ, Newton/Dobson, SCT; vật tư và chi phí tham khảo.</span></div>
+        <div><b>Học và quan sát thử</b><span>14 bài học có trắc nghiệm; nhìn Sao Thổ, Mộc tinh qua chính chiếc kính bạn thiết kế.</span></div>
+      </div>
+      <div class="cta"><a class="btn" href="https://thienvan.hlvsuckhoe.com/">Mở Xưởng kính</a><a class="btn ghost" href="https://thienvan.hlvsuckhoe.com/#sky">Bầu trời đêm nay</a><a class="btn ghost" href="https://thienvan.hlvsuckhoe.com/#build">Tự chế kính</a></div>
+    </div>
   </section>
 
   <section id="bai-viet" aria-labelledby="bv">
@@ -331,6 +350,11 @@ footer{border-top:1px solid var(--line);padding:36px 0 50px;color:var(--muted);f
       <div><h2 id="ud">Ứng dụng HLV Sức Khỏe</h2><p>Huấn luyện viên bỏ túi: lộ trình từ thói quen nhỏ, 48 bài tập minh họa 3D, thực đơn món Việt, ăn chay theo âm lịch, báo cáo tuần – tháng – năm. Miễn phí, dùng được khi không có mạng, tiếng Việt và tiếng Anh.</p></div>
       <a class="btn" href="https://app.hlvsuckhoe.com/">Dùng ngay</a>
     </div>
+    <div class="app tv">
+      <img src="img/logo-thienvan.svg" alt="Logo Xưởng kính thiên văn">
+      <div><h2>Xưởng kính thiên văn</h2><p>Học thiên văn, tự chế kính thiên văn, bầu trời đêm nay, dự báo nhật nguyệt thực và nhật ký quan sát. Miễn phí, tiếng Việt, dùng được khi không có mạng.</p></div>
+      <a class="btn" href="https://thienvan.hlvsuckhoe.com/">Mở Xưởng kính</a>
+    </div>
   </section>
 </main>
 
@@ -338,7 +362,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 50px;color:var(--muted);f
   <div class="wrap foot">
     <div><h3>HLV Sức Khỏe</h3><p>Nội dung mang tính giáo dục sức khỏe chung, không thay thế chẩn đoán và điều trị của bác sĩ. Cấp cứu tại Việt Nam: gọi 113 (115 vẫn dùng trong giai đoạn chuyển tiếp).</p></div>
     <div><h3>Liên hệ</h3><p>Góp ý, đề xuất chủ đề: <a href="mailto:nddzungx@gmail.com">nddzungx@gmail.com</a></p></div>
-    <div><h3>Ủng hộ</h3><p>Mời người viết một ly cà phê qua VietQR hoặc PayPal trong mục Giới thiệu của <a href="https://app.hlvsuckhoe.com/">ứng dụng</a>.</p><p style="margin-top:10px">© <span id="yr">2026</span> Nguyễn Đức Dũng</p></div>
+    <div><h3>Ủng hộ</h3><p>Mời người viết một ly cà phê qua VietQR hoặc PayPal trong mục Giới thiệu của <a href="https://app.hlvsuckhoe.com/">HLV Sức Khỏe</a> hoặc <a href="https://thienvan.hlvsuckhoe.com/#about">Xưởng kính thiên văn</a>.</p><p style="margin-top:10px">© <span id="yr">2026</span> Nguyễn Đức Dũng</p></div>
   </div>
 </footer>
 
