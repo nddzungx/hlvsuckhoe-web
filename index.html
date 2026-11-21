@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HLV Sức Khỏe</title>
+<meta name="description" content="Sống khỏe từ thói quen nhỏ: kiến thức sức khỏe, vi chất, vận động, tập thở, thiền, âm nhạc và những điều thú vị về bầu trời, khoa học, lịch sử.">
+<meta name="theme-color" content="#0f6a4b">
+<link rel="icon" href="img/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Literata:opsz,wght@7..72,500;7..72,700&display=swap" rel="stylesheet">
+<style>
+/* Ý tưởng bố cục: buổi sớm trong vườn – nền giấy ấm, xanh lá rừng của logo, vàng trái tim làm điểm nhấn; hơi thở là trung tâm */
+:root{
+  --paper:#f6f4ee; --card:#ffffff; --ink:#1a2a22; --muted:#5d6b63; --line:#e2e0d6;
+  --forest:#0f6a4b; --leaf:#19c08a; --sun:#f2a516; --night:#13233b;
+  --display:"Literata", Georgia, "Times New Roman", serif;
+  --body:"Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#101814;--card:#17211c;--ink:#e8eee9;--muted:#9aaba1;--line:#26332c;--forest:#3fcf98;--leaf:#19c08a;--sun:#f5b73b;--night:#0b1424;color-scheme:dark}}
+:root[data-theme="dark"]{--paper:#101814;--card:#17211c;--ink:#e8eee9;--muted:#9aaba1;--line:#26332c;--forest:#3fcf98;--leaf:#19c08a;--sun:#f5b73b;--night:#0b1424;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 var(--body)}
+a{color:var(--forest)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--sun);outline-offset:2px;border-radius:6px}
+h1,h2,h3{font-family:var(--display);line-height:1.2;text-wrap:balance;margin:0}
+h2{font-size:clamp(1.6rem,3.2vw,2.2rem)}
+h3{font-size:1.15rem}
+p{margin:0}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+.draft{background:var(--sun);color:#2a1d00;font-size:.85rem;text-align:center;padding:6px 12px;font-weight:600}
+/* điều hướng */
+header.top{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:18px;height:64px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-weight:700}
+.brand img{width:36px;height:36px;border-radius:9px}
+.nav ul{display:flex;gap:16px;list-style:none;margin:0 0 0 auto;padding:0;overflow-x:auto;scrollbar-width:none}
+.nav ul a{text-decoration:none;color:var(--muted);font-size:.92rem;white-space:nowrap}
+.nav ul a:hover{color:var(--forest)}
+.btn{display:inline-flex;align-items:center;gap:8px;border:0;border-radius:999px;padding:12px 20px;font:600 1rem var(--body);cursor:pointer;text-decoration:none;background:var(--forest);color:#fff}
+.btn.ghost{background:transparent;color:var(--forest);border:1.5px solid var(--forest)}
+.btn.sm{padding:8px 14px;font-size:.9rem}
+@media (max-width:820px){.nav ul{display:none}}
+/* mở đầu: hơi thở */
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;padding:56px 0 40px}
+.hero h1{font-size:clamp(2.3rem,5.4vw,4rem);letter-spacing:-.5px}
+.hero h1 em{font-style:italic;color:var(--forest)}
+.lede{font-size:1.12rem;color:var(--muted);margin:18px 0 26px;max-width:34em}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.breath{background:var(--night);border-radius:28px;padding:26px;color:#e9f3ee;display:grid;gap:16px;justify-items:center;position:relative;overflow:hidden}
+.breath canvas{position:absolute;inset:0;width:100%;height:100%;opacity:.55}
+.orbbox{position:relative;width:min(300px,70vw);aspect-ratio:1;display:grid;place-items:center}
+.orb{width:46%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 35% 30%,#7af0c2,#19c08a 55%,#0f6a4b);box-shadow:0 0 60px rgba(25,192,138,.45);transform:scale(1);transition:transform 4s cubic-bezier(.45,0,.55,1)}
+.ring{position:absolute;inset:6%;border-radius:50%;border:1.5px dashed rgba(233,243,238,.28)}
+.phase{position:absolute;font:600 1.15rem var(--body);text-shadow:0 1px 6px rgba(0,0,0,.4);text-align:center}
+.phase small{display:block;font-weight:400;font-size:.85rem;opacity:.8}
+.patterns{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;position:relative}
+.patterns button{border:1px solid rgba(233,243,238,.35);background:transparent;color:#e9f3ee;border-radius:999px;padding:6px 12px;font:500 .88rem var(--body);cursor:pointer}
+.patterns button[aria-pressed="true"]{background:#e9f3ee;color:var(--night)}
+.breath .go{position:relative;background:var(--sun);color:#2a1d00}
+.breath .note{position:relative;font-size:.85rem;opacity:.8;text-align:center;max-width:30em}
+@media (max-width:860px){.hero{grid-template-columns:1fr;padding-top:32px}}
+/* dải hôm nay */
+.today{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:18px;overflow:hidden;margin:8px 0 56px}
+.today>div{background:var(--card);padding:16px 18px}
+.today .k{font-size:.78rem;text-transform:uppercase;letter-spacing:.8px;color:var(--muted)}
+.today .v{font:700 1.2rem var(--display);margin-top:4px}
+.today .s{font-size:.9rem;color:var(--muted)}
+@media (max-width:820px){.today{grid-template-columns:1fr 1fr}}
+@media (max-width:420px){.today{grid-template-columns:1fr}}
+/* phần */
+section{padding:56px 0;border-top:1px solid var(--line)}
+.head{display:flex;align-items:end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:26px}
+.head p{color:var(--muted);max-width:38em;margin-top:8px}
+.tag{display:inline-block;font-size:.72rem;font-weight:600;letter-spacing:.6px;text-transform:uppercase;color:var(--forest);margin-bottom:6px}
+/* chuyên mục */
+.cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+.cat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;display:grid;gap:8px;text-decoration:none;color:var(--ink);transition:transform .2s,border-color .2s}
+.cat:hover{transform:translateY(-2px);border-color:var(--forest)}
+.cat .n{font-size:.8rem;color:var(--muted)}
+.cat p{font-size:.93rem;color:var(--muted)}
+.cat .dot{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:color-mix(in srgb,var(--leaf) 16%,transparent)}
+.cat .dot svg{width:20px;height:20px;stroke:var(--forest);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.cat.sky .dot{background:color-mix(in srgb,var(--night) 14%,transparent)}
+.cat.sky .dot svg{stroke:var(--night)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .cat.sky .dot svg{stroke:#9fb4d6}}
+:root[data-theme="dark"] .cat.sky .dot svg{stroke:#9fb4d6}
+/* vi chất */
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:16px;background:var(--card)}
+table{border-collapse:collapse;width:100%;min-width:720px;font-size:.93rem}
+th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:.78rem;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);font-weight:600;background:color-mix(in srgb,var(--paper) 60%,var(--card))}
+tr:last-child td{border-bottom:0}
+td b{font-family:var(--display)}
+.fine{font-size:.84rem;color:var(--muted);margin-top:12px}
+/* vận động */
+.move{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
+.week{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;align-items:end;height:170px;padding:16px;background:var(--card);border:1px solid var(--line);border-radius:16px}
+.week div{display:grid;gap:6px;justify-items:center;font-size:.78rem;color:var(--muted)}
+.week i{display:block;width:100%;border-radius:8px 8px 4px 4px;background:var(--leaf)}
+.week i.rest{background:var(--line)}
+.goal{font:700 2.6rem var(--display);color:var(--forest);font-variant-numeric:tabular-nums}
+@media (max-width:820px){.move{grid-template-columns:1fr}}
+/* thiền */
+.medi{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px}
+.dial{width:170px;height:170px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--forest) var(--p,0%),color-mix(in srgb,var(--line) 70%,transparent) 0)}
+.dial span{width:140px;height:140px;border-radius:50%;background:var(--card);display:grid;place-items:center;font:700 2rem var(--display);font-variant-numeric:tabular-nums}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.chips button{border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:999px;padding:7px 14px;font:500 .9rem var(--body);cursor:pointer}
+.chips button[aria-pressed="true"]{background:var(--forest);color:#fff;border-color:var(--forest)}
+@media (max-width:640px){.medi{grid-template-columns:1fr;justify-items:center;text-align:center}.medi .chips{justify-content:center}}
+/* âm nhạc */
+.music{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+.song{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.song .cover{aspect-ratio:16/9;background:linear-gradient(135deg,var(--night),#1f4d3b);display:grid;place-items:center;color:#e9f3ee;position:relative}
+.song .cover svg{width:46px;height:46px;fill:#e9f3ee;opacity:.9}
+.song .meta{padding:12px 14px}
+.song .meta p{font-size:.88rem;color:var(--muted)}
+.song .cover.yt{border:0;padding:0;width:100%;cursor:pointer;overflow:hidden}
+.song .cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.song .cover.yt svg{position:relative;width:58px;height:58px;padding:12px 10px 12px 14px;border-radius:50%;background:rgba(0,0,0,.55);transition:transform .2s}
+.song .cover.yt:hover svg,.song .cover.yt:focus-visible svg{transform:scale(1.1)}
+.song iframe{display:block;width:100%;aspect-ratio:16/9;border:0}
+.song[hidden]{display:none}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px}
+.chips button{font:inherit;font-size:.88rem;border:1px solid var(--line);background:var(--card);color:inherit;border-radius:999px;padding:6px 13px;cursor:pointer}
+.chips button[aria-pressed="true"]{background:var(--forest);border-color:var(--forest);color:#fff}
+.mnote{font-size:.88rem;color:var(--muted);margin-top:12px}
+.ph{border:1.5px dashed var(--sun);border-radius:12px;padding:12px 14px;font-size:.9rem;background:color-mix(in srgb,var(--sun) 8%,transparent);margin-bottom:14px}
+/* bầu trời */
+.skybox{background:var(--night);color:#e6ecf6;border-radius:24px;padding:28px;display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center}
+.skybox h2{color:#fff}
+.skybox .muted{color:#a9b6cc}
+.skybox canvas{width:180px;height:180px}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-top:16px}
+.facts div{border:1px solid rgba(230,236,246,.18);border-radius:12px;padding:10px 12px}
+.facts b{display:block;font:700 1.1rem var(--display);color:#fff}
+.facts span{font-size:.82rem;color:#a9b6cc}
+@media (max-width:700px){.skybox{grid-template-columns:1fr;justify-items:center}}
+/* bài viết */
+.posts{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.post{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;display:grid;gap:8px}
+.post .cat-l{font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.6px;color:var(--forest)}
+.post p{font-size:.92rem;color:var(--muted)}
+.post .soon{font-size:.8rem;color:var(--muted);border-top:1px dashed var(--line);padding-top:8px}
+/* ứng dụng */
+.app{display:grid;grid-template-columns:auto 1fr auto;gap:22px;align-items:center;background:linear-gradient(135deg,var(--forest),#0a4f37);color:#eaf6f0;border-radius:24px;padding:26px}
+.app img{width:84px;height:84px;border-radius:20px}
+.app h2{color:#fff}
+.app p{opacity:.9;margin-top:6px}
+.app .btn{background:var(--sun);color:#2a1d00}
+@media (max-width:760px){.app{grid-template-columns:1fr;justify-items:start}}
+footer{border-top:1px solid var(--line);padding:36px 0 50px;color:var(--muted);font-size:.9rem}
+.foot{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:24px}
+.foot h3{font-size:1rem;color:var(--ink);margin-bottom:8px}
+@media (max-width:760px){.foot{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.orb{transition:none}.cat{transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="draft">Bản nháp trang chủ – nội dung mẫu, sẽ được hoàn thiện dần</div>
+<header class="top">
+  <div class="wrap nav">
+    <a class="brand" href="#"><img src="img/logo.svg" alt="">HLV Sức Khỏe</a>
+    <ul>
+      <li><a href="#chuyen-muc">Chuyên mục</a></li><li><a href="#vi-chat">Vi chất</a></li><li><a href="#van-dong">Vận động</a></li>
+      <li><a href="#thien">Thở &amp; thiền</a></li><li><a href="#am-nhac">Âm nhạc</a></li><li><a href="#bau-troi">Bầu trời</a></li><li><a href="#bai-viet">Bài viết</a></li>
+    </ul>
+    <a class="btn sm" href="https://app.hlvsuckhoe.com/">Mở ứng dụng</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="hero">
+    <div>
+      <span class="tag">Sống khỏe từ thói quen nhỏ</span>
+      <h1>Mỗi ngày bắt đầu bằng <em>một hơi thở</em> chậm.</h1>
+      <p class="lede">Kiến thức sức khỏe dễ hiểu cho người Việt, bài tập vừa sức, những phút thở và thiền, vài bản nhạc tự sáng tác, và cả những câu chuyện về bầu trời, khoa học, lịch sử cho những giờ rảnh.</p>
+      <div class="cta"><a class="btn" href="https://app.hlvsuckhoe.com/">Mở ứng dụng HLV</a><a class="btn ghost" href="#chuyen-muc">Xem các chuyên mục</a></div>
+    </div>
+    <div class="breath" aria-labelledby="breath-title">
+      <canvas id="stars" aria-hidden="true"></canvas>
+      <h3 id="breath-title" style="position:relative;color:#fff">Thở cùng mình 1 phút</h3>
+      <div class="orbbox"><div class="ring"></div><div class="orb" id="orb"></div><div class="phase" id="phase" aria-live="polite">Sẵn sàng<small>Chọn nhịp rồi bấm Bắt đầu</small></div></div>
+      <div class="patterns" role="group" aria-label="Chọn nhịp thở">
+        <button type="button" data-p="4,0,6,0" aria-pressed="true">Thư giãn 4–6</button>
+        <button type="button" data-p="4,4,4,4" aria-pressed="false">Thở hộp 4–4–4–4</button>
+        <button type="button" data-p="4,7,8,0" aria-pressed="false">Dễ ngủ 4–7–8</button>
+      </div>
+      <button class="btn go" type="button" id="breathGo">Bắt đầu</button>
+      <p class="note">Thở bằng mũi, để bụng phồng lên khi hít vào. Thấy chóng mặt thì dừng lại và thở bình thường.</p>
+    </div>
+  </div>
+
+  <div class="today" aria-label="Hôm nay">
+    <div><div class="k">Hôm nay</div><div class="v" id="tDate">–</div><div class="s" id="tDow">–</div></div>
+    <div><div class="k">Âm lịch</div><div class="v" id="tLunar">–</div><div class="s" id="tLunarNote">–</div></div>
+    <div><div class="k">Mặt trăng</div><div class="v" id="tMoon">–</div><div class="s" id="tMoonNote">–</div></div>
+    <div><div class="k">Gợi ý hôm nay</div><div class="s" id="tTip" style="color:var(--ink);margin-top:4px">–</div></div>
+  </div>
+
+  <section id="chuyen-muc" aria-labelledby="cm">
+    <div class="head"><div><span class="tag">Chuyên mục</span><h2 id="cm">Chín góc nhỏ cho thân và tâm</h2><p>Sáu chuyên mục về sức khỏe, ba góc cho những sở thích làm đầu óc thêm rộng. Mỗi bài viết ngắn, đọc trong vài phút.</p></div></div>
+    <div class="cats">
+      <a class="cat" href="#bai-viet"><span class="dot"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg></span><h3>Kiến thức sức khỏe</h3><p>Huyết áp, đường huyết, giấc ngủ, đọc hiểu kết quả xét nghiệm cơ bản.</p><span class="n">Sắp có 3 bài</span></a>
+      <a class="cat" href="#vi-chat"><span class="dot"><svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="3"/><circle cx="16" cy="9" r="2"/><circle cx="11" cy="16" r="4"/></svg></span><h3>Dinh dưỡng &amp; vi chất</h3><p>Sắt, canxi, vitamin D, i-ốt… có trong món Việt nào, ai dễ thiếu.</p><span class="n">Bảng tra nhanh bên dưới</span></a>
+      <a class="cat" href="#van-dong"><span class="dot"><svg viewBox="0 0 24 24"><circle cx="13" cy="4" r="2"/><path d="M9 21l2-6 3 2v4M7 12l3-4 4 2 3 3M10 8l-3 1"/></svg></span><h3>Tập thể dục</h3><p>Bài tập 3D có hướng dẫn chi tiết, lộ trình từ 10 phút mỗi ngày.</p><span class="n">48 bài trong ứng dụng</span></a>
+      <a class="cat" href="#thien"><span class="dot"><svg viewBox="0 0 24 24"><path d="M4 12h3l2-4 3 8 2-4h6"/></svg></span><h3>Tập thở</h3><p>Thở bụng, thở hộp, 4–7–8: khi nào dùng, làm thế nào cho đúng.</p><span class="n">Thử ngay ở đầu trang</span></a>
+      <a class="cat" href="#thien"><span class="dot"><svg viewBox="0 0 24 24"><circle cx="12" cy="6" r="2.5"/><path d="M5 19c2-1 4-1.5 7-1.5s5 .5 7 1.5M8 14l4-4 4 4"/></svg></span><h3>Thiền</h3><p>Năm phút ngồi yên mỗi sáng. Hẹn giờ có chuông nhẹ.</p><span class="n">Hẹn giờ bên dưới</span></a>
+      <a class="cat" href="#am-nhac"><span class="dot"><svg viewBox="0 0 24 24"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg></span><h3>Âm nhạc</h3><p>Những bài hát tự sáng tác, nghe để thư giãn, đi bộ, tập thở.</p><span class="n">Trên YouTube</span></a>
+      <a class="cat sky" href="#bau-troi"><span class="dot"><svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg></span><h3>Thiên văn</h3><p>Trăng đêm nay, mưa sao băng, cách nhìn các hành tinh bằng mắt thường.</p><span class="n">Cập nhật theo ngày</span></a>
+      <a class="cat sky" href="#bai-viet"><span class="dot"><svg viewBox="0 0 24 24"><path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 2 3h10a2 2 0 0 0 2-3l-5-9V3"/></svg></span><h3>Khoa học</h3><p>Cơ thể, não bộ, vũ trụ: giải thích bằng ngôn ngữ đời thường.</p><span class="n">Sắp có</span></a>
+      <a class="cat sky" href="#bai-viet"><span class="dot"><svg viewBox="0 0 24 24"><path d="M4 19V8l8-4 8 4v11M4 19h16M8 19v-7M12 19v-7M16 19v-7"/></svg></span><h3>Lịch sử</h3><p>Chuyện y học và đời sống người Việt qua các thời kỳ.</p><span class="n">Sắp có</span></a>
+    </div>
+  </section>
+
+  <section id="vi-chat" aria-labelledby="vc">
+    <div class="head"><div><span class="tag">Dinh dưỡng</span><h2 id="vc">Vi chất cần mỗi ngày và món Việt chứa nhiều</h2><p>Cơ thể chỉ cần một lượng nhỏ, nhưng thiếu kéo dài sẽ ảnh hưởng máu, xương, miễn dịch và trí nhớ. Ăn đa dạng là cách bổ sung an toàn nhất.</p></div></div>
+    <div class="tbl"><table>
+      <thead><tr><th>Vi chất</th><th>Vai trò chính</th><th>Có nhiều trong</th><th>Lưu ý</th></tr></thead>
+      <tbody>
+        <tr><td><b>Sắt</b></td><td>Tạo hồng cầu, chở oxy</td><td>Thịt bò, gan, các loại đậu, rau xanh đậm</td><td>Ăn kèm ổi, cam để hấp thu tốt hơn; tránh uống trà, cà phê ngay trong bữa</td></tr>
+        <tr><td><b>Canxi</b></td><td>Xương, răng, co cơ</td><td>Sữa, sữa chua, đậu phụ, cá nhỏ ăn cả xương, tôm tép</td><td>Cần vitamin D để hấp thu</td></tr>
+        <tr><td><b>Vitamin D</b></td><td>Hấp thu canxi, miễn dịch</td><td>Nắng sớm, cá béo, lòng đỏ trứng</td><td>Người ít ra ngoài trời dễ thiếu</td></tr>
+        <tr><td><b>I-ốt</b></td><td>Hoạt động tuyến giáp</td><td>Muối i-ốt, rong biển, hải sản</td><td>Dùng muối i-ốt nhưng vẫn ăn nhạt</td></tr>
+        <tr><td><b>Kẽm</b></td><td>Miễn dịch, lành vết thương</td><td>Hàu, thịt, hạt bí, các loại đậu</td><td>Trẻ đang lớn cần đủ kẽm</td></tr>
+        <tr><td><b>Vitamin A</b></td><td>Thị lực, da, niêm mạc</td><td>Gấc, cà rốt, khoai lang cam, gan, rau xanh đậm</td><td>Hấp thu tốt hơn khi nấu cùng chút dầu</td></tr>
+        <tr><td><b>Folate</b></td><td>Tạo tế bào mới, thai kỳ</td><td>Rau lá xanh, các loại đậu</td><td>Phụ nữ chuẩn bị mang thai nên hỏi bác sĩ về acid folic</td></tr>
+        <tr><td><b>Vitamin B12</b></td><td>Thần kinh, tạo máu</td><td>Thịt, cá, trứng, sữa</td><td>Hầu như không có trong thực vật – người ăn chay trường cần nguồn bổ sung</td></tr>
+        <tr><td><b>Magie</b></td><td>Cơ, thần kinh, giấc ngủ</td><td>Các loại hạt, ngũ cốc nguyên hạt, rau xanh, chuối</td><td>Gạo lứt giữ được nhiều hơn gạo trắng</td></tr>
+        <tr><td><b>Omega-3</b></td><td>Tim mạch, não</td><td>Cá thu, cá hồi, cá trích, hạt lanh, óc chó</td><td>Ăn cá 2 lần mỗi tuần</td></tr>
+      </tbody>
+    </table></div>
+    <p class="fine">Thông tin giáo dục sức khỏe chung. Uống viên bổ sung liều cao khi chưa có chỉ định có thể gây hại – hãy hỏi bác sĩ.</p>
+  </section>
+
+  <section id="van-dong" aria-labelledby="vd">
+    <div class="move">
+      <div>
+        <span class="tag">Tập thể dục</span><h2 id="vd">Mục tiêu mỗi tuần, chia nhỏ ra là làm được</h2>
+        <p style="margin:12px 0 18px;color:var(--muted)">Tổ chức Y tế Thế giới khuyến nghị người trưởng thành vận động cường độ vừa 150–300 phút mỗi tuần, cộng 2 buổi tập sức mạnh. Mười phút đi bộ nhanh cũng được tính.</p>
+        <div class="goal">150–300 <span style="font:500 1rem var(--body);color:var(--muted)">phút/tuần</span></div>
+        <div class="cta" style="margin-top:18px"><a class="btn" href="https://app.hlvsuckhoe.com/">Lập lộ trình của bạn</a></div>
+      </div>
+      <div>
+        <div class="week" aria-label="Ví dụ một tuần 160 phút">
+          <div><i style="height:60px"></i>T2</div><div><i style="height:90px"></i>T3</div><div><i class="rest" style="height:12px"></i>T4</div><div><i style="height:60px"></i>T5</div><div><i style="height:90px"></i>T6</div><div><i style="height:120px"></i>T7</div><div><i class="rest" style="height:12px"></i>CN</div>
+        </div>
+        <p class="fine">Ví dụ một tuần 160 phút: 20–40 phút mỗi buổi, nghỉ thứ Tư và Chủ nhật.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="thien" aria-labelledby="th">
+    <div class="head"><div><span class="tag">Thở &amp; thiền</span><h2 id="th">Ngồi yên vài phút, chỉ chú ý hơi thở</h2><p>Ngồi thẳng lưng, thả lỏng vai, nhắm mắt. Khi tâm trí lang thang, nhẹ nhàng đưa chú ý về hơi thở. Chuông sẽ báo khi hết giờ.</p></div></div>
+    <div class="medi">
+      <div class="dial" id="dial"><span id="mTime">05:00</span></div>
+      <div>
+        <h3>Hẹn giờ thiền</h3>
+        <div class="chips" role="group" aria-label="Thời lượng">
+          <button type="button" data-m="3" aria-pressed="false">3 phút</button><button type="button" data-m="5" aria-pressed="true">5 phút</button><button type="button" data-m="10" aria-pressed="false">10 phút</button><button type="button" data-m="20" aria-pressed="false">20 phút</button>
+        </div>
+        <div class="cta"><button class="btn" type="button" id="mGo">Bắt đầu thiền</button><button class="btn ghost" type="button" id="mReset">Đặt lại</button></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="am-nhac" aria-labelledby="an">
+    <div class="head"><div><span class="tag">Âm nhạc</span><h2 id="an">Những bài hát tự sáng tác</h2><p>20 bài chọn từ kênh YouTube của anh Dũng: nghe khi đi bộ, khi tập thở, hay lúc cần một khoảng lặng.</p></div><a class="btn ghost sm" href="https://www.youtube.com/@nguyenducdung1977?sub_confirmation=1" target="_blank" rel="noopener" id="ytChannel">Kênh YouTube</a></div>
+    <div class="chips" role="tablist" aria-label="Lọc bài hát"><button type="button" data-f="all" aria-pressed="true">Tất cả</button><button type="button" data-f="kheo">Sống khỏe</button><button type="button" data-f="tam">An tâm & thiền</button><button type="button" data-f="luc">Nghị lực</button><button type="button" data-f="nha">Gia đình vui</button><button type="button" data-f="tri">Tri ân & khoa học</button></div>
+    <div class="music">
+      <div class="song" data-c="kheo"><button type="button" class="cover yt" data-id="VtI6BtRhSJE" aria-label="Phát: Thở đi nhẹ một kiếp người"><img loading="lazy" src="https://i.ytimg.com/vi/VtI6BtRhSJE/hqdefault.jpg" alt=""><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button><div class="meta"><h3>Thở đi nhẹ một kiếp người</h3><p>Vui đi để có nụ cười thênh thang</p></div></div>
+      <div class="song" data-c="kheo"><button type="button" class="cover yt" data-id="V5P-Joy1Ijs" aria-label="Phát: Tiếng đập của trái tim"><img loading="lazy" src="https://i.ytimg.com/vi/V5P-Joy1Ijs/hqdefault.jpg" alt=""><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button><div class="meta"><h3>Tiếng đập của trái tim</h3><p>Lắng nghe nhịp tim của chính mình</p></div></div>
+      <div class="song" data-c="kheo"><button type="button" class="cover yt" data-id="La9AQ3DEC1k" aria-label="Phát: Quên tuổi già đi nhé"><img loading="lazy" src="https://i.ytimg.com/vi/La9AQ3DEC1k/hqdefault.jpg" alt=""><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button><div class="meta"><h3>Quên tuổi già đi nhé</h3><p>Sống trẻ, sống vui mỗi ngày</p></div></div>
+      <div class="song" data-c="kheo"><button type="button" class="cover yt" data-id="YSdnwC8Q5y0" aria-label="Phát: Sống để cảm nhận"><img loading="lazy" src="https://i.ytimg.com/vi/YSdnwC8Q5y0/hqdefault.jpg" alt=""><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button><div class="meta"><h3>Sống để cảm nhận</h3><p>Chậm lại để thấy cuộc sống đẹp</p></div></div>
+      <div class="song" data-c="kheo"><button type="button" class="cover yt" data-id="YY8ey5o27f0" aria-label="Phát: Em ơi, đừng có bồn chồn!"><img loading="lazy" src="https://i.ytimg.com/vi/YY8ey5o27f0/hqdefault.jpg" alt=""><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button><div class="meta"><h3>Em ơi, đừng có bồn chồn!</h3><p>Tuổi dậy thì qua một bài hát vui, hợp cho các bạn tuổi teen</p></div></div>
+      <div class="song" data-c="tam"><button type="button" class="cover yt" data-id="KNAxpNzfKf0" aria-label="Phát: Hồ tâm tỉnh thức"><img loading="lazy" src="https://i.ytimg.com/vi/KNAxpNzfKf0/hqdefault.jpg" alt=""><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button><div class="meta"><h3>Hồ tâm tỉnh thức</h3><p>Hợp khi ngồi thiền, tập thở</p></div></div>
+      <div class="song" data-c="tam"><button type="button" class="cover yt" data-id="6F7CPCdVhSE" aria-label="Phát: Thảnh thơi giữa cõi hồng trần"><img loading="lazy" src="https://i.ytimg.com/vi/6F7CPCdVhSE/hqdefault.jpg" alt=""><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button><div class="meta"><h3>Thảnh thơi giữa cõi hồng trần</h3><p>Thương người cũng biết thương mình</p></div></div>
+      <div class="song" data-c="tam"><button type="button" class="cover yt" data-id="-0W8LDwrTzs" aria-label="Phát: Hạnh phúc ở trong ta"><img loading="lazy" src="https://i.ytimg.com/vi/-0W8LDwrTzs/hqdefault.jpg" alt=""><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button><div class="meta"><h3>Hạnh phúc ở trong ta</h3><p>Bình an từ bên trong</p></div></div>
+      <div class="song" data-c="tam"><button type="button" class="cover yt" data-id="5OuXsuIBrnE" aria-label="Phát: Định tâm đường"><img loading="lazy" src="https://i.ytimg.com/vi/5OuXsuIBrnE/hqdefault.jpg" alt=""><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button><div class="meta"><h3>Định tâm đường</h3><p>Giữa đời sáng tâm</p></div></div>
+      <div class="song" data-c="tam"><button type="button" class="cover yt" data-id="uHCGTpGyv_0" aria-label="Phát: Phép màu tâm trí"><img loading="lazy" src="https://i.ytimg.com/vi/uHCGTpGyv_0/hqdefault.jpg" alt=""><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button><div class="meta"><h3>Phép màu tâm trí</h3><p>Sức mạnh của suy nghĩ tích cực</p></div></div>
+      <div class="song" data-c="luc"><button type="button" class="cover yt" data-id="ERhYwAMWOkg" aria-label="Phát: Con thuyền trong giông gió"><img loading="lazy" src="https://i.ytimg.com/vi/ERhYwAMWOkg/hqdefault.jpg" alt=""><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button><div class="meta"><h3>Con thuyền trong giông gió</h3><p>Nghị lực, niềm tin, vượt qua thử thách</p></div></div>
+      <div class="song" data-c="luc"><button type="button" class="cover yt" data-id="y9WGK9tOt10" aria-label="Phát: Khoảng trời xanh trong tim"><img loading="lazy" src="https://i.ytimg.com/vi/y9WGK9tOt10/hqdefault.jpg" alt=""><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button><div class="meta"><h3>Khoảng trời xanh trong tim</h3><p>Giai điệu tươi sáng cho buổi đi bộ</p></div></div>
+      <div class="song" data-c="luc"><button type="button" class="cover yt" data-id="DYeSyiU0AKU" aria-label="Phát: Học hỏi mỗi ngày"><img loading="lazy" src="https://i.ytimg.com/vi/DYeSyiU0AKU/hqdefault.jpg" alt=""><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button><div class="meta"><h3>Học hỏi mỗi ngày</h3><p>Mỗi ngày tiến bộ một chút</p></div></div>
+      <div class="song" data-c="nha"><button type="button" class="cover yt" data-id="5JOihj8f0yc" aria-label="Phát: Vợ là sếp – chồng là nhất!"><img loading="lazy" src="https://i.ytimg.com/vi/5JOihj8f0yc/hqdefault.jpg" alt=""><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button><div class="meta"><h3>Vợ là sếp – chồng là nhất!</h3><p>Nhạc vợ chồng vui nhộn, nhịp cha cha cha</p></div></div>
+      <div class="song" data-c="nha"><button type="button" class="cover yt" data-id="NrNw7Oyc8ow" aria-label="Phát: So sánh – ai hơn ai?"><img loading="lazy" src="https://i.ytimg.com/vi/NrNw7Oyc8ow/hqdefault.jpg" alt=""><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button><div class="meta"><h3>So sánh – ai hơn ai?</h3><p>Song ca hài hước đàn ông vs đàn bà</p></div></div>
+      <div class="song" data-c="nha"><button type="button" class="cover yt" data-id="p8jLZq9B_s0" aria-label="Phát: Bước chung một đời"><img loading="lazy" src="https://i.ytimg.com/vi/p8jLZq9B_s0/hqdefault.jpg" alt=""><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button><div class="meta"><h3>Bước chung một đời</h3><p>Đồng hành bên nhau</p></div></div>
+      <div class="song" data-c="nha"><button type="button" class="cover yt" data-id="HGOeH0XOBUk" aria-label="Phát: Mẹ – người kiến tạo thế hệ"><img loading="lazy" src="https://i.ytimg.com/vi/HGOeH0XOBUk/hqdefault.jpg" alt=""><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button><div class="meta"><h3>Mẹ – người kiến tạo thế hệ</h3><p>Tri ân mẹ</p></div></div>
+      <div class="song" data-c="tri"><button type="button" class="cover yt" data-id="STZmnOtoyVg" aria-label="Phát: Mỗi người đều là người thầy"><img loading="lazy" src="https://i.ytimg.com/vi/STZmnOtoyVg/hqdefault.jpg" alt=""><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button><div class="meta"><h3>Mỗi người đều là người thầy</h3><p>Tri ân những người thầy trong cuộc đời</p></div></div>
+      <div class="song" data-c="tri"><button type="button" class="cover yt" data-id="XbP5bXaJJCY" aria-label="Phát: Mọi phát minh đều bắt đầu từ một câu hỏi"><img loading="lazy" src="https://i.ytimg.com/vi/XbP5bXaJJCY/hqdefault.jpg" alt=""><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button><div class="meta"><h3>Mọi phát minh đều bắt đầu từ một câu hỏi</h3><p>Khoa học tự nhiên qua bài hát</p></div></div>
+      <div class="song" data-c="tri"><button type="button" class="cover yt" data-id="kle8n6qSqkY" aria-label="Phát: Giả thuyết Riemann – giấc mơ 167 năm"><img loading="lazy" src="https://i.ytimg.com/vi/kle8n6qSqkY/hqdefault.jpg" alt=""><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button><div class="meta"><h3>Giả thuyết Riemann – giấc mơ 167 năm</h3><p>Cho người mê toán học và khoa học</p></div></div>
+    </div>
+    <p class="mnote">Bấm vào ảnh để phát ngay trên trang. Xem toàn bộ hơn 160 video trên <a href="https://www.youtube.com/@nguyenducdung1977" target="_blank" rel="noopener">kênh YouTube</a>.</p>
+  </section>
+
+  <section id="bau-troi" aria-labelledby="bt">
+    <div class="skybox">
+      <canvas id="moon" width="360" height="360" aria-label="Hình trăng đêm nay"></canvas>
+      <div>
+        <span class="tag" style="color:#7af0c2">Thiên văn</span>
+        <h2 id="bt">Trăng đêm nay</h2>
+        <p class="muted" id="moonText" style="margin-top:8px">–</p>
+        <div class="facts">
+          <div><b id="fAge">–</b><span>tuổi trăng (ngày)</span></div>
+          <div><b id="fFull">–</b><span>trăng tròn kế tiếp (ước tính)</span></div>
+          <div><b id="fNew">–</b><span>trăng non kế tiếp (ước tính)</span></div>
+          <div><b>29,53</b><span>ngày cho một tuần trăng</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="bai-viet" aria-labelledby="bv">
+    <div class="head"><div><span class="tag">Bài viết</span><h2 id="bv">Đang được viết</h2><p>Các bài đầu tiên sẽ ra mắt cùng chuyên mục. Bạn có thể gửi chủ đề muốn đọc qua email bên dưới.</p></div></div>
+    <div class="posts">
+      <article class="post"><span class="cat-l">Kiến thức sức khỏe</span><h3>Đo huyết áp tại nhà sao cho đúng</h3><p>Ngồi nghỉ 5 phút, tay ngang tim, đo 2 lần cách nhau 1 phút.</p><span class="soon">Sắp ra mắt</span></article>
+      <article class="post"><span class="cat-l">Vi chất</span><h3>Ăn chay có thiếu B12 không?</h3><p>Vì sao người ăn chay trường cần chú ý, và bổ sung thế nào.</p><span class="soon">Sắp ra mắt</span></article>
+      <article class="post"><span class="cat-l">Tập thở</span><h3>Thở 4–7–8 trước khi ngủ</h3><p>Cách làm, ai không nên tập, và vì sao thở ra dài giúp thư giãn.</p><span class="soon">Sắp ra mắt</span></article>
+      <article class="post"><span class="cat-l">Thiên văn</span><h3>Vì sao rằm tháng Tám trăng sáng đẹp</h3><p>Âm lịch, tuần trăng và mùa thu nhìn từ góc khoa học.</p><span class="soon">Sắp ra mắt</span></article>
+      <article class="post"><span class="cat-l">Khoa học</span><h3>Não bộ ngủ để làm gì</h3><p>Giấc ngủ giúp ghi nhớ và "dọn dẹp" ra sao.</p><span class="soon">Sắp ra mắt</span></article>
+      <article class="post"><span class="cat-l">Lịch sử</span><h3>Tuệ Tĩnh và câu "Nam dược trị Nam nhân"</h3><p>Danh y thời Trần và tinh thần dùng thuốc nam.</p><span class="soon">Sắp ra mắt</span></article>
+    </div>
+  </section>
+
+  <section aria-labelledby="ud" style="border-top:0">
+    <div class="app">
+      <img src="img/logo.svg" alt="Logo HLV Sức Khỏe">
+      <div><h2 id="ud">Ứng dụng HLV Sức Khỏe</h2><p>Huấn luyện viên bỏ túi: lộ trình từ thói quen nhỏ, 48 bài tập minh họa 3D, thực đơn món Việt, ăn chay theo âm lịch, báo cáo tuần – tháng – năm. Miễn phí, dùng được khi không có mạng, tiếng Việt và tiếng Anh.</p></div>
+      <a class="btn" href="https://app.hlvsuckhoe.com/">Dùng ngay</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div><h3>HLV Sức Khỏe</h3><p>Nội dung mang tính giáo dục sức khỏe chung, không thay thế chẩn đoán và điều trị của bác sĩ. Cấp cứu tại Việt Nam: gọi 113 (115 vẫn dùng trong giai đoạn chuyển tiếp).</p></div>
+    <div><h3>Liên hệ</h3><p>Góp ý, đề xuất chủ đề: <a href="mailto:nddzungx@gmail.com">nddzungx@gmail.com</a></p></div>
+    <div><h3>Ủng hộ</h3><p>Mời người viết một ly cà phê qua VietQR hoặc PayPal trong mục Giới thiệu của <a href="https://app.hlvsuckhoe.com/">ứng dụng</a>.</p><p style="margin-top:10px">© <span id="yr">2026</span> Nguyễn Đức Dũng</p></div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // ---------- Âm lịch (thuật toán Hồ Ngọc Đức, UTC+7) và tuần trăng ----------
+  var INT = Math.floor, PI = Math.PI, TZ = 7;
+  function jdFromDate(dd, mm, yy) { var a = INT((14 - mm) / 12), y = yy + 4800 - a, m = mm + 12 * a - 3; var jd = dd + INT((153 * m + 2) / 5) + 365 * y + INT(y / 4) - INT(y / 100) + INT(y / 400) - 32045; if (jd < 2299161) jd = dd + INT((153 * m + 2) / 5) + 365 * y + INT(y / 4) - 32083; return jd; }
+  function newMoonExact(k) { var T = k / 1236.85, T2 = T * T, T3 = T2 * T, dr = PI / 180; var Jd1 = 2415020.75933 + 29.53058868 * k + 0.0001178 * T2 - 0.000000155 * T3; Jd1 += 0.00033 * Math.sin((166.56 + 132.87 * T - 0.009173 * T2) * dr); var M = 359.2242 + 29.10535608 * k - 0.0000333 * T2 - 0.00000347 * T3, Mpr = 306.0253 + 385.81691806 * k + 0.0107306 * T2 + 0.00001236 * T3, F = 21.2964 + 390.67050646 * k - 0.0016528 * T2 - 0.00000239 * T3; var C1 = (0.1734 - 0.000393 * T) * Math.sin(M * dr) + 0.0021 * Math.sin(2 * dr * M); C1 = C1 - 0.4068 * Math.sin(Mpr * dr) + 0.0161 * Math.sin(dr * 2 * Mpr) - 0.0004 * Math.sin(dr * 3 * Mpr); C1 = C1 + 0.0104 * Math.sin(dr * 2 * F) - 0.0051 * Math.sin(dr * (M + Mpr)) - 0.0074 * Math.sin(dr * (M - Mpr)) + 0.0004 * Math.sin(dr * (2 * F + M)); C1 = C1 - 0.0004 * Math.sin(dr * (2 * F - M)) - 0.0006 * Math.sin(dr * (2 * F + Mpr)) + 0.0010 * Math.sin(dr * (2 * F - Mpr)) + 0.0005 * Math.sin(dr * (2 * Mpr + M)); var deltat = T < -11 ? 0.001 + 0.000839 * T + 0.0002261 * T2 - 0.00000845 * T3 - 0.000000081 * T * T3 : -0.000278 + 0.000265 * T + 0.000262 * T2; return Jd1 + C1 - deltat; }
+  function newMoon(k) { return INT(newMoonExact(k) + 0.5 + TZ / 24); }
+  function sunLong(jdn) { var T = (jdn - 2451545.5 - TZ / 24) / 36525, T2 = T * T, dr = PI / 180; var M = 357.52910 + 35999.05030 * T - 0.0001559 * T2 - 0.00000048 * T * T2, L0 = 280.46645 + 36000.76983 * T + 0.0003032 * T2; var DL = (1.914600 - 0.004817 * T - 0.000014 * T2) * Math.sin(dr * M); DL += (0.019993 - 0.000101 * T) * Math.sin(dr * 2 * M) + 0.000290 * Math.sin(dr * 3 * M); var L = (L0 + DL) * dr; L -= PI * 2 * INT(L / (PI * 2)); return INT(L / PI * 6); }
+  function month11(yy) { var k = INT((jdFromDate(31, 12, yy) - 2415021) / 29.530588853); var nm = newMoon(k); if (sunLong(nm) >= 9) nm = newMoon(k - 1); return nm; }
+  function leapOffset(a11) { var k = INT((a11 - 2415021.076998695) / 29.530588853 + 0.5), last, i = 1, arc = sunLong(newMoon(k + i)); do { last = arc; i++; arc = sunLong(newMoon(k + i)); } while (arc !== last && i < 14); return i - 1; }
+  function toLunar(dd, mm, yy) { var dn = jdFromDate(dd, mm, yy), k = INT((dn - 2415021.076998695) / 29.530588853); var ms = newMoon(k + 1); if (ms > dn) ms = newMoon(k); var a11 = month11(yy), b11 = a11, ly; if (a11 >= ms) { ly = yy; a11 = month11(yy - 1); } else { ly = yy + 1; b11 = month11(yy + 1); } var d = dn - ms + 1, diff = INT((ms - a11) / 29), leap = 0, m = diff + 11; if (b11 - a11 > 365) { var lo = leapOffset(a11); if (diff >= lo) { m = diff + 10; if (diff === lo) leap = 1; } } if (m > 12) m -= 12; if (m >= 11 && diff < 4) ly -= 1; return { d: d, m: m, y: ly, leap: leap }; }
+  var CAN = ['Canh', 'Tân', 'Nhâm', 'Quý', 'Giáp', 'Ất', 'Bính', 'Đinh', 'Mậu', 'Kỷ'], CHI = ['Thân', 'Dậu', 'Tuất', 'Hợi', 'Tý', 'Sửu', 'Dần', 'Mão', 'Thìn', 'Tỵ', 'Ngọ', 'Mùi'];
+  var DOW = ['Chủ Nhật', 'Thứ Hai', 'Thứ Ba', 'Thứ Tư', 'Thứ Năm', 'Thứ Sáu', 'Thứ Bảy'];
+  var pad = function (n) { return (n < 10 ? '0' : '') + n; };
+  var now = new Date(), D = now.getDate(), Mo = now.getMonth() + 1, Y = now.getFullYear();
+  document.getElementById('yr').textContent = Y;
+  document.getElementById('tDate').textContent = pad(D) + '/' + pad(Mo) + '/' + Y;
+  document.getElementById('tDow').textContent = DOW[now.getDay()];
+  var L = toLunar(D, Mo, Y);
+  document.getElementById('tLunar').textContent = (L.d === 15 ? 'Rằm' : L.d === 1 ? 'Mùng 1' : 'Ngày ' + L.d) + ' tháng ' + L.m + (L.leap ? ' nhuận' : '');
+  document.getElementById('tLunarNote').textContent = 'Năm ' + CAN[L.y % 10] + ' ' + CHI[L.y % 12];
+  // tuần trăng: dùng trăng non chính xác gần nhất
+  var jdNow = now.getTime() / 864e5 + 2440587.5;
+  var k = INT((jdNow - 2415020.75933) / 29.530588853);
+  while (newMoonExact(k + 1) <= jdNow) k++;
+  while (newMoonExact(k) > jdNow) k--;
+  var age = jdNow - newMoonExact(k), syn = 29.530588853;
+  var illum = (1 - Math.cos(2 * PI * age / syn)) / 2;
+  var names = [[1.85, 'Trăng non'], [5.53, 'Trăng lưỡi liềm đầu tháng'], [9.22, 'Trăng thượng huyền'], [12.91, 'Trăng khuyết đầu tháng'], [16.61, 'Trăng tròn'], [20.30, 'Trăng khuyết cuối tháng'], [23.99, 'Trăng hạ huyền'], [27.68, 'Trăng lưỡi liềm cuối tháng'], [30, 'Trăng non']];
+  var nm = names.filter(function (x) { return age < x[0]; })[0][1];
+  var fmt = function (jd) { var d = new Date((jd - 2440587.5) * 864e5 + TZ * 36e5); return pad(d.getUTCDate()) + '/' + pad(d.getUTCMonth() + 1); };
+  var fullJd = newMoonExact(k) + syn / 2; if (fullJd < jdNow) fullJd += syn;
+  document.getElementById('tMoon').textContent = nm;
+  document.getElementById('tMoonNote').textContent = 'Sáng ' + Math.round(illum * 100) + '% bề mặt';
+  document.getElementById('moonText').textContent = nm + ', khoảng ' + Math.round(illum * 100) + '% mặt trăng được chiếu sáng. ' + (age < syn / 2 ? 'Trăng đang lớn dần, mọc vào buổi chiều và sáng nhất đầu hôm.' : 'Trăng đang nhỏ dần, mọc muộn về khuya và còn thấy vào sáng sớm.');
+  document.getElementById('fAge').textContent = age.toFixed(1).replace('.', ',');
+  document.getElementById('fFull').textContent = fmt(fullJd);
+  document.getElementById('fNew').textContent = fmt(newMoonExact(k + 1));
+  var tips = ['Uống một cốc nước ngay khi thức dậy.', 'Đi bộ 10 phút sau bữa trưa giúp ổn định đường huyết.', 'Ăn rau và canh trước, cơm sau.', 'Đứng dậy vươn vai sau mỗi giờ ngồi.', 'Thở ra dài hơn hít vào khi thấy căng thẳng.', 'Tắt màn hình 30 phút trước khi ngủ.', 'Ra nắng sớm 10–15 phút để cơ thể tạo vitamin D.'];
+  document.getElementById('tTip').textContent = tips[(jdFromDate(D, Mo, Y)) % tips.length];
+  // vẽ trăng
+  (function () {
+    var c = document.getElementById('moon'), g = c.getContext('2d'), r = 150, cx = 180, cy = 180;
+    g.clearRect(0, 0, 360, 360);
+    var glow = g.createRadialGradient(cx, cy, r * .8, cx, cy, r * 1.25); glow.addColorStop(0, 'rgba(255,240,200,.18)'); glow.addColorStop(1, 'rgba(255,240,200,0)'); g.fillStyle = glow; g.fillRect(0, 0, 360, 360);
+    g.fillStyle = '#26344d'; g.beginPath(); g.arc(cx, cy, r, 0, 2 * PI); g.fill();
+    var p = age / syn, waxing = p < 0.5, x = Math.cos(2 * PI * p) * r;
+    // phần sáng: bên phải khi trăng lớn dần (nhìn từ bắc bán cầu)
+    g.fillStyle = '#f3ead2'; g.beginPath();
+    if (waxing) { g.arc(cx, cy, r, -PI / 2, PI / 2, false); g.ellipse(cx, cy, Math.abs(x), r, 0, PI / 2, -PI / 2, x > 0); }
+    else { g.arc(cx, cy, r, PI / 2, -PI / 2, false); g.ellipse(cx, cy, Math.abs(x), r, 0, -PI / 2, PI / 2, x > 0); }
+    g.fill();
+    g.fillStyle = 'rgba(38,52,77,.12)'; [[-40, -30, 22], [35, 20, 30], [-10, 60, 16], [55, -55, 12]].forEach(function (m) { g.beginPath(); g.arc(cx + m[0], cy + m[1], m[2], 0, 2 * PI); g.fill(); });
+  })();
+  // sao nền khung thở
+  (function () {
+    var c = document.getElementById('stars'), g = c.getContext('2d');
+    function draw() { var w = c.clientWidth, h = c.clientHeight, dpr = Math.min(2, window.devicePixelRatio || 1); c.width = w * dpr; c.height = h * dpr; g.scale(dpr, dpr); var s = 7; for (var i = 0; i < 70; i++) { s = (s * 9301 + 49297) % 233280; var x = s / 233280 * w; s = (s * 9301 + 49297) % 233280; var y = s / 233280 * h; s = (s * 9301 + 49297) % 233280; var r = .4 + s / 233280 * 1.3; g.fillStyle = 'rgba(233,243,238,' + (.25 + r / 3) + ')'; g.beginPath(); g.arc(x, y, r, 0, 7); g.fill(); } }
+    draw(); window.addEventListener('resize', draw);
+  })();
+  // ---------- âm thanh ----------
+  var ac = null;
+  function bell(f, dur) { try { ac = ac || new (window.AudioContext || window.webkitAudioContext)(); var o = ac.createOscillator(), v = ac.createGain(); o.type = 'sine'; o.frequency.value = f || 528; v.gain.setValueAtTime(.0001, ac.currentTime); v.gain.exponentialRampToValueAtTime(.25, ac.currentTime + .02); v.gain.exponentialRampToValueAtTime(.0001, ac.currentTime + (dur || 2.5)); o.connect(v); v.connect(ac.destination); o.start(); o.stop(ac.currentTime + (dur || 2.5)); } catch (e) { } }
+  // ---------- tập thở ----------
+  var orb = document.getElementById('orb'), phase = document.getElementById('phase'), go = document.getElementById('breathGo');
+  var pat = [4, 0, 6, 0], running = false, timer = null, endAt = 0;
+  document.querySelectorAll('.patterns button').forEach(function (b) { b.addEventListener('click', function () { document.querySelectorAll('.patterns button').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); }); pat = b.dataset.p.split(',').map(Number); if (running) { stop(); start(); } }); });
+  var steps = [['Hít vào', 1.6], ['Giữ', null], ['Thở ra', 1], ['Giữ', null]];
+  function run(i) {
+    if (!running) return;
+    if (Date.now() > endAt) { stop(); phase.innerHTML = 'Hoàn thành<small>Cảm thấy thế nào? Thử thêm một phút nữa nhé</small>'; bell(432, 3); return; }
+    var sec = pat[i]; if (!sec) return run((i + 1) % 4);
+    var st = steps[i]; if (st[1] != null) { orb.style.transitionDuration = reduce ? '0s' : sec + 's'; orb.style.transform = 'scale(' + st[1] + ')'; }
+    var left = sec; phase.innerHTML = st[0] + '<small>' + left + ' giây</small>';
+    var iv = setInterval(function () { left--; if (left > 0 && running) phase.innerHTML = st[0] + '<small>' + left + ' giây</small>'; }, 1000);
+    timer = setTimeout(function () { clearInterval(iv); run((i + 1) % 4); }, sec * 1000);
+  }
+  function start() { running = true; endAt = Date.now() + 60000; go.textContent = 'Dừng'; bell(528, 1.2); run(0); }
+  function stop() { running = false; clearTimeout(timer); go.textContent = 'Bắt đầu'; orb.style.transitionDuration = '1s'; orb.style.transform = 'scale(1)'; phase.innerHTML = 'Sẵn sàng<small>Chọn nhịp rồi bấm Bắt đầu</small>'; }
+  go.addEventListener('click', function () { running ? stop() : start(); });
+  // ---------- hẹn giờ thiền ----------
+  var mins = 5, total = 300, remain = 300, mTimer = null, mEnd = 0;
+  var mTime = document.getElementById('mTime'), dial = document.getElementById('dial'), mGo = document.getElementById('mGo');
+  function show() { mTime.textContent = pad(Math.floor(remain / 60)) + ':' + pad(remain % 60); dial.style.setProperty('--p', ((total - remain) / total * 100) + '%'); }
+  document.querySelectorAll('.medi .chips button').forEach(function (b) { b.addEventListener('click', function () { if (mTimer) return; document.querySelectorAll('.medi .chips button').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); }); mins = +b.dataset.m; total = remain = mins * 60; show(); }); });
+  mGo.addEventListener('click', function () {
+    if (mTimer) { clearInterval(mTimer); mTimer = null; mGo.textContent = 'Tiếp tục'; return; }
+    bell(396, 3); mEnd = Date.now() + remain * 1000; mGo.textContent = 'Tạm dừng';
+    mTimer = setInterval(function () { remain = Math.max(0, Math.round((mEnd - Date.now()) / 1000)); show(); if (!remain) { clearInterval(mTimer); mTimer = null; mGo.textContent = 'Bắt đầu thiền'; bell(396, 4); setTimeout(function () { bell(528, 4); }, 1500); total = remain = mins * 60; setTimeout(show, 4000); } }, 250);
+  });
+  document.getElementById('mReset').addEventListener('click', function () { clearInterval(mTimer); mTimer = null; total = remain = mins * 60; mGo.textContent = 'Bắt đầu thiền'; show(); });
+  show();
+})();
+
+/* âm nhạc: lọc + phát nhẹ (chỉ tải YouTube khi bấm) */
+(function(){
+  var box=document.querySelector('#am-nhac');if(!box)return;
+  box.querySelectorAll('.chips button').forEach(function(b){b.addEventListener('click',function(){
+    box.querySelectorAll('.chips button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
+    var f=b.dataset.f;box.querySelectorAll('.song').forEach(function(c){c.hidden=!(f==='all'||c.dataset.c===f)});
+  })});
+  box.querySelectorAll('.yt').forEach(function(btn){btn.addEventListener('click',function(){
+    box.querySelectorAll('.song iframe').forEach(function(f){var o=f._orig;if(o)f.replaceWith(o)});
+    var f=document.createElement('iframe');
+    f.src='https://www.youtube-nocookie.com/embed/'+btn.dataset.id+'?autoplay=1&rel=0&playsinline=1';
+    f.title=btn.getAttribute('aria-label');f.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';f.allowFullscreen=true;f._orig=btn;
+    btn.replaceWith(f);
+  })});
+})();
+</script>
+</body>
+</html>
