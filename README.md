@@ -14,6 +14,7 @@ Trang tĩnh một tệp `index.html`, không cần build. Tệp `CNAME` giữ t�
 Ảnh: `img/logo.svg` (HLV), `img/logo-thienvan.svg`, `img/logo-breathsync.svg`, `img/qr_ung_ho.png` (VietQR ủng hộ).
 
 ## Phiên bản
+- **1.1.1** (22/11/2026): cập nhật mô tả BreathSync 2.1.0 (nguồn số 011, 068, 117, 120, 121, 134, 135; có hướng dẫn sử dụng).
 - **1.1.0** (22/11/2026): bỏ dải "bản nháp"; thêm mục **Giới thiệu** (Nguyễn Đức Dũng) và **Mời Dũng một ly cà phê** (VietQR + PayPal, nút chép); ghi chú **đặt bài hát riêng** trong mục Âm nhạc; thêm ứng dụng **BreathSync** (mục Thở & thiền, khối ứng dụng, chân trang, menu).
 - **1.0.1**: mục Âm nhạc 20 bài, trình phát youtube-nocookie.
 
