@@ -7,5 +7,5 @@
                tự ẩn; nút Chia sẻ vẫn chạy bình thường.
    ===================================================================== */
 window.HLV_CONFIG = {
-  counterUrl: ''
+  counterUrl: 'https://hlv-dem.nddzungx.workers.dev'
 };
