@@ -1,12 +1,24 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<!-- HLV Sức Khỏe – trang chủ bản 1.4.0 (22/11/2026). Hướng dẫn cập nhật: docs/HUONG_DAN.md -->
+<!-- HLV Sức Khỏe – trang chủ bản 1.5.0 (22/11/2026). Hướng dẫn cập nhật: docs/HUONG_DAN.md -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>HLV Sức Khỏe</title>
 <meta name="description" content="Sống khỏe từ thói quen nhỏ: kiến thức sức khỏe, vi chất, vận động, tập thở, thiền, âm nhạc và những điều thú vị về bầu trời, khoa học, lịch sử.">
 <meta name="theme-color" content="#0f6a4b">
+<meta property="og:type" content="website">
+<meta property="og:title" content="HLV Sức Khỏe – sống khỏe từ thói quen nhỏ">
+<meta property="og:description" content="Kiến thức sức khỏe, vi chất, tập thở, thiền, âm nhạc và những ứng dụng nhỏ miễn phí cho người Việt.">
+<meta property="og:url" content="https://hlvsuckhoe.com/">
+<meta property="og:image" content="https://hlvsuckhoe.com/img/og/home.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="HLV Sức Khỏe">
+<meta property="og:locale" content="vi_VN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://hlvsuckhoe.com/img/og/home.jpg">
+<link rel="canonical" href="https://hlvsuckhoe.com/">
 <link rel="icon" href="img/logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -147,6 +159,8 @@ td b{font-family:var(--display)}
 .post{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;display:grid;gap:8px}
 .post .cat-l{font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.6px;color:var(--forest)}
 .post p{font-size:.92rem;color:var(--muted)}
+.post.live{text-decoration:none;color:inherit;border-color:color-mix(in srgb,var(--forest) 45%,var(--line));transition:transform .15s,box-shadow .15s}
+.post.live:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(0,0,0,.08)}
 .post .soon{font-size:.8rem;color:var(--muted);border-top:1px dashed var(--line);padding-top:8px}
 .post-feat{display:grid;grid-template-columns:1.1fr .9fr;gap:0;background:var(--night);color:#e9f3ee;border-radius:22px;overflow:hidden;text-decoration:none;margin-bottom:14px;transition:transform .15s}
 .post-feat:hover{transform:translateY(-2px)}
@@ -456,7 +470,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 50px;color:var(--muted);f
   </section>
 
   <section id="bai-viet" aria-labelledby="bv">
-    <div class="head"><div><span class="tag">Bài viết</span><h2 id="bv">Đọc chậm, sống khỏe</h2><p>Bài đầu tiên đã lên, những bài tiếp theo đang được viết. <a href="#nhan-tin">Đăng ký nhận tin</a> để được báo khi có bài mới, hoặc gửi chủ đề bạn muốn đọc qua email ở cuối trang.</p></div></div>
+    <div class="head"><div><span class="tag">Bài viết</span><h2 id="bv">Đọc chậm, sống khỏe</h2><p>Những bài đã lên bạn bấm vào là đọc được; các bài còn lại đang được viết. <a href="#nhan-tin">Đăng ký nhận tin</a> để được báo khi có bài mới, hoặc gửi chủ đề bạn muốn đọc qua email ở cuối trang.</p></div></div>
     <!-- BÀI VIẾT NỔI BẬT – thêm bài mới: chép khối <a class="post-feat">…</a> hoặc thẻ <article class="post"> bên dưới, đổi đường link và data-post-stats -->
     <a class="post-feat" href="bai-viet/nguoi-gieo-vien-thuoc-hieu-biet.html">
       <div class="txt">
@@ -468,9 +482,10 @@ footer{border-top:1px solid var(--line);padding:36px 0 50px;color:var(--muted);f
       <div class="art" aria-hidden="true"><blockquote>Viên thuốc quý nhất là viên thuốc kiến thức.<span>BS. Trần Văn Phúc</span></blockquote></div>
     </a>
     <div class="posts">
+      <a class="post live" href="bai-viet/tho-4-7-8-truoc-khi-ngu.html"><span class="cat-l">Tập thở · Mới</span><h3>Thở 4–7–8 trước khi ngủ</h3><p>Thay đếm cừu bằng đếm nhịp thở: cách làm, lộ trình cho người mới, ai cần lưu ý. Có khung thở để tập ngay.</p><span class="soon"><b style="color:var(--forest)">Đọc bài →</b> <span data-post-stats="tho-4-7-8-truoc-khi-ngu"></span></span></a>
       <article class="post"><span class="cat-l">Kiến thức sức khỏe</span><h3>Đo huyết áp tại nhà sao cho đúng</h3><p>Ngồi nghỉ 5 phút, tay ngang tim, đo 2 lần cách nhau 1 phút.</p><span class="soon">Sắp ra mắt</span></article>
       <article class="post"><span class="cat-l">Vi chất</span><h3>Ăn chay có thiếu B12 không?</h3><p>Vì sao người ăn chay trường cần chú ý, và bổ sung thế nào.</p><span class="soon">Sắp ra mắt</span></article>
-      <article class="post"><span class="cat-l">Tập thở</span><h3>Thở 4–7–8 trước khi ngủ</h3><p>Cách làm, ai không nên tập, và vì sao thở ra dài giúp thư giãn.</p><span class="soon">Sắp ra mắt</span></article>
+      
       <article class="post"><span class="cat-l">Thiên văn</span><h3>Vì sao rằm tháng Tám trăng sáng đẹp</h3><p>Âm lịch, tuần trăng và mùa thu nhìn từ góc khoa học.</p><span class="soon">Sắp ra mắt</span></article>
       <article class="post"><span class="cat-l">Khoa học</span><h3>Não bộ ngủ để làm gì</h3><p>Giấc ngủ giúp ghi nhớ và "dọn dẹp" ra sao.</p><span class="soon">Sắp ra mắt</span></article>
       <article class="post"><span class="cat-l">Lịch sử</span><h3>Tuệ Tĩnh và câu "Nam dược trị Nam nhân"</h3><p>Danh y thời Trần và tinh thần dùng thuốc nam.</p><span class="soon">Sắp ra mắt</span></article>
@@ -622,7 +637,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 50px;color:var(--muted);f
   <div class="wrap foot">
     <div><h3>HLV Sức Khỏe</h3><p>Nội dung mang tính giáo dục sức khỏe chung, không thay thế chẩn đoán và điều trị của bác sĩ. Không tự ngừng hay đổi thuốc khi chưa hỏi bác sĩ. Cấp cứu tại Việt Nam: gọi 113 (115 vẫn dùng trong giai đoạn chuyển tiếp).</p><p style="margin-top:8px">Phần tập thở, BreathSync tham khảo bài giảng của BS. Trần Văn Phúc; bác sĩ không biên soạn, không duyệt nội dung trang và ứng dụng.</p></div>
     <div><h3>Liên hệ</h3><p>Góp ý, đề xuất chủ đề, đặt bài hát riêng: <a href="mailto:nddzungx@gmail.com">nddzungx@gmail.com</a></p><p style="margin-top:8px">Ứng dụng: <a href="https://app.hlvsuckhoe.com/">HLV Sức Khỏe</a> · <a href="https://tho.hlvsuckhoe.com/">BreathSync</a> · <a href="https://thienvan.hlvsuckhoe.com/">Xưởng kính</a> · <a href="https://giadinh.hlvsuckhoe.com/">Tôi &amp; Gia Đình</a></p><p style="margin-top:8px"><a href="#nhan-tin">✉️ Nhận tin mới qua email</a> · <a href="#cai-dat">📲 Cài lên điện thoại</a> · <a href="#" data-guide>Hướng dẫn sử dụng</a></p></div>
-    <div><h3>Ủng hộ</h3><p>Thấy hữu ích? <a href="#ung-ho">Mời Dũng một ly cà phê</a> qua VietQR hoặc PayPal. Xem thêm <a href="#gioi-thieu">giới thiệu</a>.</p><p style="margin-top:8px"><b>Quyền riêng tư:</b> email bạn để lại chỉ dùng để gửi bản tin, có thể hủy bất cứ lúc nào. Bộ đếm truy cập, lượt xem và nút Thích không lưu IP hay thông tin cá nhân.</p><p style="margin-top:10px">© <span id="yr">2026</span> Nguyễn Đức Dũng · bản 1.4.0</p></div>
+    <div><h3>Ủng hộ</h3><p>Thấy hữu ích? <a href="#ung-ho">Mời Dũng một ly cà phê</a> qua VietQR hoặc PayPal. Xem thêm <a href="#gioi-thieu">giới thiệu</a>.</p><p style="margin-top:8px"><b>Quyền riêng tư:</b> email bạn để lại chỉ dùng để gửi bản tin, có thể hủy bất cứ lúc nào. Bộ đếm truy cập, lượt xem và nút Thích không lưu IP hay thông tin cá nhân.</p><p style="margin-top:10px">© <span id="yr">2026</span> Nguyễn Đức Dũng · bản 1.5.0</p></div>
   </div>
 </footer>
 

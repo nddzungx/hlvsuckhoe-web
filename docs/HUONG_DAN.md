@@ -210,6 +210,9 @@ Bộ đếm ở Bước 4 là con số **công khai cho khách xem**. Web Analyt
 3. Tìm `data-slug=` (có 2 chỗ) → đổi thành `<ten-bai-khong-dau>`. **Mỗi bài một tên riêng**, đổi tên sau này sẽ mất số xem/thích cũ.
 4. Trên `index.html`, mục Bài viết: chép một thẻ, đổi đường link và `data-post-stats="<ten-bai-khong-dau>"`.
 5. Commit, chờ 1–2 phút, mở bài trong cửa sổ ẩn danh để thử.
+6. **Ảnh chia sẻ:** thêm ảnh 1200×630 vào `img/og/<ten-bai>.jpg` và sửa 2 dòng `og:image`, `twitter:image` trong bài (nhờ Claude tạo ảnh theo mẫu sẵn có).
+7. **Sitemap:** chép một khối `<url>` trong `sitemap.xml`, đổi đường link và ngày. Muốn Google đọc nhanh hơn: Search Console → Kiểm tra URL → Yêu cầu lập chỉ mục.
+8. Facebook còn giữ ảnh cũ? Mở https://developers.facebook.com/tools/debug/ , dán link bài, bấm **Scrape Again**.
 
 **Xem số liệu:** Cloudflare → D1 → `hlv-dem` → Console:
 ```sql
