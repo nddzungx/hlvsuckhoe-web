@@ -189,15 +189,12 @@ Bộ đếm ở Bước 4 là con số **công khai cho khách xem**. Web Analyt
 
 ---
 
-## Khi ứng dụng Tôi và Gia đình sẵn sàng
+## Tôi & Gia Đình – đã ra mắt (bản 1.3.0, 22/11/2026)
 
-1. **Gửi Claude**: tên đầy đủ, ứng dụng làm được gì (3–5 chức năng chính), dành cho ai, địa chỉ repo GitHub, logo (nếu có). Claude sẽ viết lại thẻ giới thiệu, thêm vào hướng dẫn và kiểm tra ứng dụng đã có đủ 4 phần bắt buộc (Giới thiệu, Hướng dẫn sử dụng, Mời cà phê, Miễn trừ trách nhiệm).
-2. **Hoặc tự sửa**: GitHub → `index.html` → tìm `ỨNG DỤNG TÔI VÀ GIA ĐÌNH` → sửa đoạn chữ trong `id="famDesc"` → tìm `var FAM_URL` → điền `'https://giadinh.hlvsuckhoe.com/'` → Commit. Nút tự đổi thành "Mở Tôi và Gia đình", nhãn "Sắp ra mắt" tự ẩn.
-3. **Tên miền con**: làm theo công thức ① (CNAME `giadinh` → `nddzungx.github.io`, mây xám; GitHub repo → Settings → Pages → Custom domain `giadinh.hlvsuckhoe.com`).
-4. **Logo**: chép logo chính thức đè lên `img/logo-giadinh.svg` (giữ đúng tên tệp).
-5. **Báo tin**: gửi một bản tin qua EmailOctopus "Ra mắt ứng dụng Tôi và Gia đình" – những người bấm "Báo cho tôi khi ra mắt" đang chờ thư này.
-
----
+- Thẻ ứng dụng đã có mô tả chính thức, logo `img/logo-giadinh.svg` (lấy từ ứng dụng), nút **Mở Tôi & Gia Đình** → `https://giadinh.hlvsuckhoe.com/` (`var FAM_URL`). Muốn tạm ẩn: để `FAM_URL = ''` – nút tự quay về "Báo cho tôi khi ra mắt".
+- Repo ứng dụng: `nddzungx/giadinh`; hướng dẫn riêng trong `docs/HUONG_DAN_CAP_NHAT.md` của repo đó (bật Pages, CNAME `giadinh`, Google Client ID).
+- Mục mới **Cài lên điện thoại** (`hlvsuckhoe.com/#cai-dat`): bước 1 chọn ứng dụng (mỗi nút mở thẳng `…/#cai-dat` của ứng dụng, nơi có hướng dẫn chi tiết và nút "Cài ngay"), bước 2 hướng dẫn theo máy, tự đánh dấu "Máy của bạn".
+- Việc nên làm tiếp: gửi bản tin EmailOctopus "Ra mắt Tôi & Gia Đình" cho những người đã đăng ký.
 
 ## Sự cố thường gặp
 
@@ -235,5 +232,5 @@ Bộ đếm ở Bước 4 là con số **công khai cho khách xem**. Web Analyt
 5. **Viết 6 bài đầu tiên** (đã có tên trong mục Bài viết) – mỗi bài là một lý do để gửi bản tin. Khi có trên 10 bài, chuyển sang Astro/Hugo để mỗi bài có trang riêng, Google tìm thấy được.
 6. **Xác minh Google Search Console** (công thức ⑦) để trang xuất hiện trên Google, và bật **Web Analytics** (Bước 5) để biết khách đến từ đâu.
 7. **Gắn bộ đếm cho các ứng dụng** (`app`, `tho`, `thienvan`) – Worker đã sẵn sàng, chỉ cần chép đoạn hiển thị.
-8. **Ra mắt Tôi và Gia đình** kèm một bản tin riêng; làm trang giới thiệu ngắn có ảnh chụp màn hình.
+8. **Tôi & Gia Đình đã ra mắt (1.3.0)** – gửi bản tin riêng; làm trang giới thiệu ngắn có ảnh chụp màn hình.
 9. **Khi danh sách vượt ~2.000 người**: cân nhắc gói Pro của EmailOctopus (từ khoảng 9–10 USD/tháng) hoặc chuyển sang Brevo (lưu không giới hạn, 300 thư/ngày). Xuất danh sách ra CSV định kỳ để luôn có bản sao lưu.

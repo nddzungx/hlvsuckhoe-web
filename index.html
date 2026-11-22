@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<!-- HLV Sức Khỏe – trang chủ bản 1.2.0 (22/11/2026). Hướng dẫn cập nhật: docs/HUONG_DAN.md -->
+<!-- HLV Sức Khỏe – trang chủ bản 1.3.0 (22/11/2026). Hướng dẫn cập nhật: docs/HUONG_DAN.md -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>HLV Sức Khỏe</title>
@@ -164,9 +164,25 @@ td b{font-family:var(--display)}
 @media (max-width:760px){.app{grid-template-columns:1fr;justify-items:start}}
 .app.bs{background:linear-gradient(135deg,#13284d,#070d1a);color:#e6ecf6;margin-top:14px}
 .app.bs .btn{background:#34d399;color:#06140e}
-/* ứng dụng Tôi và Gia đình – tông ấm */
-.app.fam{background:linear-gradient(135deg,#b4532a,#6e2a17);color:#fff3ea;margin-top:14px}
-.app.fam .btn{background:#ffd9a8;color:#3b1606}
+/* ứng dụng Tôi & Gia Đình – đỏ son, vàng kim (đồng bộ với ứng dụng) */
+.app.fam{background:linear-gradient(135deg,#a3241f,#5e1010);color:#fff3e0;margin-top:14px}
+.app.fam .btn{background:#f4dfa0;color:#5e1010}
+.app .acts{display:flex;flex-direction:column;gap:8px;align-items:stretch}
+.app .acts .inst{font-size:.85rem;color:inherit;opacity:.9;text-align:center;text-decoration:underline;text-underline-offset:3px}
+@media (max-width:760px){.app .acts{flex-direction:row;flex-wrap:wrap;align-items:center}}
+/* cài lên điện thoại */
+.inst-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin-top:14px}
+.inst-card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px}
+.inst-card h3{font-size:1.05rem;margin-bottom:8px}
+.inst-card ol{margin:0;padding-left:1.2em;display:grid;gap:6px;font-size:.95rem}
+.inst-card.mine{border:2px solid var(--forest)}
+.inst-card .you{display:none;font-size:.7rem;font-weight:600;background:var(--forest);color:#fff;border-radius:999px;padding:2px 8px;margin-left:6px;vertical-align:middle;font-family:var(--body)}
+.inst-card.mine .you{display:inline-block}
+.inst-apps{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;margin-top:16px}
+.inst-apps a{display:flex;gap:10px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 12px;text-decoration:none;color:inherit;font-size:.92rem}
+.inst-apps img{width:40px;height:40px;border-radius:10px;flex:none}
+.inst-apps b{display:block}
+.inst-note{margin-top:14px;background:color-mix(in srgb,var(--sun) 14%,transparent);border-left:4px solid var(--sun);border-radius:10px;padding:10px 14px;font-size:.93rem}
 .app .badge{display:inline-block;font-size:.72rem;font-weight:600;letter-spacing:.5px;text-transform:uppercase;border:1px solid currentColor;border-radius:999px;padding:2px 9px;margin-left:8px;vertical-align:middle;opacity:.85;font-family:var(--body)}
 .apps-head{margin-bottom:18px}
 /* nhận tin qua email */
@@ -246,7 +262,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 50px;color:var(--muted);f
     <a class="brand" href="#"><img src="img/logo.svg" alt="">HLV Sức Khỏe</a>
     <ul>
       <li><a href="#chuyen-muc">Chuyên mục</a></li><li><a href="#vi-chat">Vi chất</a></li><li><a href="#van-dong">Vận động</a></li>
-      <li><a href="#thien">Thở &amp; thiền</a></li><li><a href="#am-nhac">Âm nhạc</a></li><li><a href="#bau-troi">Bầu trời</a></li><li><a href="#ung-dung">Ứng dụng</a></li><li><a href="#nhan-tin">Nhận tin</a></li><li><a href="#gioi-thieu">Giới thiệu</a></li>
+      <li><a href="#thien">Thở &amp; thiền</a></li><li><a href="#am-nhac">Âm nhạc</a></li><li><a href="#bau-troi">Bầu trời</a></li><li><a href="#ung-dung">Ứng dụng</a></li><li><a href="#cai-dat">Cài app</a></li><li><a href="#nhan-tin">Nhận tin</a></li><li><a href="#gioi-thieu">Giới thiệu</a></li>
     </ul>
     <a class="btn sm apps-btn" href="#ung-dung">Ứng dụng</a>
     <button class="help-btn" type="button" data-guide aria-label="Hướng dẫn sử dụng trang" title="Hướng dẫn sử dụng">?</button>
@@ -441,26 +457,45 @@ footer{border-top:1px solid var(--line);padding:36px 0 50px;color:var(--muted);f
     <div class="app">
       <img src="img/logo.svg" alt="Logo HLV Sức Khỏe">
       <div><h2>Ứng dụng HLV Sức Khỏe</h2><p>Huấn luyện viên bỏ túi: lộ trình từ thói quen nhỏ, 48 bài tập minh họa 3D, thực đơn món Việt, ăn chay theo âm lịch, báo cáo tuần – tháng – năm. Miễn phí, dùng được khi không có mạng, tiếng Việt và tiếng Anh.</p></div>
-      <a class="btn" href="https://app.hlvsuckhoe.com/">Dùng ngay</a>
+      <div class="acts"><a class="btn" href="https://app.hlvsuckhoe.com/">Dùng ngay</a><a class="inst" href="https://app.hlvsuckhoe.com/#cai-dat">📲 Cài lên điện thoại</a></div>
     </div>
     <div class="app tv">
       <img src="img/logo-thienvan.svg" alt="Logo Xưởng kính thiên văn">
       <div><h2>Xưởng kính thiên văn</h2><p>Học thiên văn, tự chế kính thiên văn, bầu trời đêm nay, dự báo nhật nguyệt thực và nhật ký quan sát. Miễn phí, tiếng Việt, dùng được khi không có mạng.</p></div>
-      <a class="btn" href="https://thienvan.hlvsuckhoe.com/">Mở Xưởng kính</a>
+      <div class="acts"><a class="btn" href="https://thienvan.hlvsuckhoe.com/">Mở Xưởng kính</a><a class="inst" href="https://thienvan.hlvsuckhoe.com/#cai-dat">📲 Cài lên điện thoại</a></div>
     </div>
     <div class="app bs">
       <img src="img/logo-breathsync.svg" alt="Logo BreathSync">
       <div><h2>BreathSync – Hơi thở ý thức</h2><p>Tập thở chậm cùng vòng tròn, âm thanh thiền, chuông bát và rung theo nhịp: thở bụng cơ hoành, thở đều 3D, 4-4-8, 4-7-8 trước khi ngủ, ngân âm "M". Có hướng dẫn sử dụng cho người mới. Miễn phí, tiếng Việt và tiếng Anh, dùng được khi không có mạng.</p></div>
-      <a class="btn" href="https://tho.hlvsuckhoe.com/">Mở BreathSync</a>
+      <div class="acts"><a class="btn" href="https://tho.hlvsuckhoe.com/">Mở BreathSync</a><a class="inst" href="https://tho.hlvsuckhoe.com/#cai-dat">📲 Cài lên điện thoại</a></div>
     </div>
-    <!-- ===== ỨNG DỤNG TÔI VÀ GIA ĐÌNH =====
-         Khi ứng dụng sẵn sàng: sửa đoạn mô tả bên dưới, rồi điền địa chỉ vào FAM_URL trong phần <script> cuối trang.
-         Nút sẽ tự đổi từ "Báo cho tôi khi ra mắt" thành "Mở Tôi và Gia đình", nhãn "Sắp ra mắt" tự ẩn. -->
+    <!-- ===== ỨNG DỤNG TÔI VÀ GIA ĐÌNH (ra mắt 22/11/2026, repo nddzungx/giadinh) =====
+         Sửa đoạn giới thiệu trong id="famDesc". Địa chỉ ứng dụng nằm ở FAM_URL cuối trang. -->
     <div class="app fam" id="app-giadinh">
-      <img src="img/logo-giadinh.svg" alt="Logo Tôi và Gia đình">
-      <div><h2>Tôi và Gia đình <span class="badge" id="famBadge">Sắp ra mắt</span></h2><p id="famDesc">Ứng dụng mới dành cho bạn và những người thân trong gia đình. Miễn phí, tiếng Việt. Ứng dụng đang được hoàn thiện, phần giới thiệu chi tiết sẽ cập nhật khi ra mắt – để lại email ở mục Nhận tin để được báo ngay.</p></div>
-      <a class="btn" id="famBtn" href="#nhan-tin">Báo cho tôi khi ra mắt</a>
+      <img src="img/logo-giadinh.svg" alt="Logo Tôi &amp; Gia Đình">
+      <div><h2>Tôi &amp; Gia Đình <span class="badge" id="famBadge">Mới</span></h2><p id="famDesc">Lập cây gia phả cho cả nhà: thêm từng người hoặc nạp danh sách Excel kèm ảnh, chọn "tôi" để biết gọi từng người là gì cho đúng vai vế, nhớ ngày giỗ theo âm lịch, văn khấn mẫu, in gia phả khổ A0–A3 treo tường. Dùng được cho nhóm bạn, lớp học, phòng ban. Dữ liệu nằm trên máy của bạn (và Google Drive của bạn nếu muốn chia sẻ). Miễn phí, tiếng Việt và tiếng Anh, dùng được khi không có mạng.</p></div>
+      <div class="acts"><a class="btn" id="famBtn" href="https://giadinh.hlvsuckhoe.com/">Mở Tôi &amp; Gia Đình</a><a class="inst" href="https://giadinh.hlvsuckhoe.com/#cai-dat">📲 Cài lên điện thoại</a></div>
     </div>
+    <p class="fine" style="margin-top:16px">📲 Muốn mở bằng một chạm như ứng dụng thật? Xem <a href="#cai-dat">cách cài lên điện thoại</a> – mất chưa tới 1 phút.</p>
+  </section>
+
+  <!-- ===== CÀI ỨNG DỤNG LÊN ĐIỆN THOẠI (1.3.0) ===== -->
+  <section id="cai-dat" aria-labelledby="cd">
+    <div class="head"><div><span class="tag">Cài lên điện thoại</span><h2 id="cd">Đưa ứng dụng ra màn hình chính</h2><p>Các ứng dụng của trang cài thẳng từ trình duyệt: không cần CH Play hay App Store, không cần tài khoản, miễn phí. Cài xong có biểu tượng riêng, mở toàn màn hình và dùng được cả khi mất mạng.</p></div></div>
+    <p><b>Bước 1 – mở ứng dụng muốn cài:</b></p>
+    <div class="inst-apps">
+      <a href="https://app.hlvsuckhoe.com/#cai-dat"><img src="img/logo.svg" alt=""><span><b>HLV Sức Khỏe</b>app.hlvsuckhoe.com</span></a>
+      <a href="https://tho.hlvsuckhoe.com/#cai-dat"><img src="img/logo-breathsync.svg" alt=""><span><b>BreathSync</b>tho.hlvsuckhoe.com</span></a>
+      <a href="https://thienvan.hlvsuckhoe.com/#cai-dat"><img src="img/logo-thienvan.svg" alt=""><span><b>Xưởng kính thiên văn</b>thienvan.hlvsuckhoe.com</span></a>
+      <a href="https://giadinh.hlvsuckhoe.com/#cai-dat"><img src="img/logo-giadinh.svg" alt=""><span><b>Tôi &amp; Gia Đình</b>giadinh.hlvsuckhoe.com</span></a>
+    </div>
+    <p style="margin-top:18px"><b>Bước 2 – làm theo máy của bạn:</b></p>
+    <div class="inst-grid">
+      <div class="inst-card" id="instIos"><h3>iPhone / iPad <span class="you">Máy của bạn</span></h3><ol><li>Mở ứng dụng bằng <b>Safari</b>.</li><li>Bấm nút <b>Chia sẻ</b> (ô vuông có mũi tên lên) ở cạnh dưới (iPad: cạnh trên).</li><li>Kéo xuống, chọn <b>Thêm vào MH chính</b> → <b>Thêm</b>.</li></ol></div>
+      <div class="inst-card" id="instAnd"><h3>Android <span class="you">Máy của bạn</span></h3><ol><li>Mở ứng dụng bằng <b>Chrome</b>.</li><li>Bấm nút <b>Cài ứng dụng</b> nếu hiện ra, hoặc menu <b>⋮</b> → <b>Cài đặt ứng dụng</b> / <b>Thêm vào màn hình chính</b>.</li><li>Bấm <b>Cài đặt</b>. Samsung Internet: menu ≡ → <b>Thêm trang vào</b> → <b>Màn hình chờ</b>.</li></ol></div>
+      <div class="inst-card" id="instPc"><h3>Máy tính <span class="you">Máy của bạn</span></h3><ol><li>Mở ứng dụng bằng <b>Chrome</b>, <b>Edge</b> hoặc <b>Cốc Cốc</b>.</li><li>Bấm biểu tượng <b>Cài đặt</b> ở cuối thanh địa chỉ (màn hình có mũi tên).</li><li>Ứng dụng có cửa sổ và lối tắt riêng trên màn hình nền.</li></ol></div>
+    </div>
+    <div class="inst-note"><b>Mở link từ Zalo, Facebook, Messenger?</b> Trình duyệt bên trong các ứng dụng này không cài được. Bấm <b>⋯</b> ở góc trên → <b>Mở bằng trình duyệt</b> (hoặc Mở trong Safari / Chrome) rồi làm Bước 2.<br><b>iPhone:</b> ứng dụng đã cài có bộ nhớ riêng, tách khỏi Safari – nên cài trước rồi mới nhập dữ liệu. Trước khi gỡ ứng dụng, hãy dùng nút <b>Sao lưu</b> trong ứng dụng.</div>
   </section>
 
   <section id="nhan-tin" aria-labelledby="nt">
@@ -472,7 +507,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 50px;color:var(--muted);f
         <ul>
           <li><span aria-hidden="true">📝</span><p>Bài viết sức khỏe, khoa học, lịch sử mới ra</p></li>
           <li><span aria-hidden="true">🎵</span><p>Bài hát mới trên kênh YouTube</p></li>
-          <li><span aria-hidden="true">📱</span><p>Ứng dụng mới và tính năng mới (như <b>Tôi và Gia đình</b> khi ra mắt)</p></li>
+          <li><span aria-hidden="true">📱</span><p>Ứng dụng mới và tính năng mới (như bản mới của <b>Tôi &amp; Gia Đình</b>)</p></li>
           <li><span aria-hidden="true">🔭</span><p>Hiện tượng thiên văn đáng xem sắp tới</p></li>
         </ul>
       </div>
@@ -505,7 +540,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 50px;color:var(--muted);f
           </div>
         </div>
         <div class="likes"><span>🔬 Khoa học</span><span>✈️ Du lịch</span><span>🌿 Thiên nhiên</span><span>🎵 Âm nhạc</span><span>💚 Sức khoẻ</span><span>🔭 Thiên văn</span><span>📚 Lịch sử</span></div>
-        <p class="fine" style="margin-top:16px">Các ứng dụng: <a href="https://app.hlvsuckhoe.com/">HLV Sức Khỏe</a> · <a href="https://tho.hlvsuckhoe.com/">BreathSync</a> · <a href="https://thienvan.hlvsuckhoe.com/">Xưởng kính thiên văn</a> · <a href="#app-giadinh">Tôi và Gia đình</a> · <a href="https://www.youtube.com/@nguyenducdung1977" target="_blank" rel="noopener">Kênh YouTube</a> · Liên hệ: <a href="mailto:nddzungx@gmail.com">nddzungx@gmail.com</a></p>
+        <p class="fine" style="margin-top:16px">Các ứng dụng: <a href="https://app.hlvsuckhoe.com/">HLV Sức Khỏe</a> · <a href="https://tho.hlvsuckhoe.com/">BreathSync</a> · <a href="https://thienvan.hlvsuckhoe.com/">Xưởng kính thiên văn</a> · <a href="https://giadinh.hlvsuckhoe.com/">Tôi &amp; Gia Đình</a> · <a href="https://www.youtube.com/@nguyenducdung1977" target="_blank" rel="noopener">Kênh YouTube</a> · Liên hệ: <a href="mailto:nddzungx@gmail.com">nddzungx@gmail.com</a></p>
       </div>
       <div class="coffee" id="ung-ho">
         <h3>☕ Mời Dũng một ly cà phê</h3>
@@ -544,9 +579,9 @@ footer{border-top:1px solid var(--line);padding:36px 0 50px;color:var(--muted);f
     <details><summary>Nghe nhạc</summary>
       <p>Trong mục <b>Âm nhạc</b>, bấm các nút nhóm (Sống khỏe, An tâm &amp; thiền…) để lọc, rồi bấm vào ảnh bài hát để phát ngay trên trang. Video chỉ được tải khi bạn bấm, nên trang mở nhanh và tiết kiệm dữ liệu.</p></details>
     <details><summary>Chọn ứng dụng nào cho nhu cầu nào?</summary>
-      <ul><li><b>Muốn tập thể dục, ăn uống có lộ trình</b> → HLV Sức Khỏe.</li><li><b>Muốn tập thở, dễ ngủ, bớt căng thẳng</b> → BreathSync.</li><li><b>Mê bầu trời, muốn tự chế kính thiên văn</b> → Xưởng kính thiên văn.</li><li><b>Dành cho cả nhà</b> → Tôi và Gia đình (sắp ra mắt).</li></ul></details>
+      <ul><li><b>Muốn tập thể dục, ăn uống có lộ trình</b> → HLV Sức Khỏe.</li><li><b>Muốn tập thở, dễ ngủ, bớt căng thẳng</b> → BreathSync.</li><li><b>Mê bầu trời, muốn tự chế kính thiên văn</b> → Xưởng kính thiên văn.</li><li><b>Lập gia phả, nhớ ngày giỗ, biết cách xưng hô trong họ hàng</b> → Tôi &amp; Gia Đình.</li></ul></details>
     <details><summary>Cài ứng dụng lên điện thoại</summary>
-      <ol><li>Mở ứng dụng bằng <b>Chrome</b> (Android) hoặc <b>Safari</b> (iPhone).</li><li>Android: bấm dấu ⋮ → <b>Thêm vào màn hình chính</b> / <b>Cài đặt ứng dụng</b>.</li><li>iPhone: bấm nút Chia sẻ (ô vuông có mũi tên) → <b>Thêm vào MH chính</b>.</li></ol><p>Sau đó mở từ biểu tượng trên màn hình như ứng dụng thường, dùng được cả khi mất mạng.</p></details>
+      <ol><li>Mở ứng dụng bằng <b>Chrome</b> (Android) hoặc <b>Safari</b> (iPhone). Nếu đang trong Zalo/Facebook: bấm ⋯ → <b>Mở bằng trình duyệt</b>.</li><li>Android: bấm dấu ⋮ → <b>Cài đặt ứng dụng</b> / <b>Thêm vào màn hình chính</b>.</li><li>iPhone: bấm nút Chia sẻ (ô vuông có mũi tên) → <b>Thêm vào MH chính</b>.</li></ol><p>Sau đó mở từ biểu tượng trên màn hình như ứng dụng thường, dùng được cả khi mất mạng. Hướng dẫn chi tiết cho từng loại máy: mục <a href="#cai-dat" data-close>Cài lên điện thoại</a>; mỗi ứng dụng cũng có hướng dẫn riêng ở địa chỉ <b>…/#cai-dat</b> (ví dụ giadinh.hlvsuckhoe.com/#cai-dat).</p></details>
     <details><summary>Nhận tin mới qua email</summary>
       <ol><li>Vào mục <b>Nhận tin</b>, điền email, bấm nút đăng ký.</li><li>Mở hộp thư, tìm thư xác nhận (xem cả mục Quảng cáo / Spam) và bấm đường link trong thư.</li><li>Muốn ngừng nhận: bấm <b>Unsubscribe / Hủy đăng ký</b> ở cuối bất kỳ thư nào.</li></ol></details>
     <details><summary>Các con số "Hôm nay · Cộng dồn · Đang xem" là gì?</summary>
@@ -561,8 +596,8 @@ footer{border-top:1px solid var(--line);padding:36px 0 50px;color:var(--muted);f
 <footer>
   <div class="wrap foot">
     <div><h3>HLV Sức Khỏe</h3><p>Nội dung mang tính giáo dục sức khỏe chung, không thay thế chẩn đoán và điều trị của bác sĩ. Không tự ngừng hay đổi thuốc khi chưa hỏi bác sĩ. Cấp cứu tại Việt Nam: gọi 113 (115 vẫn dùng trong giai đoạn chuyển tiếp).</p><p style="margin-top:8px">Phần tập thở, BreathSync tham khảo bài giảng của BS. Trần Văn Phúc; bác sĩ không biên soạn, không duyệt nội dung trang và ứng dụng.</p></div>
-    <div><h3>Liên hệ</h3><p>Góp ý, đề xuất chủ đề, đặt bài hát riêng: <a href="mailto:nddzungx@gmail.com">nddzungx@gmail.com</a></p><p style="margin-top:8px">Ứng dụng: <a href="https://app.hlvsuckhoe.com/">HLV Sức Khỏe</a> · <a href="https://tho.hlvsuckhoe.com/">BreathSync</a> · <a href="https://thienvan.hlvsuckhoe.com/">Xưởng kính</a> · <a href="#app-giadinh">Tôi và Gia đình</a></p><p style="margin-top:8px"><a href="#nhan-tin">✉️ Nhận tin mới qua email</a> · <a href="#" data-guide>Hướng dẫn sử dụng</a></p></div>
-    <div><h3>Ủng hộ</h3><p>Thấy hữu ích? <a href="#ung-ho">Mời Dũng một ly cà phê</a> qua VietQR hoặc PayPal. Xem thêm <a href="#gioi-thieu">giới thiệu</a>.</p><p style="margin-top:8px"><b>Quyền riêng tư:</b> email bạn để lại chỉ dùng để gửi bản tin, có thể hủy bất cứ lúc nào. Bộ đếm truy cập không lưu IP hay thông tin cá nhân.</p><p style="margin-top:10px">© <span id="yr">2026</span> Nguyễn Đức Dũng · bản 1.2.0</p></div>
+    <div><h3>Liên hệ</h3><p>Góp ý, đề xuất chủ đề, đặt bài hát riêng: <a href="mailto:nddzungx@gmail.com">nddzungx@gmail.com</a></p><p style="margin-top:8px">Ứng dụng: <a href="https://app.hlvsuckhoe.com/">HLV Sức Khỏe</a> · <a href="https://tho.hlvsuckhoe.com/">BreathSync</a> · <a href="https://thienvan.hlvsuckhoe.com/">Xưởng kính</a> · <a href="https://giadinh.hlvsuckhoe.com/">Tôi &amp; Gia Đình</a></p><p style="margin-top:8px"><a href="#nhan-tin">✉️ Nhận tin mới qua email</a> · <a href="#cai-dat">📲 Cài lên điện thoại</a> · <a href="#" data-guide>Hướng dẫn sử dụng</a></p></div>
+    <div><h3>Ủng hộ</h3><p>Thấy hữu ích? <a href="#ung-ho">Mời Dũng một ly cà phê</a> qua VietQR hoặc PayPal. Xem thêm <a href="#gioi-thieu">giới thiệu</a>.</p><p style="margin-top:8px"><b>Quyền riêng tư:</b> email bạn để lại chỉ dùng để gửi bản tin, có thể hủy bất cứ lúc nào. Bộ đếm truy cập không lưu IP hay thông tin cá nhân.</p><p style="margin-top:10px">© <span id="yr">2026</span> Nguyễn Đức Dũng · bản 1.3.0</p></div>
   </div>
 </footer>
 
@@ -687,18 +722,22 @@ document.addEventListener('click',function(e){var b=e.target.closest('[data-copy
    CÀI ĐẶT – anh chỉ cần sửa 2 dòng này
    COUNTER_URL: địa chỉ Worker bộ đếm, vd 'https://hlv-dem.ten-tai-khoan.workers.dev'
                 (để trống '' thì bộ đếm ẩn đi, trang vẫn chạy bình thường)
-   FAM_URL    : địa chỉ ứng dụng Tôi và Gia đình khi ra mắt, vd 'https://giadinh.hlvsuckhoe.com/'
-                (để trống '' thì thẻ hiện "Sắp ra mắt")
+   FAM_URL    : địa chỉ ứng dụng Tôi & Gia Đình (đã ra mắt 22/11/2026)
    ===================================================================== */
 var COUNTER_URL = '';
-var FAM_URL = '';
+var FAM_URL = 'https://giadinh.hlvsuckhoe.com/';
 
-/* thẻ Tôi và Gia đình */
+/* thẻ Tôi & Gia Đình: để trống FAM_URL thì nút quay về "Báo cho tôi khi ra mắt" */
 (function(){
-  if(!FAM_URL)return;
   var b=document.getElementById('famBtn'),g=document.getElementById('famBadge');
-  if(b){b.href=FAM_URL;b.textContent='Mở Tôi và Gia đình';}
-  if(g)g.hidden=true;
+  if(!FAM_URL){if(b){b.href='#nhan-tin';b.textContent='Báo cho tôi khi ra mắt';}if(g)g.textContent='Sắp ra mắt';return;}
+  if(b)b.href=FAM_URL;
+})();
+
+/* mục Cài lên điện thoại: đánh dấu thẻ hợp với máy đang xem */
+(function(){
+  var ua=navigator.userAgent,id=(/iPad|iPhone|iPod/.test(ua)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1))?'instIos':(/Android/i.test(ua)?'instAnd':'instPc');
+  var el=document.getElementById(id);if(el)el.classList.add('mine');
 })();
 
 /* hướng dẫn sử dụng: nút ?, dòng "Lần đầu ghé thăm", chân trang */
