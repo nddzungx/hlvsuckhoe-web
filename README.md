@@ -20,11 +20,12 @@ Trang tĩnh một tệp `index.html`, không cần build. Tệp `CNAME` giữ t�
 
 ## Cấu hình nhanh (trong `index.html`, tìm bằng Ctrl + F)
 - `DÁN MÃ EMAILOCTOPUS` – chỗ dán mã khung đăng ký
-- `var COUNTER_URL` – địa chỉ Worker bộ đếm (để trống = ẩn)
+- **`js/config.js` → `counterUrl`** – địa chỉ Worker bộ đếm, dùng chung cho trang chủ và mọi bài viết (để trống = ẩn bộ đếm, lượt xem, nút Thích)
 - `var FAM_URL` – địa chỉ ứng dụng Tôi & Gia Đình (để trống = quay về "Sắp ra mắt")
 - `CLOUDFLARE WEB ANALYTICS` – chỗ dán mã thống kê
 
 ## Phiên bản
+- **1.4.0** (22/11/2026): bài viết đầu tiên **Người gieo "viên thuốc hiểu biết"** (`bai-viet/nguoi-gieo-vien-thuoc-hieu-biet.html`) – chân dung BS. Trần Văn Phúc và cảm hứng ra đời trang; thẻ bài nổi bật trong mục Bài viết, liên kết trong Giới thiệu; thanh **Lượt xem · Thích · Chia sẻ** dùng chung (`js/post-actions.js`, Facebook, X, email, sao chép link, chia sẻ qua Zalo/Messenger trên điện thoại); cài đặt chung `js/config.js`; Worker bộ đếm thêm `/post/view`, `/post/like`, `/post/stats` và bảng `post_marks`.
 - **1.3.0** (22/11/2026): ra mắt thẻ **Tôi & Gia Đình** (logo chính thức, mô tả, nút mở `giadinh.hlvsuckhoe.com`); mục mới **Cài lên điện thoại** `#cai-dat` (chọn ứng dụng, hướng dẫn iPhone/Android/máy tính, tự đánh dấu máy đang xem, lưu ý Zalo/Facebook); mỗi thẻ ứng dụng có liên kết "📲 Cài lên điện thoại" tới `…/#cai-dat` của ứng dụng; menu "Cài app"; cập nhật Hướng dẫn và chân trang.
 - **1.2.0** (22/11/2026): mục **Nhận tin** (EmailOctopus, xác nhận 2 bước, lời hứa quyền riêng tư); **bộ đếm** Hôm nay · Cộng dồn · Đang xem; mục **Ứng dụng** có tiêu đề + thẻ **Tôi và Gia đình** (sắp ra mắt); **Hướng dẫn sử dụng trang** (nút ?, "Lần đầu ghé thăm", chân trang); menu thêm Ứng dụng, Nhận tin; sửa lỗi thẻ BreathSync dùng nhầm kiểu của khung thở.
 - **1.1.1** (22/11/2026): cập nhật mô tả BreathSync 2.1.0 (nguồn số 011, 068, 117, 120, 121, 134, 135; có hướng dẫn sử dụng).

@@ -26,7 +26,7 @@ Các chỗ anh cần sửa trong `index.html` đều có chú thích tiếng Vi�
 | Tìm chữ | Để làm gì |
 |---|---|
 | `DÁN MÃ EMAILOCTOPUS` | Dán mã khung đăng ký (Bước 3) |
-| `var COUNTER_URL` | Điền địa chỉ bộ đếm (Bước 4) |
+| `js/config.js` → `counterUrl` | Điền địa chỉ bộ đếm (Bước 4), dùng chung cho mọi bài viết |
 | `var FAM_URL` | Điền địa chỉ ứng dụng Tôi và Gia đình khi ra mắt |
 | `ỨNG DỤNG TÔI VÀ GIA ĐÌNH` | Sửa đoạn giới thiệu ứng dụng |
 | `CLOUDFLARE WEB ANALYTICS` | Dán mã thống kê (Bước 5) |
@@ -156,12 +156,12 @@ Việc này xóa danh sách mã máy của những ngày cũ cho nhẹ; các con
    - Thấy `{"error":"unavailable"}` → kiểm tra lại 4.1 bước 3 (chưa chạy schema) hoặc 4.3 (tên biến không phải `DB`).
 
 ### 4.6. Gắn vào trang
-1. GitHub → `index.html` → bút chì → Ctrl + F `var COUNTER_URL` → sửa thành
-   `var COUNTER_URL = 'https://hlv-dem.<tên-tài-khoản>.workers.dev';` (giữ dấu nháy đơn, không có `/` ở cuối).
+1. GitHub → `js/config.js` → bút chì → sửa dòng `counterUrl` thành
+   `counterUrl: 'https://hlv-dem.<tên-tài-khoản>.workers.dev'` (giữ dấu nháy đơn, không có `/` ở cuối).
 2. **Commit changes** → chờ 1–2 phút → mở hlvsuckhoe.com → kéo xuống cuối trang thấy **Hôm nay 1 · Cộng dồn 1 · Đang xem 1**.
 
 ### 4.7. (Tùy chọn) Địa chỉ đẹp `dem.hlvsuckhoe.com`
-Worker → **Settings** → **Domains & Routes** → **Add** → **Custom domain** → `dem.hlvsuckhoe.com` → **Add**. Cloudflare tự tạo bản ghi (biểu tượng mây cam – đúng, vì đây là Worker của Cloudflare, không phải GitHub). Sau đó đổi `COUNTER_URL` thành `https://dem.hlvsuckhoe.com`.
+Worker → **Settings** → **Domains & Routes** → **Add** → **Custom domain** → `dem.hlvsuckhoe.com` → **Add**. Cloudflare tự tạo bản ghi (biểu tượng mây cam – đúng, vì đây là Worker của Cloudflare, không phải GitHub). Sau đó đổi `counterUrl` trong `js/config.js` thành `https://dem.hlvsuckhoe.com`.
 
 ### 4.8. Xem số liệu từng ngày
 D1 → `hlv-dem` → Console → chạy:
@@ -196,6 +196,28 @@ Bộ đếm ở Bước 4 là con số **công khai cho khách xem**. Web Analyt
 - Mục mới **Cài lên điện thoại** (`hlvsuckhoe.com/#cai-dat`): bước 1 chọn ứng dụng (mỗi nút mở thẳng `…/#cai-dat` của ứng dụng, nơi có hướng dẫn chi tiết và nút "Cài ngay"), bước 2 hướng dẫn theo máy, tự đánh dấu "Máy của bạn".
 - Việc nên làm tiếp: gửi bản tin EmailOctopus "Ra mắt Tôi & Gia Đình" cho những người đã đăng ký.
 
+## Bài viết, nút Thích, Chia sẻ, lượt xem (bản 1.4.0, 22/11/2026)
+
+**Có gì:** mỗi bài viết có thanh *👁 lượt xem · ♥ Thích · ↗ Chia sẻ* ở đầu và cuối bài. Thẻ bài trên trang chủ hiện số xem và số thích.
+- **Lượt xem**: mỗi máy chỉ tính 1 lượt cho mỗi bài (tải lại trang không tăng số).
+- **Thích**: bấm lần nữa là bỏ thích. Không cần đăng nhập, không lưu IP hay tên.
+- **Chia sẻ**: Facebook, X, Gửi email, Sao chép đường link; trên điện thoại có thêm "Zalo, Messenger, ứng dụng khác…" (mở bảng chia sẻ của máy).
+- Chưa có bộ đếm (`counterUrl` trống) thì chỉ hiện nút Chia sẻ.
+
+**Thêm một bài viết mới (5 bước):**
+1. Trên GitHub, mở `bai-viet/nguoi-gieo-vien-thuoc-hieu-biet.html` → biểu tượng **Copy raw file**, tạo tệp mới `bai-viet/<ten-bai-khong-dau>.html` (chữ thường, nối bằng dấu `-`).
+2. Sửa tiêu đề, mô tả, `og:url`, `canonical`, nội dung bài.
+3. Tìm `data-slug=` (có 2 chỗ) → đổi thành `<ten-bai-khong-dau>`. **Mỗi bài một tên riêng**, đổi tên sau này sẽ mất số xem/thích cũ.
+4. Trên `index.html`, mục Bài viết: chép một thẻ, đổi đường link và `data-post-stats="<ten-bai-khong-dau>"`.
+5. Commit, chờ 1–2 phút, mở bài trong cửa sổ ẩn danh để thử.
+
+**Xem số liệu:** Cloudflare → D1 → `hlv-dem` → Console:
+```sql
+SELECT k, n FROM totals WHERE k LIKE 'view:%' OR k LIKE 'like:%' ORDER BY k;
+```
+
+**Nếu bộ đếm đã dựng trước bản 1.4.0:** chạy thêm khối `CREATE TABLE IF NOT EXISTS post_marks …` trong `counter/schema.sql` và dán lại `counter/worker.js` mới vào Worker.
+
 ## Sự cố thường gặp
 
 | Hiện tượng | Nguyên nhân | Cách xử lý |
@@ -204,7 +226,7 @@ Bộ đếm ở Bước 4 là con số **công khai cho khách xem**. Web Analyt
 | Không thấy ô điền email | Mã dán sai chỗ hoặc thiếu | Mở lại index.html, kiểm tra dòng `<script … data-form=…></script>` nằm giữa hai dòng chú thích DÁN MÃ / HẾT CHỖ DÁN |
 | Đăng ký xong không nhận thư xác nhận | Vào Spam/Quảng cáo, hoặc tên miền chưa xác thực | Xem mục Spam; kiểm tra EmailOctopus → Domains đã **Verified** |
 | Thư bản tin vào Spam người nhận | Thiếu DKIM / gửi bằng @gmail.com | Làm đủ 3.2; luôn gửi bằng `tin@hlvsuckhoe.com` |
-| Bộ đếm không hiện | Chưa điền COUNTER_URL, Worker lỗi, hoặc hết hạn mức trong ngày | Mở `…/stats?site=home` để xem Worker trả lời gì (xem 4.5) |
+| Bộ đếm không hiện | Chưa điền counterUrl (js/config.js), Worker lỗi, hoặc hết hạn mức trong ngày | Mở `…/stats?site=home` để xem Worker trả lời gì (xem 4.5) |
 | `{"error":"origin"}` khi thử | Đang mở thẳng địa chỉ /hit trên trình duyệt | Bình thường – chỉ trang hlvsuckhoe.com mới được đếm; dùng `/stats` để thử |
 | Không rõ "Hôm nay" tính từ mấy giờ | Ngày tính theo giờ Việt Nam | Số "Hôm nay" bắt đầu lại từ 0 lúc 0 giờ đêm (giờ VN) |
 

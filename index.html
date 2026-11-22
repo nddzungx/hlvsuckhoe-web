@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<!-- HLV Sức Khỏe – trang chủ bản 1.3.0 (22/11/2026). Hướng dẫn cập nhật: docs/HUONG_DAN.md -->
+<!-- HLV Sức Khỏe – trang chủ bản 1.4.0 (22/11/2026). Hướng dẫn cập nhật: docs/HUONG_DAN.md -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>HLV Sức Khỏe</title>
@@ -148,6 +148,19 @@ td b{font-family:var(--display)}
 .post .cat-l{font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.6px;color:var(--forest)}
 .post p{font-size:.92rem;color:var(--muted)}
 .post .soon{font-size:.8rem;color:var(--muted);border-top:1px dashed var(--line);padding-top:8px}
+.post-feat{display:grid;grid-template-columns:1.1fr .9fr;gap:0;background:var(--night);color:#e9f3ee;border-radius:22px;overflow:hidden;text-decoration:none;margin-bottom:14px;transition:transform .15s}
+.post-feat:hover{transform:translateY(-2px)}
+.post-feat .txt{padding:26px 28px;display:grid;gap:10px;align-content:center}
+.post-feat .cat-l{font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.6px;color:var(--sun)}
+.post-feat h3{font-size:clamp(1.4rem,3vw,1.9rem);color:#fff}
+.post-feat h3 em{color:#7af0c2}
+.post-feat p{color:#c9d6cf;font-size:.97rem}
+.post-feat .foot{display:flex;gap:14px;flex-wrap:wrap;align-items:center;font-size:.85rem;color:#a9b6cc}
+.post-feat .go{color:var(--sun);font-weight:600}
+.post-feat .art{position:relative;background:radial-gradient(circle at 60% 40%,rgba(25,192,138,.35),transparent 60%),linear-gradient(160deg,#173352,#0b1424);display:grid;place-items:center;min-height:220px;padding:24px}
+.post-feat .art blockquote{margin:0;font:italic 500 1.15rem/1.55 var(--display);color:#e9f3ee;text-align:center;max-width:16em}
+.post-feat .art blockquote span{display:block;margin-top:10px;font:600 .75rem var(--body);font-style:normal;letter-spacing:.6px;text-transform:uppercase;color:#7af0c2}
+@media (max-width:760px){.post-feat{grid-template-columns:1fr}.post-feat .art{min-height:0;order:-1}}
 /* ứng dụng */
 .app{display:grid;grid-template-columns:auto 1fr auto;gap:22px;align-items:center;background:linear-gradient(135deg,var(--forest),#0a4f37);color:#eaf6f0;border-radius:24px;padding:26px}
 .app img{width:84px;height:84px;border-radius:20px}
@@ -255,6 +268,8 @@ footer{border-top:1px solid var(--line);padding:36px 0 50px;color:var(--muted);f
 @media (max-width:760px){.foot{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){.orb{transition:none}.cat{transition:none}html{scroll-behavior:auto}}
 </style>
+<script src="js/config.js"></script>
+<script src="js/post-actions.js" defer></script>
 </head>
 <body>
 <header class="top">
@@ -441,7 +456,17 @@ footer{border-top:1px solid var(--line);padding:36px 0 50px;color:var(--muted);f
   </section>
 
   <section id="bai-viet" aria-labelledby="bv">
-    <div class="head"><div><span class="tag">Bài viết</span><h2 id="bv">Đang được viết</h2><p>Các bài đầu tiên sẽ ra mắt cùng chuyên mục. <a href="#nhan-tin">Đăng ký nhận tin</a> để được báo khi có bài mới, hoặc gửi chủ đề bạn muốn đọc qua email ở cuối trang.</p></div></div>
+    <div class="head"><div><span class="tag">Bài viết</span><h2 id="bv">Đọc chậm, sống khỏe</h2><p>Bài đầu tiên đã lên, những bài tiếp theo đang được viết. <a href="#nhan-tin">Đăng ký nhận tin</a> để được báo khi có bài mới, hoặc gửi chủ đề bạn muốn đọc qua email ở cuối trang.</p></div></div>
+    <!-- BÀI VIẾT NỔI BẬT – thêm bài mới: chép khối <a class="post-feat">…</a> hoặc thẻ <article class="post"> bên dưới, đổi đường link và data-post-stats -->
+    <a class="post-feat" href="bai-viet/nguoi-gieo-vien-thuoc-hieu-biet.html">
+      <div class="txt">
+        <span class="cat-l">Chân dung · Cảm hứng</span>
+        <h3>Người gieo <em>“viên thuốc hiểu biết”</em></h3>
+        <p>Từ cậu bé ngô khoai sắn, người thầy thuốc từng là bệnh nhân, qua bốn lần rẽ ngoặt nghề nghiệp, đến những buổi sáng thứ Bảy của Bác sĩ Trần Văn Phúc. Và vì sao trang này ra đời.</p>
+        <div class="foot"><span class="go">Đọc bài →</span><span>12 phút đọc</span><span data-post-stats="nguoi-gieo-vien-thuoc-hieu-biet"></span></div>
+      </div>
+      <div class="art" aria-hidden="true"><blockquote>Viên thuốc quý nhất là viên thuốc kiến thức.<span>BS. Trần Văn Phúc</span></blockquote></div>
+    </a>
     <div class="posts">
       <article class="post"><span class="cat-l">Kiến thức sức khỏe</span><h3>Đo huyết áp tại nhà sao cho đúng</h3><p>Ngồi nghỉ 5 phút, tay ngang tim, đo 2 lần cách nhau 1 phút.</p><span class="soon">Sắp ra mắt</span></article>
       <article class="post"><span class="cat-l">Vi chất</span><h3>Ăn chay có thiếu B12 không?</h3><p>Vì sao người ăn chay trường cần chú ý, và bổ sung thế nào.</p><span class="soon">Sắp ra mắt</span></article>
@@ -535,7 +560,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 50px;color:var(--muted);f
           <span class="av" aria-hidden="true">D</span>
           <div>
             <p>Xin chào, mình là <b>Nguyễn Đức Dũng</b>. Mình là người yêu thích khoa học, mê du lịch, thích gần gũi thiên nhiên và không thể sống thiếu âm nhạc. Bên cạnh đó, mình dành nhiều thời gian tìm hiểu về sức khoẻ – dinh dưỡng, vận động, hơi thở, giấc ngủ – cùng nhiều lĩnh vực khác như thiên văn, lịch sử, công nghệ.</p>
-            <p>HLV Sức Khỏe ra đời từ mong muốn đơn giản: những gì mình học được, ghi chép được, viết thành bài hát hay làm thành ứng dụng thì chia sẻ lại để mọi người cùng dùng – miễn phí, dễ hiểu và gần gũi với người Việt.</p>
+            <p>HLV Sức Khỏe ra đời từ mong muốn đơn giản: những gì mình học được, ghi chép được, viết thành bài hát hay làm thành ứng dụng thì chia sẻ lại để mọi người cùng dùng – miễn phí, dễ hiểu và gần gũi với người Việt. Cảm hứng lớn nhất đến từ những buổi sáng thứ Bảy nghe Bác sĩ Trần Văn Phúc: <a href="bai-viet/nguoi-gieo-vien-thuoc-hieu-biet.html">đọc câu chuyện ở đây</a>.</p>
             <p>Nếu bạn thấy các thông tin và ứng dụng trên trang hữu ích, hãy <a href="#ung-ho">mời người phát triển một ly cà phê</a>. Mỗi ly cà phê là thêm động lực để mình tiếp tục duy trì và phát triển trang.</p>
           </div>
         </div>
@@ -597,7 +622,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 50px;color:var(--muted);f
   <div class="wrap foot">
     <div><h3>HLV Sức Khỏe</h3><p>Nội dung mang tính giáo dục sức khỏe chung, không thay thế chẩn đoán và điều trị của bác sĩ. Không tự ngừng hay đổi thuốc khi chưa hỏi bác sĩ. Cấp cứu tại Việt Nam: gọi 113 (115 vẫn dùng trong giai đoạn chuyển tiếp).</p><p style="margin-top:8px">Phần tập thở, BreathSync tham khảo bài giảng của BS. Trần Văn Phúc; bác sĩ không biên soạn, không duyệt nội dung trang và ứng dụng.</p></div>
     <div><h3>Liên hệ</h3><p>Góp ý, đề xuất chủ đề, đặt bài hát riêng: <a href="mailto:nddzungx@gmail.com">nddzungx@gmail.com</a></p><p style="margin-top:8px">Ứng dụng: <a href="https://app.hlvsuckhoe.com/">HLV Sức Khỏe</a> · <a href="https://tho.hlvsuckhoe.com/">BreathSync</a> · <a href="https://thienvan.hlvsuckhoe.com/">Xưởng kính</a> · <a href="https://giadinh.hlvsuckhoe.com/">Tôi &amp; Gia Đình</a></p><p style="margin-top:8px"><a href="#nhan-tin">✉️ Nhận tin mới qua email</a> · <a href="#cai-dat">📲 Cài lên điện thoại</a> · <a href="#" data-guide>Hướng dẫn sử dụng</a></p></div>
-    <div><h3>Ủng hộ</h3><p>Thấy hữu ích? <a href="#ung-ho">Mời Dũng một ly cà phê</a> qua VietQR hoặc PayPal. Xem thêm <a href="#gioi-thieu">giới thiệu</a>.</p><p style="margin-top:8px"><b>Quyền riêng tư:</b> email bạn để lại chỉ dùng để gửi bản tin, có thể hủy bất cứ lúc nào. Bộ đếm truy cập không lưu IP hay thông tin cá nhân.</p><p style="margin-top:10px">© <span id="yr">2026</span> Nguyễn Đức Dũng · bản 1.3.0</p></div>
+    <div><h3>Ủng hộ</h3><p>Thấy hữu ích? <a href="#ung-ho">Mời Dũng một ly cà phê</a> qua VietQR hoặc PayPal. Xem thêm <a href="#gioi-thieu">giới thiệu</a>.</p><p style="margin-top:8px"><b>Quyền riêng tư:</b> email bạn để lại chỉ dùng để gửi bản tin, có thể hủy bất cứ lúc nào. Bộ đếm truy cập, lượt xem và nút Thích không lưu IP hay thông tin cá nhân.</p><p style="margin-top:10px">© <span id="yr">2026</span> Nguyễn Đức Dũng · bản 1.4.0</p></div>
   </div>
 </footer>
 
@@ -720,11 +745,11 @@ document.addEventListener('click',function(e){var b=e.target.closest('[data-copy
 
 /* =====================================================================
    CÀI ĐẶT – anh chỉ cần sửa 2 dòng này
-   COUNTER_URL: địa chỉ Worker bộ đếm, vd 'https://hlv-dem.ten-tai-khoan.workers.dev'
-                (để trống '' thì bộ đếm ẩn đi, trang vẫn chạy bình thường)
+   COUNTER_URL: từ bản 1.4.0 lấy từ js/config.js (dùng chung cho trang chủ và mọi bài viết)
+                (để trống '' thì bộ đếm, lượt xem, nút Thích ẩn đi, trang vẫn chạy bình thường)
    FAM_URL    : địa chỉ ứng dụng Tôi & Gia Đình (đã ra mắt 22/11/2026)
    ===================================================================== */
-var COUNTER_URL = '';
+var COUNTER_URL = (window.HLV_CONFIG && HLV_CONFIG.counterUrl) || '';  /* sửa địa chỉ trong js/config.js (dùng chung cho mọi bài viết) */
 var FAM_URL = 'https://giadinh.hlvsuckhoe.com/';
 
 /* thẻ Tôi & Gia Đình: để trống FAM_URL thì nút quay về "Báo cho tôi khi ra mắt" */
