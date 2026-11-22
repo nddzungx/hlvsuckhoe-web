@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Tôi và Gia đình – logo tạm: mái nhà che chở ba người (bố, mẹ, con), chấm vàng = trái tim (đồng bộ với logo HLV Sức Khỏe).
+       Có logo chính thức thì chép đè tệp này, giữ nguyên tên logo-giadinh.svg -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#d0693a"/>
+      <stop offset="1" stop-color="#6e2a17"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffd166"/>
+      <stop offset="1" stop-color="#f59e0b"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+  <path d="M96 250 L256 118 L416 250" fill="none" stroke="#fff3ea" stroke-width="30" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="#fff3ea">
+    <circle cx="196" cy="232" r="34"/>
+    <path d="M140 392 c0-62 25-104 56-104 s56 42 56 104z"/>
+    <circle cx="316" cy="232" r="34"/>
+    <path d="M260 392 c0-62 25-104 56-104 s56 42 56 104z"/>
+    <circle cx="256" cy="304" r="24"/>
+    <path d="M220 400 c0-44 16-70 36-70 s36 26 36 70z"/>
+  </g>
+  <circle cx="256" cy="186" r="20" fill="url(#gold)"/>
+</svg>

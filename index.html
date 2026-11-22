@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
+<!-- HLV Sức Khỏe – trang chủ bản 1.2.0 (22/11/2026). Hướng dẫn cập nhật: docs/HUONG_DAN.md -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>HLV Sức Khỏe</title>
@@ -42,7 +43,9 @@ header.top{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--p
 .btn{display:inline-flex;align-items:center;gap:8px;border:0;border-radius:999px;padding:12px 20px;font:600 1rem var(--body);cursor:pointer;text-decoration:none;background:var(--forest);color:#fff}
 .btn.ghost{background:transparent;color:var(--forest);border:1.5px solid var(--forest)}
 .btn.sm{padding:8px 14px;font-size:.9rem}
-@media (max-width:820px){.nav ul{display:none}}
+.brand,.nav .btn{white-space:nowrap}
+.apps-btn{display:none}
+@media (max-width:1000px){.nav ul{display:none}.apps-btn{display:inline-flex;margin-left:auto}}
 /* mở đầu: hơi thở */
 .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;padding:56px 0 40px}
 .hero h1{font-size:clamp(2.3rem,5.4vw,4rem);letter-spacing:-.5px}
@@ -159,8 +162,47 @@ td b{font-family:var(--display)}
 .tvbox .tvgrid span{font-size:.88rem;color:var(--muted)}
 .tvbox .cta{display:flex;flex-wrap:wrap;gap:10px}
 @media (max-width:760px){.app{grid-template-columns:1fr;justify-items:start}}
-.app.breath{background:linear-gradient(135deg,#13284d,#070d1a);color:#e6ecf6;margin-top:14px}
-.app.breath .btn{background:#34d399;color:#06140e}
+.app.bs{background:linear-gradient(135deg,#13284d,#070d1a);color:#e6ecf6;margin-top:14px}
+.app.bs .btn{background:#34d399;color:#06140e}
+/* ứng dụng Tôi và Gia đình – tông ấm */
+.app.fam{background:linear-gradient(135deg,#b4532a,#6e2a17);color:#fff3ea;margin-top:14px}
+.app.fam .btn{background:#ffd9a8;color:#3b1606}
+.app .badge{display:inline-block;font-size:.72rem;font-weight:600;letter-spacing:.5px;text-transform:uppercase;border:1px solid currentColor;border-radius:999px;padding:2px 9px;margin-left:8px;vertical-align:middle;opacity:.85;font-family:var(--body)}
+.apps-head{margin-bottom:18px}
+/* nhận tin qua email */
+.news{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:start;background:var(--card);border:1px solid var(--line);border-radius:24px;padding:26px}
+.news ul{margin:14px 0 0;padding:0;list-style:none;display:grid;gap:8px}
+.news li{display:flex;gap:10px;align-items:flex-start;font-size:.95rem}
+.news li span{flex:none;width:26px;height:26px;border-radius:8px;display:grid;place-items:center;background:color-mix(in srgb,var(--leaf) 16%,transparent);font-size:.9rem}
+.nl-box{background:color-mix(in srgb,var(--leaf) 7%,var(--paper));border:1px solid var(--line);border-radius:18px;padding:18px;min-height:150px}
+.nl-box h3{margin-bottom:8px}
+.nl-wait{font-size:.93rem;color:var(--muted)}
+.nl-wait .btn{margin-top:12px}
+.nl-box:has(form) .nl-wait{display:none}
+.nl-promise{font-size:.84rem;color:var(--muted);margin-top:12px}
+@media (max-width:820px){.news{grid-template-columns:1fr;padding:20px}}
+/* bộ đếm truy cập */
+.stats{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center;margin:0 0 26px;padding:14px 18px;border:1px solid var(--line);border-radius:16px;background:var(--card);font-size:.92rem}
+.stats[hidden]{display:none}
+.stats b{font:700 1.15rem var(--display);color:var(--ink);font-variant-numeric:tabular-nums;margin-left:4px}
+.stats .live{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--leaf);margin-right:6px;box-shadow:0 0 0 0 rgba(25,192,138,.6);animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 8px rgba(25,192,138,0)}100%{box-shadow:0 0 0 0 rgba(25,192,138,0)}}
+/* hướng dẫn sử dụng */
+.help-btn{flex:none;width:36px;height:36px;border-radius:50%;border:1.5px solid var(--forest);background:transparent;color:var(--forest);font:700 1.05rem var(--body);cursor:pointer}
+dialog.guide{max-width:720px;width:calc(100% - 24px);max-height:calc(100dvh - 32px);border:1px solid var(--line);border-radius:20px;padding:0;background:var(--card);color:var(--ink)}
+dialog.guide::backdrop{background:rgba(10,20,15,.55)}
+.guide .gh{position:sticky;top:0;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 20px;background:var(--card);border-bottom:1px solid var(--line)}
+.guide .gb{padding:6px 20px 22px}
+.guide details{border-bottom:1px solid var(--line);padding:12px 0}
+.guide summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:10px}
+.guide summary::after{content:"+";color:var(--forest);font-weight:700}
+.guide details[open] summary::after{content:"–"}
+.guide details p,.guide details li{font-size:.94rem;color:var(--muted)}
+.guide details p{margin-top:8px}
+.guide ol,.guide ul{margin:8px 0 0;padding-left:20px}
+.guide .x{border:0;background:transparent;font-size:1.6rem;line-height:1;color:var(--muted);cursor:pointer}
+.first{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:14px;font-size:.92rem;color:var(--muted)}
+.first button{border:0;background:none;color:var(--forest);font:600 .92rem var(--body);cursor:pointer;text-decoration:underline;padding:0}
 .bsync{margin-top:16px;display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center;background:linear-gradient(135deg,#13284d,#070d1a);color:#e6ecf6;border-radius:20px;padding:22px}
 .bsync img{width:76px;height:76px;border-radius:18px}
 .bsync h3{color:#fff;font-size:1.3rem}
@@ -204,9 +246,10 @@ footer{border-top:1px solid var(--line);padding:36px 0 50px;color:var(--muted);f
     <a class="brand" href="#"><img src="img/logo.svg" alt="">HLV Sức Khỏe</a>
     <ul>
       <li><a href="#chuyen-muc">Chuyên mục</a></li><li><a href="#vi-chat">Vi chất</a></li><li><a href="#van-dong">Vận động</a></li>
-      <li><a href="#thien">Thở &amp; thiền</a></li><li><a href="#am-nhac">Âm nhạc</a></li><li><a href="#bau-troi">Bầu trời</a></li><li><a href="#bai-viet">Bài viết</a></li><li><a href="#gioi-thieu">Giới thiệu</a></li>
+      <li><a href="#thien">Thở &amp; thiền</a></li><li><a href="#am-nhac">Âm nhạc</a></li><li><a href="#bau-troi">Bầu trời</a></li><li><a href="#ung-dung">Ứng dụng</a></li><li><a href="#nhan-tin">Nhận tin</a></li><li><a href="#gioi-thieu">Giới thiệu</a></li>
     </ul>
-    <a class="btn sm" href="https://app.hlvsuckhoe.com/">Mở ứng dụng</a>
+    <a class="btn sm apps-btn" href="#ung-dung">Ứng dụng</a>
+    <button class="help-btn" type="button" data-guide aria-label="Hướng dẫn sử dụng trang" title="Hướng dẫn sử dụng">?</button>
   </div>
 </header>
 
@@ -216,7 +259,8 @@ footer{border-top:1px solid var(--line);padding:36px 0 50px;color:var(--muted);f
       <span class="tag">Sống khỏe từ thói quen nhỏ</span>
       <h1>Mỗi ngày bắt đầu bằng <em>một hơi thở</em> chậm.</h1>
       <p class="lede">Kiến thức sức khỏe dễ hiểu cho người Việt, bài tập vừa sức, những phút thở và thiền, vài bản nhạc tự sáng tác, và cả những câu chuyện về bầu trời, khoa học, lịch sử cho những giờ rảnh.</p>
-      <div class="cta"><a class="btn" href="https://app.hlvsuckhoe.com/">Mở ứng dụng HLV</a><a class="btn ghost" href="#chuyen-muc">Xem các chuyên mục</a></div>
+      <div class="cta"><a class="btn" href="#ung-dung">Xem các ứng dụng</a><a class="btn ghost" href="#nhan-tin">✉️ Nhận tin mới qua email</a></div>
+      <p class="first">Lần đầu ghé thăm? <button type="button" data-guide>Xem hướng dẫn sử dụng trang</button></p>
     </div>
     <div class="breath" aria-labelledby="breath-title">
       <canvas id="stars" aria-hidden="true"></canvas>
@@ -381,7 +425,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 50px;color:var(--muted);f
   </section>
 
   <section id="bai-viet" aria-labelledby="bv">
-    <div class="head"><div><span class="tag">Bài viết</span><h2 id="bv">Đang được viết</h2><p>Các bài đầu tiên sẽ ra mắt cùng chuyên mục. Bạn có thể gửi chủ đề muốn đọc qua email bên dưới.</p></div></div>
+    <div class="head"><div><span class="tag">Bài viết</span><h2 id="bv">Đang được viết</h2><p>Các bài đầu tiên sẽ ra mắt cùng chuyên mục. <a href="#nhan-tin">Đăng ký nhận tin</a> để được báo khi có bài mới, hoặc gửi chủ đề bạn muốn đọc qua email ở cuối trang.</p></div></div>
     <div class="posts">
       <article class="post"><span class="cat-l">Kiến thức sức khỏe</span><h3>Đo huyết áp tại nhà sao cho đúng</h3><p>Ngồi nghỉ 5 phút, tay ngang tim, đo 2 lần cách nhau 1 phút.</p><span class="soon">Sắp ra mắt</span></article>
       <article class="post"><span class="cat-l">Vi chất</span><h3>Ăn chay có thiếu B12 không?</h3><p>Vì sao người ăn chay trường cần chú ý, và bổ sung thế nào.</p><span class="soon">Sắp ra mắt</span></article>
@@ -392,10 +436,11 @@ footer{border-top:1px solid var(--line);padding:36px 0 50px;color:var(--muted);f
     </div>
   </section>
 
-  <section aria-labelledby="ud" style="border-top:0">
+  <section id="ung-dung" aria-labelledby="ud">
+    <div class="head apps-head"><div><span class="tag">Ứng dụng</span><h2 id="ud">Bốn ứng dụng miễn phí</h2><p>Mở thẳng trên trình duyệt, không cần đăng ký tài khoản. Có thể "cài" lên màn hình điện thoại như một ứng dụng thật và dùng cả khi không có mạng.</p></div></div>
     <div class="app">
       <img src="img/logo.svg" alt="Logo HLV Sức Khỏe">
-      <div><h2 id="ud">Ứng dụng HLV Sức Khỏe</h2><p>Huấn luyện viên bỏ túi: lộ trình từ thói quen nhỏ, 48 bài tập minh họa 3D, thực đơn món Việt, ăn chay theo âm lịch, báo cáo tuần – tháng – năm. Miễn phí, dùng được khi không có mạng, tiếng Việt và tiếng Anh.</p></div>
+      <div><h2>Ứng dụng HLV Sức Khỏe</h2><p>Huấn luyện viên bỏ túi: lộ trình từ thói quen nhỏ, 48 bài tập minh họa 3D, thực đơn món Việt, ăn chay theo âm lịch, báo cáo tuần – tháng – năm. Miễn phí, dùng được khi không có mạng, tiếng Việt và tiếng Anh.</p></div>
       <a class="btn" href="https://app.hlvsuckhoe.com/">Dùng ngay</a>
     </div>
     <div class="app tv">
@@ -403,10 +448,47 @@ footer{border-top:1px solid var(--line);padding:36px 0 50px;color:var(--muted);f
       <div><h2>Xưởng kính thiên văn</h2><p>Học thiên văn, tự chế kính thiên văn, bầu trời đêm nay, dự báo nhật nguyệt thực và nhật ký quan sát. Miễn phí, tiếng Việt, dùng được khi không có mạng.</p></div>
       <a class="btn" href="https://thienvan.hlvsuckhoe.com/">Mở Xưởng kính</a>
     </div>
-    <div class="app breath">
+    <div class="app bs">
       <img src="img/logo-breathsync.svg" alt="Logo BreathSync">
       <div><h2>BreathSync – Hơi thở ý thức</h2><p>Tập thở chậm cùng vòng tròn, âm thanh thiền, chuông bát và rung theo nhịp: thở bụng cơ hoành, thở đều 3D, 4-4-8, 4-7-8 trước khi ngủ, ngân âm "M". Có hướng dẫn sử dụng cho người mới. Miễn phí, tiếng Việt và tiếng Anh, dùng được khi không có mạng.</p></div>
       <a class="btn" href="https://tho.hlvsuckhoe.com/">Mở BreathSync</a>
+    </div>
+    <!-- ===== ỨNG DỤNG TÔI VÀ GIA ĐÌNH =====
+         Khi ứng dụng sẵn sàng: sửa đoạn mô tả bên dưới, rồi điền địa chỉ vào FAM_URL trong phần <script> cuối trang.
+         Nút sẽ tự đổi từ "Báo cho tôi khi ra mắt" thành "Mở Tôi và Gia đình", nhãn "Sắp ra mắt" tự ẩn. -->
+    <div class="app fam" id="app-giadinh">
+      <img src="img/logo-giadinh.svg" alt="Logo Tôi và Gia đình">
+      <div><h2>Tôi và Gia đình <span class="badge" id="famBadge">Sắp ra mắt</span></h2><p id="famDesc">Ứng dụng mới dành cho bạn và những người thân trong gia đình. Miễn phí, tiếng Việt. Ứng dụng đang được hoàn thiện, phần giới thiệu chi tiết sẽ cập nhật khi ra mắt – để lại email ở mục Nhận tin để được báo ngay.</p></div>
+      <a class="btn" id="famBtn" href="#nhan-tin">Báo cho tôi khi ra mắt</a>
+    </div>
+  </section>
+
+  <section id="nhan-tin" aria-labelledby="nt">
+    <div class="news">
+      <div>
+        <span class="tag">Nhận tin mới</span>
+        <h2 id="nt">Nhận thư mỗi khi có điều mới</h2>
+        <p style="margin-top:10px;color:var(--muted)">Để lại email, mình sẽ gửi một lá thư ngắn khoảng 2–4 tuần một lần:</p>
+        <ul>
+          <li><span aria-hidden="true">📝</span><p>Bài viết sức khỏe, khoa học, lịch sử mới ra</p></li>
+          <li><span aria-hidden="true">🎵</span><p>Bài hát mới trên kênh YouTube</p></li>
+          <li><span aria-hidden="true">📱</span><p>Ứng dụng mới và tính năng mới (như <b>Tôi và Gia đình</b> khi ra mắt)</p></li>
+          <li><span aria-hidden="true">🔭</span><p>Hiện tượng thiên văn đáng xem sắp tới</p></li>
+        </ul>
+      </div>
+      <div class="nl-box" id="nl-box">
+        <h3>Đăng ký bằng email</h3>
+        <!-- ===== DÁN MÃ EMAILOCTOPUS VÀO NGAY DƯỚI DÒNG NÀY =====
+             EmailOctopus → Forms → chọn form → "</> Add to your website" → Copy → dán vào đây (một dòng <script ...></script>).
+             Dán xong thì khung "Đang mở đăng ký" bên dưới tự ẩn. -->
+
+        <!-- ===== HẾT CHỖ DÁN ===== -->
+        <div class="nl-wait">
+          <p>Khung đăng ký đang được mở. Trong lúc chờ, bạn có thể gửi email với tiêu đề "Đăng ký nhận tin", mình sẽ thêm bạn vào danh sách.</p>
+          <a class="btn sm" href="mailto:nddzungx@gmail.com?subject=%C4%90%C4%83ng%20k%C3%BD%20nh%E1%BA%ADn%20tin%20HLV%20S%E1%BB%A9c%20Kh%E1%BB%8Fe">✉️ Gửi email đăng ký</a>
+        </div>
+        <p class="nl-promise">Bạn sẽ nhận một thư xác nhận – bấm vào đường link trong thư là hoàn tất. Email chỉ dùng để gửi bản tin này, không chia sẻ cho ai. Mỗi thư đều có nút <b>Hủy đăng ký</b>, bấm một lần là xong.</p>
+      </div>
     </div>
   </section>
 
@@ -423,7 +505,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 50px;color:var(--muted);f
           </div>
         </div>
         <div class="likes"><span>🔬 Khoa học</span><span>✈️ Du lịch</span><span>🌿 Thiên nhiên</span><span>🎵 Âm nhạc</span><span>💚 Sức khoẻ</span><span>🔭 Thiên văn</span><span>📚 Lịch sử</span></div>
-        <p class="fine" style="margin-top:16px">Các ứng dụng: <a href="https://app.hlvsuckhoe.com/">HLV Sức Khỏe</a> · <a href="https://tho.hlvsuckhoe.com/">BreathSync</a> · <a href="https://thienvan.hlvsuckhoe.com/">Xưởng kính thiên văn</a> · <a href="https://www.youtube.com/@nguyenducdung1977" target="_blank" rel="noopener">Kênh YouTube</a> · Liên hệ: <a href="mailto:nddzungx@gmail.com">nddzungx@gmail.com</a></p>
+        <p class="fine" style="margin-top:16px">Các ứng dụng: <a href="https://app.hlvsuckhoe.com/">HLV Sức Khỏe</a> · <a href="https://tho.hlvsuckhoe.com/">BreathSync</a> · <a href="https://thienvan.hlvsuckhoe.com/">Xưởng kính thiên văn</a> · <a href="#app-giadinh">Tôi và Gia đình</a> · <a href="https://www.youtube.com/@nguyenducdung1977" target="_blank" rel="noopener">Kênh YouTube</a> · Liên hệ: <a href="mailto:nddzungx@gmail.com">nddzungx@gmail.com</a></p>
       </div>
       <div class="coffee" id="ung-ho">
         <h3>☕ Mời Dũng một ly cà phê</h3>
@@ -439,13 +521,48 @@ footer{border-top:1px solid var(--line);padding:36px 0 50px;color:var(--muted);f
       </div>
     </div>
   </section>
+
+  <!-- bộ đếm truy cập: tự hiện khi đã điền COUNTER_URL ở cuối trang và bộ đếm trả lời được -->
+  <div class="stats" id="stats" hidden aria-label="Thống kê truy cập">
+    <span>Hôm nay<b id="sToday">–</b></span>
+    <span>Cộng dồn<b id="sTotal">–</b></span>
+    <span><i class="live" aria-hidden="true"></i>Đang xem<b id="sOnline">–</b></span>
+  </div>
 </main>
+
+<dialog class="guide" id="guide" aria-labelledby="guideTitle">
+  <div class="gh"><h2 id="guideTitle" style="font-size:1.35rem">Hướng dẫn sử dụng trang</h2><button class="x" type="button" data-close aria-label="Đóng">×</button></div>
+  <div class="gb">
+    <details open><summary>Trang này có gì?</summary>
+      <p>HLV Sức Khỏe là trang chia sẻ miễn phí của Nguyễn Đức Dũng: kiến thức sức khỏe dễ hiểu, bảng vi chất, gợi ý vận động, tập thở và thiền ngay trên trang, các bài hát tự sáng tác, trăng đêm nay, và bốn ứng dụng riêng. Mọi thứ đều dùng được không cần tài khoản.</p></details>
+    <details><summary>Bắt đầu nhanh trong 1 phút</summary>
+      <ol><li>Kéo xuống khung tối <b>"Thở cùng mình 1 phút"</b> ở đầu trang.</li><li>Chọn nhịp: <b>Thư giãn 4–6</b> nếu mới tập, <b>Thở hộp</b> khi cần tập trung, <b>Dễ ngủ 4–7–8</b> trước khi ngủ.</li><li>Bấm <b>Bắt đầu</b>, hít vào khi quả cầu to ra, thở ra khi quả cầu nhỏ lại. Chuông báo khi xong 1 phút.</li></ol></details>
+    <details><summary>Đọc dải "Hôm nay"</summary>
+      <p>Bốn ô ngay dưới phần mở đầu: ngày dương lịch, ngày âm lịch (tính theo giờ Việt Nam), hình dạng mặt trăng và một gợi ý sống khỏe – mỗi ngày đổi một gợi ý.</p></details>
+    <details><summary>Hẹn giờ thiền</summary>
+      <ol><li>Vào mục <b>Thở &amp; thiền</b>, chọn 3, 5, 10 hoặc 20 phút.</li><li>Bấm <b>Bắt đầu thiền</b>, đặt điện thoại xuống, nhắm mắt. Chuông nhẹ báo lúc bắt đầu và khi hết giờ.</li><li>Bấm <b>Tạm dừng</b> nếu bị gián đoạn, <b>Đặt lại</b> để làm lại từ đầu.</li></ol><p>Mẹo: bật tiếng điện thoại để nghe chuông; nếu dùng tai nghe thì chuông nghe rõ hơn.</p></details>
+    <details><summary>Nghe nhạc</summary>
+      <p>Trong mục <b>Âm nhạc</b>, bấm các nút nhóm (Sống khỏe, An tâm &amp; thiền…) để lọc, rồi bấm vào ảnh bài hát để phát ngay trên trang. Video chỉ được tải khi bạn bấm, nên trang mở nhanh và tiết kiệm dữ liệu.</p></details>
+    <details><summary>Chọn ứng dụng nào cho nhu cầu nào?</summary>
+      <ul><li><b>Muốn tập thể dục, ăn uống có lộ trình</b> → HLV Sức Khỏe.</li><li><b>Muốn tập thở, dễ ngủ, bớt căng thẳng</b> → BreathSync.</li><li><b>Mê bầu trời, muốn tự chế kính thiên văn</b> → Xưởng kính thiên văn.</li><li><b>Dành cho cả nhà</b> → Tôi và Gia đình (sắp ra mắt).</li></ul></details>
+    <details><summary>Cài ứng dụng lên điện thoại</summary>
+      <ol><li>Mở ứng dụng bằng <b>Chrome</b> (Android) hoặc <b>Safari</b> (iPhone).</li><li>Android: bấm dấu ⋮ → <b>Thêm vào màn hình chính</b> / <b>Cài đặt ứng dụng</b>.</li><li>iPhone: bấm nút Chia sẻ (ô vuông có mũi tên) → <b>Thêm vào MH chính</b>.</li></ol><p>Sau đó mở từ biểu tượng trên màn hình như ứng dụng thường, dùng được cả khi mất mạng.</p></details>
+    <details><summary>Nhận tin mới qua email</summary>
+      <ol><li>Vào mục <b>Nhận tin</b>, điền email, bấm nút đăng ký.</li><li>Mở hộp thư, tìm thư xác nhận (xem cả mục Quảng cáo / Spam) và bấm đường link trong thư.</li><li>Muốn ngừng nhận: bấm <b>Unsubscribe / Hủy đăng ký</b> ở cuối bất kỳ thư nào.</li></ol></details>
+    <details><summary>Các con số "Hôm nay · Cộng dồn · Đang xem" là gì?</summary>
+      <p><b>Hôm nay</b>: số thiết bị đã ghé trang trong ngày (giờ Việt Nam), một máy vào nhiều lần chỉ tính một. <b>Cộng dồn</b>: tổng các ngày từ khi bắt đầu đếm. <b>Đang xem</b>: số máy đang mở trang trong 5 phút gần nhất. Bộ đếm không lưu địa chỉ IP, tên hay email của bạn.</p></details>
+    <details><summary>Câu hỏi thường gặp</summary>
+      <p><b>Có mất phí không?</b> Không. Trang và các ứng dụng đều miễn phí; ai thấy hữu ích có thể <a href="#ung-ho" data-close>mời Dũng một ly cà phê</a>.</p>
+      <p><b>Thông tin sức khỏe có thay được bác sĩ không?</b> Không. Đây là kiến thức chung để tham khảo; có bệnh hoặc đang dùng thuốc, hãy hỏi bác sĩ.</p>
+      <p><b>Muốn góp ý hay đặt bài hát riêng?</b> Gửi email tới <a href="mailto:nddzungx@gmail.com">nddzungx@gmail.com</a>.</p></details>
+  </div>
+</dialog>
 
 <footer>
   <div class="wrap foot">
     <div><h3>HLV Sức Khỏe</h3><p>Nội dung mang tính giáo dục sức khỏe chung, không thay thế chẩn đoán và điều trị của bác sĩ. Không tự ngừng hay đổi thuốc khi chưa hỏi bác sĩ. Cấp cứu tại Việt Nam: gọi 113 (115 vẫn dùng trong giai đoạn chuyển tiếp).</p><p style="margin-top:8px">Phần tập thở, BreathSync tham khảo bài giảng của BS. Trần Văn Phúc; bác sĩ không biên soạn, không duyệt nội dung trang và ứng dụng.</p></div>
-    <div><h3>Liên hệ</h3><p>Góp ý, đề xuất chủ đề, đặt bài hát riêng: <a href="mailto:nddzungx@gmail.com">nddzungx@gmail.com</a></p><p style="margin-top:8px">Ứng dụng: <a href="https://app.hlvsuckhoe.com/">HLV Sức Khỏe</a> · <a href="https://tho.hlvsuckhoe.com/">BreathSync</a> · <a href="https://thienvan.hlvsuckhoe.com/">Xưởng kính</a></p></div>
-    <div><h3>Ủng hộ</h3><p>Thấy hữu ích? <a href="#ung-ho">Mời Dũng một ly cà phê</a> qua VietQR hoặc PayPal. Xem thêm <a href="#gioi-thieu">giới thiệu</a>.</p><p style="margin-top:10px">© <span id="yr">2026</span> Nguyễn Đức Dũng</p></div>
+    <div><h3>Liên hệ</h3><p>Góp ý, đề xuất chủ đề, đặt bài hát riêng: <a href="mailto:nddzungx@gmail.com">nddzungx@gmail.com</a></p><p style="margin-top:8px">Ứng dụng: <a href="https://app.hlvsuckhoe.com/">HLV Sức Khỏe</a> · <a href="https://tho.hlvsuckhoe.com/">BreathSync</a> · <a href="https://thienvan.hlvsuckhoe.com/">Xưởng kính</a> · <a href="#app-giadinh">Tôi và Gia đình</a></p><p style="margin-top:8px"><a href="#nhan-tin">✉️ Nhận tin mới qua email</a> · <a href="#" data-guide>Hướng dẫn sử dụng</a></p></div>
+    <div><h3>Ủng hộ</h3><p>Thấy hữu ích? <a href="#ung-ho">Mời Dũng một ly cà phê</a> qua VietQR hoặc PayPal. Xem thêm <a href="#gioi-thieu">giới thiệu</a>.</p><p style="margin-top:8px"><b>Quyền riêng tư:</b> email bạn để lại chỉ dùng để gửi bản tin, có thể hủy bất cứ lúc nào. Bộ đếm truy cập không lưu IP hay thông tin cá nhân.</p><p style="margin-top:10px">© <span id="yr">2026</span> Nguyễn Đức Dũng · bản 1.2.0</p></div>
   </div>
 </footer>
 
@@ -565,6 +682,60 @@ document.addEventListener('click',function(e){var b=e.target.closest('[data-copy
     btn.replaceWith(f);
   })});
 })();
+
+/* =====================================================================
+   CÀI ĐẶT – anh chỉ cần sửa 2 dòng này
+   COUNTER_URL: địa chỉ Worker bộ đếm, vd 'https://hlv-dem.ten-tai-khoan.workers.dev'
+                (để trống '' thì bộ đếm ẩn đi, trang vẫn chạy bình thường)
+   FAM_URL    : địa chỉ ứng dụng Tôi và Gia đình khi ra mắt, vd 'https://giadinh.hlvsuckhoe.com/'
+                (để trống '' thì thẻ hiện "Sắp ra mắt")
+   ===================================================================== */
+var COUNTER_URL = '';
+var FAM_URL = '';
+
+/* thẻ Tôi và Gia đình */
+(function(){
+  if(!FAM_URL)return;
+  var b=document.getElementById('famBtn'),g=document.getElementById('famBadge');
+  if(b){b.href=FAM_URL;b.textContent='Mở Tôi và Gia đình';}
+  if(g)g.hidden=true;
+})();
+
+/* hướng dẫn sử dụng: nút ?, dòng "Lần đầu ghé thăm", chân trang */
+(function(){
+  var d=document.getElementById('guide');if(!d)return;
+  document.addEventListener('click',function(e){
+    if(e.target.closest('[data-guide]')){e.preventDefault();if(d.showModal)d.showModal();else d.setAttribute('open','');return;}
+    if(e.target.closest('[data-close]')){if(d.close)d.close();else d.removeAttribute('open');}
+  });
+  d.addEventListener('click',function(e){if(e.target===d)d.close();}); /* bấm ra ngoài để đóng */
+  if(location.hash==='#huong-dan'&&d.showModal)d.showModal();
+})();
+
+/* bộ đếm truy cập: hôm nay · cộng dồn · đang xem */
+(function(){
+  if(!COUNTER_URL||!window.fetch)return;
+  var box=document.getElementById('stats');if(!box)return;
+  var vid;
+  try{vid=localStorage.getItem('hlv_vid');if(!vid){vid=(Date.now().toString(36)+Math.random().toString(36).slice(2,12));localStorage.setItem('hlv_vid',vid);}}
+  catch(e){vid=Date.now().toString(36)+Math.random().toString(36).slice(2,12);}
+  var fmt=function(n){return (+n||0).toLocaleString('vi-VN');};
+  function call(path){
+    return fetch(COUNTER_URL.replace(/\/$/,'')+path,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({site:'home',vid:vid})})
+      .then(function(r){if(!r.ok)throw 0;return r.json();});
+  }
+  function paint(s){
+    if(s.today!=null)document.getElementById('sToday').textContent=fmt(s.today);
+    if(s.total!=null)document.getElementById('sTotal').textContent=fmt(s.total);
+    if(s.online!=null)document.getElementById('sOnline').textContent=fmt(Math.max(1,s.online));
+    box.hidden=false;
+  }
+  call('/hit').then(paint).catch(function(){box.hidden=true;});
+  /* giữ trạng thái "đang xem": 2 phút báo một lần, chỉ khi trang đang hiện trên màn hình */
+  setInterval(function(){if(document.visibilityState==='visible')call('/ping').then(paint).catch(function(){});},120000);
+})();
 </script>
+<!-- ===== DÁN MÃ CLOUDFLARE WEB ANALYTICS VÀO NGAY DƯỚI DÒNG NÀY (tùy chọn – thống kê chi tiết chỉ anh xem) ===== -->
+
 </body>
 </html>
