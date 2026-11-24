@@ -233,8 +233,8 @@ SELECT k, n FROM totals WHERE k LIKE 'view:%' OR k LIKE 'like:%' ORDER BY k;
 | Thảm tập, tạ | Luyện tập (động tác hôm nay, HLV Sức Khỏe) | `#van-dong` |
 | Khung ảnh | Gia đình (việc nhỏ cùng nhau, lời hay, Tôi & Gia Đình) | `#goc-gia-dinh` |
 | Đàn guitar | Âm nhạc (bài hát hôm nay, 20 bài, đặt bài hát riêng) | `#am-nhac`, `#goc-sang-tac` |
-| Tranh treo tường | Nghệ thuật | `#goc-nghe-thuat` |
-| Quả bóng | Thể thao | `#goc-the-thao` |
+| Tranh treo tường | Hội họa (vòng tròn: Hội họa, Nhạc cổ điển) | `#goc-nghe-thuat` |
+| Quả bóng | Thể thao (vòng tròn: Khởi động & giãn cơ, Bóng đá, Golf, Bơi lội) | `#goc-the-thao` |
 | Quả địa cầu | Du lịch & khám phá | `#goc-du-lich` |
 | Kính thiên văn | Ngắm sao (trăng, mưa sao băng, Xưởng kính) | `#bau-troi` |
 | Bình thủy tinh vàng | Phân kim (Phù thủy Phân kim) | `#goc-phan-kim` |
@@ -266,6 +266,33 @@ SELECT k, n FROM totals WHERE k LIKE 'view:%' OR k LIKE 'like:%' ORDER BY k;
 
 ### Ánh sáng theo giờ
 Sáng 5–10h, trưa 10–16h, chiều 16–19h, đêm 19–5h, theo đồng hồ trên máy khách. Màu từng buổi ở đầu phần 2 của `css/home.css` (`--wall`, `--sky1`, `--sky2`…).
+
+## Trang chủ 2.1.0 – vòng tròn bài viết & 6 bài Thể thao, Hội họa (24/11/2026)
+
+### Vòng tròn bài viết quanh đồ vật
+- Bấm vào một đồ vật có bài (quả bóng, bức tranh, cây đàn, đệm thiền, thảm tập, chậu cây): các bài **tỏa ra thành vòng tròn** quanh đồ vật, thêm một nút màu vàng "Vào góc …" để tới phần cũ của góc đó. Nhãn đồ vật có huy hiệu số bài. Esc, bấm ra ngoài hoặc cuộn trang để đóng; phím Tab/mũi tên đi giữa các nút.
+- Dữ liệu ở **`js/posts.js`**: mỗi bài một dòng `{ slug, title, icon, spots: [...] }`. `spots` là id các góc (xem bảng "Bản đồ căn phòng → góc"). Một bài có thể thuộc nhiều góc (bài Nhạc cổ điển thuộc cả bức tranh lẫn cây đàn).
+- `HLV_MENU_MIN` (đầu `js/posts.js`): số bài tối thiểu để đồ vật hiện vòng tròn. Mặc định 1; đặt 2 nếu chỉ muốn vòng tròn khi góc có từ hai bài.
+- Ô trong bảng "Góc sở thích" có `data-posts="<id góc>"` tự liệt kê bài của góc đó (đang dùng cho Thể thao và Hội họa).
+- Hoạt động ở `js/room-menu.js`, giao diện ở cuối `css/home.css` (Phần 3). Không cần sửa hai tệp này khi thêm bài.
+
+### Thêm một bài mới vào căn phòng (ngoài 8 bước ở mục "Bài viết…")
+1. Thêm một dòng vào `js/posts.js` (bài mới đặt đầu nhóm của nó).
+2. Thêm thẻ `<a class="post live">` vào mục Đọc sách `#bai-viet` (giữ để Google đọc được).
+3. Tăng `?v=` của `posts.js` trong `index.html`.
+
+### Bài tương tác (bóng đá, golf, bơi lội, nhạc cổ điển, hội họa)
+- Khung chung: `js/guide.js` + `css/guide.css` (dùng cùng `css/bai-viet.css`). Mỗi bài có **5 góc nhìn** (tự đổi theo số lần ghé thăm của từng máy), **3 tầng nội dung**, xương sống cố định *Mở đầu · Vẻ đẹp & ý nghĩa · 5 khối xoay vòng · Lời kết + thử thách* và câu hỏi cuối bài "Xem lại ở góc nhìn khác, hay đi sâu hơn?". Ở tầng 3 có 3 chuyên đề gợi ý (bấm là gửi thư bỏ phiếu).
+- Nội dung chữ: `js/guides/<bài>.js` (`bong-da`, `golf`, `boi-loi`, `nhac-co-dien`, `hoi-hoa`). Mỗi khối có `t: [tầng 1, tầng 2, tầng 3]`. Nút `<button class="cue" data-cue="…">` trong chữ điều khiển phần minh họa.
+- Phần minh họa: `js/guides/stage-*.js`. Ba bài thể thao dùng 3D (three.js r170 để sẵn trong `js/vendor/three/`, không cần mạng ngoài); nhạc tổng hợp âm thanh bằng Web Audio; hội họa vẽ SVG bằng mã.
+- Trang HTML của 5 bài được **sinh tự động**: sửa tiêu đề, mô tả, nút công cụ, nguồn trong `tools/make_guides.py` rồi chạy `python3 tools/make_guides.py`. Đừng sửa tay 5 tệp HTML đó (lần sinh sau sẽ ghi đè).
+- Tầng 3 có hộp **"Đào sâu"** dưới mỗi khối: khai báo ở cuối `js/guides/<bài>.js` trong `window.GUIDE.deep = { khối: [[tiêu đề, html], …] }`. Phép tính đặt trong `<div class="calc">`, tranh luận trong `<p class="debate">`.
+- Kinh nghiệm viết bài và cách làm bài hay hơn: `docs/KINH_NGHIEM_VIET_BAI.md`.
+- Mở thẳng một góc nhìn/tầng: `…/bong-da-cho-nguoi-moi.html?goc=trong-tai-bien&tang=2`.
+- Bài **Khởi động và giãn cơ đúng cách** là bài thường (theo mẫu bài 4–7–8), có đồng hồ khởi động 5 phút; dùng chung `css/bai-viet.css` (kiểu chữ tách từ bài 4–7–8).
+
+### Bản quyền minh họa
+Không dùng ảnh vận động viên, logo giải đấu/CLB, tranh hay bản ghi có bản quyền. Giai điệu dùng trong bài nhạc (Khúc hoan ca 1824, Giao hưởng số 5 1808) đã thuộc phạm vi công cộng; tranh "Bến sông buổi sớm" do máy tự vẽ. Tranh của Picasso, Braque, Dalí chỉ được mô tả bằng lời.
 
 ## Sự cố thường gặp
 

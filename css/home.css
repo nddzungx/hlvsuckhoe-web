@@ -386,3 +386,26 @@ details.vc[open]{padding-bottom:18px}
 .app2.idea h3{color:var(--ink)}
 .app2.idea .btn{background:var(--forest);color:#fff}
 .app2.idea .btn.ghost{background:transparent;color:var(--forest);border:1.5px solid var(--forest)}
+
+/* ===== Phần 3 (2.1.0 – 24/11/2026): vòng tròn bài viết quanh đồ vật + danh sách bài trong ô =====
+   Dữ liệu: js/posts.js · hoạt động: js/room-menu.js */
+.rm{position:fixed;inset:0;z-index:60}
+.rm-dim{position:absolute;inset:0;background:rgba(8,14,24,.38);opacity:0;transition:opacity .25s}
+.rm.open .rm-dim{opacity:1}
+.rm-close{position:fixed;transform:translate(-50%,-50%) scale(.4);width:46px;height:46px;border-radius:50%;border:2px solid #fff;background:var(--forest);color:#fff;font:700 1.5rem/1 var(--body);cursor:pointer;opacity:0;transition:transform .25s,opacity .25s;box-shadow:0 6px 18px rgba(0,0,0,.3)}
+.rm.open .rm-close{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.rm-item{position:fixed;display:flex;flex-direction:column;align-items:center;gap:5px;text-decoration:none;transform:translate(-50%,-50%) scale(.3);opacity:0;transition:transform .34s cubic-bezier(.2,1.35,.4,1),opacity .2s;outline:none}
+.rm.open .rm-item{opacity:1;transform:translate(calc(-50% + var(--x)),calc(-50% + var(--y))) scale(1)}
+.rm-ic{width:60px;height:60px;border-radius:50%;display:grid;place-items:center;font-size:1.75rem;background:#fff;border:2.5px solid var(--forest);box-shadow:0 8px 22px rgba(0,0,0,.28);transition:transform .15s}
+.rm-t{background:#fff;color:#1a2a22;font:600 .82rem var(--body);padding:3px 10px;border-radius:999px;white-space:nowrap;box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.rm-item.corner .rm-ic{background:var(--sun);border-color:#fff}
+.rm-item:hover .rm-ic,.rm-item:focus-visible .rm-ic{transform:scale(1.12)}
+.rm-item:focus-visible .rm-t{outline:3px solid var(--sun);outline-offset:2px}
+.room .lbl .cnt circle{fill:var(--sun);stroke:#fff;stroke-width:2}
+.room .lbl .cnt text{font:700 13px var(--body);fill:#2a1d00}
+.hb-k{margin-top:10px;font-size:.78rem;font-weight:600;letter-spacing:.3px;color:var(--muted)}
+.hb-posts{list-style:none;margin:6px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.hb-posts a{display:inline-flex;gap:6px;align-items:center;text-decoration:none;background:color-mix(in srgb,var(--forest) 10%,var(--card));color:var(--ink);border:1px solid color-mix(in srgb,var(--forest) 30%,var(--line));border-radius:999px;padding:5px 12px;font-size:.9rem;font-weight:500}
+.hb-posts a:hover{background:var(--forest);color:#fff}
+.hb-st{font-size:.75rem;color:var(--muted)}
+@media (prefers-reduced-motion:reduce){.rm *{transition:none!important}}

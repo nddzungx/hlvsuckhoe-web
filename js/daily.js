@@ -121,7 +121,13 @@ window.HLV_DAILY = {
     'Gấp một con hạc giấy, viết một điều ước bên trong.',
     'Vẽ bầu trời ngay lúc này bằng ba màu.',
     'Chụp một vật quen thuộc từ một góc chưa ai chụp.',
-    'Viết lại một kỷ niệm tuổi thơ trong 5 câu.'
+    'Viết lại một kỷ niệm tuổi thơ trong 5 câu.',
+    'Sáng mai nhìn ra cửa sổ lúc 6 giờ và 9 giờ: bóng cây màu đen hay xanh tím? (thử thách trong bài Hội họa)',
+    'Nheo mắt nhìn một bức tranh hay một khung cảnh: chi tiết mờ đi, chỉ còn mảng sáng – tối. Đó là mẹo của họa sĩ.',
+    'Vẽ một cảnh trong 10 phút chỉ bằng mảng màu, không vẽ đường viền – như các họa sĩ Ấn tượng.',
+    'Nghe bốn nốt mở đầu Giao hưởng số 5 của Beethoven rồi đếm xem chúng trở lại bao nhiêu lần trong chương 1.',
+    'Nghe cùng một bài hát ở hai bản thu khác nhau: nhanh chậm, to nhỏ khác nhau thế nào?',
+    'Đặt đường chân trời trong ảnh chụp hôm nay ở một phần ba khung hình, không đặt chính giữa.'
   ],
 
   /* THỂ THAO – chuyện và gợi ý */
@@ -137,7 +143,13 @@ window.HLV_DAILY = {
     'Bóng đá phong trào: khởi động 10 phút và giãn cơ sau trận giúp giảm chấn thương cơ đùi.',
     'Leo núi đi bộ (trekking): mang đủ nước, giày bám tốt, báo lộ trình cho người thân.',
     'Yoga giúp dẻo dai và thở sâu – chọn lớp hợp trình độ, không cố gập quá sức.',
-    'Cờ vua, cờ tướng cũng là thể thao trí tuệ: rèn tính toán và kiên nhẫn.'
+    'Cờ vua, cờ tướng cũng là thể thao trí tuệ: rèn tính toán và kiên nhẫn.',
+    'Trước khi tập: làm nóng 2–3 phút, rồi mới giãn cơ động. Ép dẻo lâu để dành sau buổi tập.',
+    'Giãn cơ sau tập: giữ mỗi tư thế 10–30 giây, căng nhẹ chứ không đau (khuyến nghị ACSM).',
+    'Xem bóng đá: mỗi lần trọng tài biên giơ cờ, hãy nhớ lại khoảnh khắc đồng đội chuyền bóng.',
+    'Golf: nhắm về phía rộng của đường cỏ, xa phía có nước – hỏng ở phía an toàn chỉ mất vài mét.',
+    'Bơi: mắt nhìn xuống đáy bể, thở ra dưới nước bằng mũi – ngẩng đầu làm hông chìm và chậm đi.',
+    'Đếm số sải tay mỗi 25 m khi bơi; tuần sau thử bớt một sải mà không chậm hơn.'
   ],
 
   /* DU LỊCH & KHÁM PHÁ – một nơi để mơ: [tên, tỉnh/thành, lời giới thiệu] */

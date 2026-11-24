@@ -61,7 +61,7 @@ svg=f'''<svg viewBox="0 0 1200 630" role="group" aria-label="Căn phòng HLV S�
 <rect y="470" width="1200" height="12" fill="rgba(0,0,0,.10)"/>
 <path d="M466 340h268l150 290H330z" fill="url(#beamG)" style="opacity:var(--beam)"/>
 {window_}
-{spot('#goc-nghe-thuat','Nghệ thuật',262,58,painting)}
+{spot('#goc-nghe-thuat','Hội họa',262,58,painting,'Hội họa và nghệ thuật')}
 {spot('#goc-du-lich','Du lịch',120,24,globe,'Du lịch và khám phá')}
 {spot('#bai-viet','Đọc sách',44,150,shelf,'Góc đọc sách')}
 {spot('#am-nhac','Âm nhạc',300,250,guitar,'Âm nhạc và sáng tác')}
