@@ -294,6 +294,12 @@ Sáng 5–10h, trưa 10–16h, chiều 16–19h, đêm 19–5h, theo đồng h�
 ### Bản quyền minh họa
 Không dùng ảnh vận động viên, logo giải đấu/CLB, tranh hay bản ghi có bản quyền. Giai điệu dùng trong bài nhạc (Khúc hoan ca 1824, Giao hưởng số 5 1808) đã thuộc phạm vi công cộng; tranh "Bến sông buổi sớm" do máy tự vẽ. Tranh của Picasso, Braque, Dalí chỉ được mô tả bằng lời.
 
+## Bản 2.2.0 – Sáng tác bài hát, Ba lê, bản sao dự phòng (25/11/2026)
+- Hai bài mới: `bai-viet/sang-tac-bai-hat-cho-nguoi-moi.html` (bàn viết bài hát, soát dấu thanh, kết lửng/kết trọn) và `bai-viet/ba-le-cho-nguoi-moi.html` (năm tư thế, xoay mở, thăng bằng, xoay vòng). Nội dung ở `js/guides/sang-tac.js`, `js/guides/ba-le.js`; minh họa ở `stage-sang-tac.js`, `stage-ba-le.js`; trang sinh bằng `python3 tools/make_guides.py`.
+- Đã thêm vào `js/posts.js` (vòng tròn quanh cây đàn và bức tranh), thẻ bài ở mục Bài viết, `sitemap.xml` (18 địa chỉ), ảnh chia sẻ `img/og/`.
+- Bản sao dự phòng trên GitHub: kho `nguyenducdungvn/nguyenducdung.github.io` (không có tệp CNAME). Cách đồng bộ: xem README của kho đó.
+- Sau khi đăng bài mới: làm theo bản hướng dẫn “Yêu cầu Google lập chỉ mục bài mới (Search Console)”.
+
 ## Sự cố thường gặp
 
 | Hiện tượng | Nguyên nhân | Cách xử lý |

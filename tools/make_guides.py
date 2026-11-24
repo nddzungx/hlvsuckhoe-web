@@ -1,4 +1,4 @@
-# Sinh 5 trang bài tương tác (bóng đá, golf, bơi lội, nhạc cổ điển, hội họa) từ một khung chung.
+# Sinh 7 trang bài tương tác (bóng đá, golf, bơi lội, nhạc cổ điển, hội họa, sáng tác bài hát, ba lê) từ một khung chung.
 # Chạy: python3 tools/make_guides.py  → ghi đè bai-viet/<slug>.html
 # Nội dung chữ nằm ở js/guides/<tên>.js (window.GUIDE); phần minh họa ở js/guides/stage-<tên>.js.
 # Muốn sửa tiêu đề, mô tả, nút công cụ, nguồn: sửa danh sách PAGES bên dưới rồi chạy lại.
@@ -18,7 +18,9 @@ SPORT_MORE = [('khoi-dong-va-gian-co-dung-cach', 'Khởi động và giãn cơ �
               ('golf-cho-nguoi-moi', 'Golf: trò chơi của sự trung thực', 'Thể thao · cá nhân'),
               ('boi-loi-cho-nguoi-moi', 'Bơi lội: làm bạn với nước', 'Thể thao · cá nhân')]
 ART_MORE = [('nhac-co-dien-cho-nguoi-moi', 'Nhạc cổ điển: nghệ thuật của thời gian', 'Nghệ thuật · âm nhạc'),
-            ('hoi-hoa-cho-nguoi-moi', 'Hội họa: học cách nhìn ánh sáng', 'Nghệ thuật · hội họa')]
+            ('hoi-hoa-cho-nguoi-moi', 'Hội họa: học cách nhìn ánh sáng', 'Nghệ thuật · hội họa'),
+            ('sang-tac-bai-hat-cho-nguoi-moi', 'Sáng tác bài hát: tám chữ đầu tiên', 'Nghệ thuật · âm nhạc'),
+            ('ba-le-cho-nguoi-moi', 'Ba lê: đối thoại với trọng lực', 'Nghệ thuật · múa')]
 
 PAGES = [
  dict(slug='bong-da-cho-nguoi-moi', data='bong-da', stage='stage-bong-da.js', three=True, back='#goc-the-thao', backtxt='← Góc thể thao',
@@ -88,6 +90,35 @@ PAGES = [
   noscript='Hội họa: ngày 15/4/1874 nhóm họa sĩ Ấn tượng mở triển lãm đầu tiên ở Paris; bức "Ấn tượng, mặt trời mọc" của Monet (1872) cho cả trào lưu một cái tên. Bật JavaScript để xem tranh minh họa và các công cụ.',
   src='Nguồn: Bộ Văn hóa Pháp – triển lãm thứ nhất 15/4–15/5/1874, 35 đại lộ Capucines · National Gallery of Art (Washington): 1874, khoảng 3.500 khách so với nửa triệu khách của Salon; Louis Leroy và chữ “ấn tượng” · Britannica: tám cuộc triển lãm Ấn tượng 1874–1886 · Salon Mùa Thu 1905 và chữ “fauves” của Louis Vauxcelles · Chevreul, định luật tương phản đồng thời (1839) · Alberti, <i>De pictura</i> (1435) · Ống màu thiếc (John Goffe Rand, 1841), xanh coban (1802), ultramarine tổng hợp (1828) · Chính sách ảnh mở của Met, Rijksmuseum, National Gallery of Art. Tranh minh họa do HLV Sức Khỏe tự vẽ bằng mã, không sao chép tác phẩm nào.',
   more=ART_MORE+SPORT_MORE[:1]),
+dict(slug='sang-tac-bai-hat-cho-nguoi-moi', data='sang-tac', stage='stage-sang-tac.js', three=False, back='#goc-nghe-thuat', backtxt='← Góc nghệ thuật',
+  title='Sáng tác bài hát cho người mới: tám chữ đầu tiên | HLV Sức Khỏe',
+  desc='Tự viết một câu hát tám chữ ngay trong trình duyệt: chọn vòng hợp âm I–V–vi–IV, chấm nốt cho từng chữ, soát “lệch dấu” để chữ không bị nghe nhầm, thử kết lửng và kết trọn. Năm góc nhìn, ba tầng nội dung.',
+  ogt='Sáng tác bài hát: tám chữ đầu tiên', ogd='Tự chấm nốt cho một câu hát, nghe máy hát lại, và xem vì sao “gió” bị hát thành “giò”.',
+  kicker='Nghệ thuật · Âm nhạc', h1='Sáng tác bài hát: <em>tám chữ</em> đầu tiên',
+  dek='Tiếng Việt có sáu thanh, nên giai điệu đi sai một nốt là chữ đổi nghĩa. Bài này cho bạn tự viết một câu hát tám chữ trên vòng hợp âm có sẵn, nghe máy hát lại, và tự “gây lỗi” lệch dấu để hiểu quy tắc đầu tiên của người viết ca khúc Việt.',
+  read='Đọc và thử 6–12 phút', stitle='Bàn viết bài hát · thang năm âm, giọng Đô trưởng', ssub='Bật loa · bấm vào lưới để đổi nốt · giọng hát và đàn tổng hợp bằng máy',
+  tools=row('Vòng hợp âm', b('data-prog','pop','I–V–vi–IV',True)+b('data-prog','50s','I–vi–IV–V')+b('data-prog','sad','vi–IV–I–V')+b('data-prog','jazz','ii–V–I'))
+       +row('Nghe', b('data-play','line','▶ Hát câu này')+b('data-play','stop','■ Dừng')+'<button type="button" data-check="1" aria-pressed="true">Soát dấu</button>'+b('data-clear','1','Xóa giai điệu'))
+       +row('Được – mất', b('data-preset','bad','▶ Câu lệch dấu',cls='hot')+b('data-preset','good','▶ Câu khớp dấu',cls='hot'))
+       +row('Kết câu', b('data-end','open','Kết lửng (V)',cls='hot')+b('data-end','home','Kết trọn (I)',True,cls='hot'))
+       +row('Hình thức', b('data-form','vc','Đoạn – Điệp khúc',True)+b('data-form','aaba','AABA')),
+  noscript='Sáng tác bài hát: tân nhạc Việt Nam thường được tính từ buổi biểu diễn của Nguyễn Văn Tuyên ở Hà Nội ngày 9/6/1938. Quy tắc đầu tiên của ca khúc tiếng Việt: giai điệu đi theo dấu thanh để chữ không bị nghe nhầm. Bật JavaScript để tự viết thử một câu hát.',
+  src='Nguồn: mốc 9/6/1938 và buổi diễn của Nguyễn Văn Tuyên ở Hà Nội (Jason Gibbs, “Nhạc tiền chiến: the origins of Vietnamese popular song”; RFA; Việt Nam News – triển lãm lịch sử tân nhạc ở Hà Nội); lời kể của Nguyễn Văn Tuyên về việc “bám sát tiếng nói giàu âm điệu” (phỏng vấn đăng trên Doanh Nhân Plus); bài hát kiểu phương Tây năm 1911 của Đoàn Quang Đạt (bài nghiên cứu “Tân nhạc: notes toward a social history of Vietnamese music in the twentieth century”) · Vụ “Blurred Lines” (2015, phúc thẩm 2018) và vụ “Thinking Out Loud” (5/2023): WIPO Magazine (9/2023), Rolling Stone, Al Jazeera · Luật Sở hữu trí tuệ Việt Nam (Điều 6, Điều 27: thời hạn bảo hộ suốt đời tác giả và 50 năm sau khi mất). Mô hình mức cao độ của sáu thanh trong phần soát dấu là đơn giản hóa để minh họa.',
+  more=ART_MORE+SPORT_MORE[:1]),
+ dict(slug='ba-le-cho-nguoi-moi', data='ba-le', stage='stage-ba-le.js', three=False, back='#goc-nghe-thuat', backtxt='← Góc nghệ thuật',
+  title='Ba lê cho người mới: đối thoại với trọng lực | HLV Sức Khỏe',
+  desc='Ba lê cho người chưa biết gì: năm tư thế chân và tay, xoay mở đúng và ép sai, thử kiễng chân giữ thăng bằng, xoay vòng có và không giữ điểm nhìn, so sánh với múa đương đại, múa dân gian Việt và hip-hop.',
+  ogt='Ba lê: đối thoại với trọng lực', ogd='Năm tư thế, xoay mở đúng và sai, thử giữ thăng bằng trên nửa mũi chân và xoay vòng không chóng mặt.',
+  kicker='Nghệ thuật · Múa', h1='Ba lê: đối thoại với <em>trọng lực</em>',
+  dek='Vì sao vũ công xoay mười vòng mà không chóng mặt? Vì sao chỉ ngả một chút là ngã? Bài này cho bạn điều khiển một vũ công: đổi năm tư thế, ép chân quá sức để thấy đầu gối bị xoắn, kiễng lên để thấy trọng tâm, và xoay vòng có hoặc không giữ điểm nhìn.',
+  read='Đọc và thử 6–12 phút', stitle='Phòng tập · vũ công do máy tự vẽ', ssub='Chấm vàng là trọng tâm · vạch dưới chân là chân đế · bên phải là bàn chân nhìn từ trên xuống',
+  tools=row('Tư thế', ''.join(b('data-pos',str(i),'Thứ '+n,i==1) for i,n in [(1,'nhất'),(2,'hai'),(3,'ba'),(4,'tư'),(5,'năm')]))
+       +row('Xoay mở', b('data-turn','ok','Vừa sức hông',True)+b('data-turn','force','Ép quá sức',cls='hot'))
+       +row('Được – mất', b('data-act','bal-ok','▶ Kiễng chân thẳng người',cls='hot')+b('data-act','bal-fall','▶ Kiễng chân ngả người',cls='hot')+b('data-act','spot','▶ Xoay có điểm nhìn',cls='hot')+b('data-act','nospot','▶ Xoay không điểm nhìn',cls='hot')+b('data-act','pointe','Mũi giày'))
+       +row('Thể loại', b('data-genre','ballet','Ba lê cổ điển',True)+b('data-genre','contemp','Đương đại')+b('data-genre','viet','Dân gian Việt')+b('data-genre','hiphop','Hip-hop')),
+  noscript='Ba lê: Viện Hàn lâm Múa Hoàng gia được vua Louis XIV lập tháng 3/1661; năm tư thế chân do Pierre Beauchamp hệ thống hóa. Mũi chân xoay mở từ khớp hông, đầu gối luôn theo hướng mũi chân. Bật JavaScript để điều khiển vũ công minh họa.',
+  src='Nguồn: Académie Royale de Danse thành lập tháng 3/1661 (Britannica – Paris Opéra Ballet; Wikipedia – Académie Royale de Danse, có tranh luận về vai trò của Beauchamp); Britannica – Pierre Beauchamp và năm tư thế; Britannica – Western dance (Feuillet, Chorégraphie, 1700; Louis XIV thôi múa năm 1669); Les Grands Ballets Canadiens – tư thế tay bổ sung thế kỷ 19, pointe khoảng 1820; La Sylphide (1832); Hồ thiên nga: ra mắt Bolshoi 4/3/1877, bản Petipa–Ivanov tại Mariinsky 27/1/1895 (Petipa Society; V&A) · Hướng dẫn mũi giày: Weiss và cộng sự, J Dance Med Sci 2009;13(3):90-2; AAP HealthyChildren – Ballet and Dance; Journal of Dance Medicine & Science 2025 (khảo sát giáo viên). Các số đo chân đế, trọng tâm, góc xoay trong mô phỏng là ví dụ ước lượng để minh họa.',
+  more=ART_MORE+SPORT_MORE[:1])
 ]
 
 def page(p):

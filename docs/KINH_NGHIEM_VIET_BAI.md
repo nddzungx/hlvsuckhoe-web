@@ -55,3 +55,11 @@ Thêm vào mục 6 (Ba tầng nội dung) của cả hai hướng dẫn:
 
 Thêm vào mục 7 (Minh họa):
 > Ngoài nút biến thể và nút được–mất, thêm một "lớp đo" cho người phân tích (khoảng cách, vùng nguy hiểm, lực, độ căng) và một góc máy/khung nhìn của vai riêng. Bản điện thoại phải đổi bố cục, không chỉ thu nhỏ.
+
+## 8. Bổ sung từ bài Sáng tác bài hát và Ba lê (25/11/2026)
+- **Môn có “luật riêng của tiếng Việt” thì lấy luật đó làm tình huống được – mất.** Sáng tác: giai điệu đi ngược dấu thanh làm chữ đổi nghĩa (“gió” → “giò”). Người đọc tự gây lỗi, máy chỉ ra chữ bị nghe nhầm.
+- **Lời ca, giai điệu ví dụ phải tự viết.** Không trích dù một câu của bài hát có bản quyền; vòng hợp âm phổ thông (I–V–vi–IV) thì dùng tự do và nói rõ vì sao (vụ “Thinking Out Loud” 2023).
+- **Mô hình đơn giản hóa phải tự khai.** Mức cao độ của sáu thanh, chân đế, trọng tâm đều ghi “đơn giản hóa / ví dụ ước lượng” ngay trong hộp Đào sâu, kèm một hộp tranh luận về giới hạn của mô hình (giọng Nam nhập hỏi – ngã).
+- **Hình người tự vẽ bằng SVG + IK hai đốt** (`js/guides/stage-ba-le.js`): đặt vị trí cổ chân, máy tự tính đầu gối; đổi hướng gập gối bằng một dấu. Đủ để minh họa tư thế, thăng bằng, xoay vòng mà không cần ảnh hay 3D.
+- **Chấn thương là “mất” thật của môn múa**: ép xoay mở quá sức hông (gối xoắn), mũi giày khi chưa đủ điều kiện. Ghi hướng dẫn y khoa có nguồn (AAP, J Dance Med Sci 2009) trong hộp lưu ý.
+- **Khi các nguồn vênh nhau, biến chỗ vênh thành hộp tranh luận** (Beauchamp đứng đầu viện từ 1661 hay 1671; mốc “bài hát Việt đầu tiên” 1911 hay 1938).
