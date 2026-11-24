@@ -251,8 +251,18 @@ SELECT k, n FROM totals WHERE k LIKE 'view:%' OR k LIKE 'like:%' ORDER BY k;
 4. Commit. Mỗi ngày trang chọn một dòng theo ngày, hết danh sách thì quay vòng – thêm càng nhiều càng lâu mới lặp.
 5. Sai dấu phẩy/nháy thì các thẻ "hôm nay" hiện dấu "–": mở lại tệp, kiểm tra dòng vừa sửa.
 
-### Đổi địa chỉ 3 ứng dụng mới (khi có tên miền con)
-Ctrl + F trong `index.html` tìm `nguyenducdungvn.github.io/phu-thuy-phan-kim`, `…/the_invisible_flaw`, `…/kiem-dem-ca-dem` và thay hết (mỗi địa chỉ xuất hiện 3–4 lần: góc, kệ ứng dụng, giới thiệu, chân trang).
+### Địa chỉ 7 ứng dụng (tên miền con, CNAME → nguyenducdungvn.github.io, mây xám)
+| Ứng dụng | Địa chỉ | Repo |
+|---|---|---|
+| HLV Sức Khỏe | https://app.hlvsuckhoe.com/ | hlv-suc-khoe |
+| BreathSync | https://tho.hlvsuckhoe.com/ | breathsync |
+| Xưởng kính thiên văn | https://thienvan.hlvsuckhoe.com/ | xuong-kinh-thien-van |
+| Tôi & Gia Đình | https://giadinh.hlvsuckhoe.com/ | giadinh |
+| Phù thủy Phân kim | https://phankim.hlvsuckhoe.com/ | phu-thuy-phan-kim |
+| The Invisible Flaw | https://hvflaw.hlvsuckhoe.com/ | the_invisible_flaw |
+| Kiểm Đếm Ca Đêm | https://kiemdem.hlvsuckhoe.com/ | kiem-dem-ca-dem |
+
+Đổi địa chỉ một ứng dụng: Ctrl + F trong `index.html` tìm địa chỉ cũ và thay hết (mỗi địa chỉ xuất hiện 3–5 lần: góc, kệ ứng dụng, cài đặt, giới thiệu, chân trang).
 
 ### Ánh sáng theo giờ
 Sáng 5–10h, trưa 10–16h, chiều 16–19h, đêm 19–5h, theo đồng hồ trên máy khách. Màu từng buổi ở đầu phần 2 của `css/home.css` (`--wall`, `--sky1`, `--sky2`…).

@@ -8,10 +8,10 @@ Trang chủ dạng **"Căn phòng mỗi ngày"** (từ 2.0.0): một căn phòng
 - Ứng dụng HLV Sức Khỏe: **https://app.hlvsuckhoe.com/** (repo `hlv-suc-khoe`)
 - Ứng dụng tập thở BreathSync: **https://tho.hlvsuckhoe.com/** (repo `breathsync`)
 - Ứng dụng Xưởng kính thiên văn: **https://thienvan.hlvsuckhoe.com/** (repo `xuong-kinh-thien-van`)
-- Ứng dụng Tôi & Gia Đình: https://giadinh.hlvsuckhoe.com/ (repo `nddzungx/giadinh`)
-- Phù thủy Phân kim: https://nguyenducdungvn.github.io/phu-thuy-phan-kim/ (repo `phu-thuy-phan-kim`)
-- The Invisible Flaw: https://nguyenducdungvn.github.io/the_invisible_flaw/ (repo `the_invisible_flaw`)
-- Kiểm Đếm Ca Đêm: https://nguyenducdungvn.github.io/kiem-dem-ca-dem/ (repo `kiem-dem-ca-dem`)
+- Ứng dụng Tôi & Gia Đình: https://giadinh.hlvsuckhoe.com/ (repo `giadinh`)
+- Phù thủy Phân kim: https://phankim.hlvsuckhoe.com/ (repo `phu-thuy-phan-kim`)
+- The Invisible Flaw: https://hvflaw.hlvsuckhoe.com/ (repo `the_invisible_flaw`)
+- Kiểm Đếm Ca Đêm: https://kiemdem.hlvsuckhoe.com/ (repo `kiem-dem-ca-dem`)
 - Liên hệ: nddzungx@gmail.com
 
 Trang tĩnh, không cần build: `index.html` (khung trang + SVG căn phòng), `css/home.css` (giao diện), `js/daily.js` (**kho nội dung đổi mỗi ngày – sửa ở đây**), `js/home.js` (hoạt động). Tệp `CNAME` giữ tên miền – không xóa.

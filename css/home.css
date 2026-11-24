@@ -380,3 +380,8 @@ details.vc[open]{padding-bottom:18px}
 .greet .day-strip{flex-direction:column;gap:4px;text-align:right}
 @media (max-width:860px){.greet .day-strip{flex-direction:row;flex-wrap:wrap;text-align:left;gap:4px 14px}}
 .cell-row{align-items:start}
+.app2 .dom{font-size:.8rem;opacity:.7;margin-top:2px}
+.app2 .btn.ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.8)}
+.app2.idea{background:var(--card);color:var(--ink);border:1.5px dashed var(--line)}
+.app2.idea h3{color:var(--ink)}
+.app2.idea .btn{background:var(--forest);color:#fff}
