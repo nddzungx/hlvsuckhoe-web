@@ -221,6 +221,40 @@ SELECT k, n FROM totals WHERE k LIKE 'view:%' OR k LIKE 'like:%' ORDER BY k;
 
 **Nếu bộ đếm đã dựng trước bản 1.4.0:** chạy thêm khối `CREATE TABLE IF NOT EXISTS post_marks …` trong `counter/schema.sql` và dán lại `counter/worker.js` mới vào Worker.
 
+## Trang chủ 2.0.0 – "Căn phòng mỗi ngày" (24/11/2026)
+
+### Bản đồ căn phòng → góc
+| Đồ vật | Góc | Địa chỉ |
+|---|---|---|
+| Chậu cây | Thân · Tâm · Trí (bài học tế bào, Sáu việc nhỏ, bảng vi chất) | `#goc-than-tam-tri`, `#vi-chat` |
+| Nệm thiền, nến | Thiền & hơi thở (thở 1 phút, hẹn giờ, BreathSync, bài 4–7–8) | `#thien` |
+| Thảm tập, tạ | Luyện tập (động tác hôm nay, HLV Sức Khỏe) | `#van-dong` |
+| Khung ảnh | Gia đình (việc nhỏ cùng nhau, lời hay, Tôi & Gia Đình) | `#goc-gia-dinh` |
+| Đàn guitar | Âm nhạc (bài hát hôm nay, 20 bài, đặt bài hát riêng) | `#am-nhac`, `#goc-sang-tac` |
+| Tranh treo tường | Nghệ thuật | `#goc-nghe-thuat` |
+| Quả bóng | Thể thao | `#goc-the-thao` |
+| Quả địa cầu | Du lịch & khám phá | `#goc-du-lich` |
+| Kính thiên văn | Ngắm sao (trăng, mưa sao băng, Xưởng kính) | `#bau-troi` |
+| Bình thủy tinh vàng | Phân kim (Phù thủy Phân kim) | `#goc-phan-kim` |
+| Chùm chìa khóa | Lái xe an toàn | `#goc-lai-xe` |
+| Máy tính có sóng siêu âm | Nghề nghiệp (The Invisible Flaw) | `#goc-nghe-nghiep` |
+| Giá sách | Đọc sách (sách hôm nay, bài viết) | `#bai-viet` |
+| Bàn cờ, rubik | Giải đố (câu đố hôm nay, Kiểm Đếm Ca Đêm) | `#goc-giai-do` |
+| Bảng ghim | Chia sẻ (câu hỏi hôm nay, rủ người thân) | `#goc-chia-se` |
+
+### Thêm nội dung đổi mỗi ngày (không cần biết lập trình)
+1. GitHub → `js/daily.js` → bút chì (Edit).
+2. Tìm danh sách muốn thêm (ví dụ `puzzles:` câu đố, `books:` sách, `travel:` nơi khám phá).
+3. Chép một dòng có sẵn, dán ngay dưới, sửa chữ. Giữ nguyên dấu nháy `'…'`, dấu ngoặc `[…]` và **dấu phẩy cuối dòng**. Trong chữ có dấu nháy đơn thì viết `\'`.
+4. Commit. Mỗi ngày trang chọn một dòng theo ngày, hết danh sách thì quay vòng – thêm càng nhiều càng lâu mới lặp.
+5. Sai dấu phẩy/nháy thì các thẻ "hôm nay" hiện dấu "–": mở lại tệp, kiểm tra dòng vừa sửa.
+
+### Đổi địa chỉ 3 ứng dụng mới (khi có tên miền con)
+Ctrl + F trong `index.html` tìm `nguyenducdungvn.github.io/phu-thuy-phan-kim`, `…/the_invisible_flaw`, `…/kiem-dem-ca-dem` và thay hết (mỗi địa chỉ xuất hiện 3–4 lần: góc, kệ ứng dụng, giới thiệu, chân trang).
+
+### Ánh sáng theo giờ
+Sáng 5–10h, trưa 10–16h, chiều 16–19h, đêm 19–5h, theo đồng hồ trên máy khách. Màu từng buổi ở đầu phần 2 của `css/home.css` (`--wall`, `--sky1`, `--sky2`…).
+
 ## Sự cố thường gặp
 
 | Hiện tượng | Nguyên nhân | Cách xử lý |
