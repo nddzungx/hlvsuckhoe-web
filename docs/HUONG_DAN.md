@@ -180,6 +180,8 @@ SELECT k, n FROM totals WHERE k LIKE 'day:home:%' ORDER BY k DESC LIMIT 30;
 
 ## Bước 5. (Tùy chọn) Cloudflare Web Analytics – thống kê chi tiết chỉ anh xem
 
+> **ĐÃ LÀM 24/11/2026:** một site Web Analytics gắn với tên miền `hlvsuckhoe.com` (chế độ *Enable with JS Snippet installation*), dùng **chung một mã** cho cả 8 trang: trang chủ + 2 bài viết, app, tho, thienvan, giadinh, kiemdem, phankim, hvflaw. Xem: Cloudflare → Web analytics → hlvsuckhoe.com → bấm **Add filter → Host** để tách từng trang con, mục **Path** để xem từng trang nhỏ. Bài viết mới: chép nguyên khối `<!-- Cloudflare Web Analytics … End Cloudflare Web Analytics -->` từ một bài cũ, đặt ngay trước `</body>`.
+
 Bộ đếm ở Bước 4 là con số **công khai cho khách xem**. Web Analytics là **sổ sách riêng của anh**: khách đến từ đâu (Google, Facebook, Zalo…), quốc gia, điện thoại hay máy tính, trang nào xem nhiều, tốc độ tải trang. Miễn phí, không dùng cookie.
 
 1. Cloudflare → menu trái **Analytics & Logs** → **Web Analytics** → **Add a site** → gõ `hlvsuckhoe.com`.
