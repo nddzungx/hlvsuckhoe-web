@@ -12,6 +12,7 @@ Trang chủ dạng **"Căn phòng mỗi ngày"** (từ 2.0.0): một căn phòng
 - Phù thủy Phân kim: https://phankim.hlvsuckhoe.com/ (repo `phu-thuy-phan-kim`)
 - The Invisible Flaw: https://hvflaw.hlvsuckhoe.com/ (repo `the_invisible_flaw`)
 - Kiểm Đếm Ca Đêm: https://kiemdem.hlvsuckhoe.com/ (repo `kiem-dem-ca-dem`)
+- Kiểm Đếm Ca Đêm · Mùa 2: https://kiemdem2.hlvsuckhoe.com/ (repo `kiem-dem-mua-2`)
 - Liên hệ: nddzungx@gmail.com
 
 Trang tĩnh, không cần build: `index.html` (khung trang + SVG căn phòng), `css/home.css` (giao diện), `js/daily.js` (**kho nội dung đổi mỗi ngày – sửa ở đây**), `js/home.js` (hoạt động). Tệp `CNAME` giữ tên miền – không xóa.
@@ -28,6 +29,7 @@ Trang tĩnh, không cần build: `index.html` (khung trang + SVG căn phòng), `
 - `CLOUDFLARE WEB ANALYTICS` – chỗ dán mã thống kê
 
 ## Phiên bản
+- **2.3.1** (25/11/2026): thêm **Kiểm Đếm Ca Đêm · Mùa 2: Phiếu Bàn Giao** (kiemdem2.hlvsuckhoe.com, Tập 1 Bãi Bồi, Màn 1) ở Góc giải đố, kệ ứng dụng, chân trang, liên hệ, hướng dẫn, sitemap; ảnh `img/apps/kiem-dem-mua-2.jpg`; kệ thành 8 ứng dụng.
 - **2.0.0** (24/11/2026): làm lại trang chủ thành **căn phòng** – ánh sáng đổi theo giờ (sáng/trưa/chiều/đêm), trăng trong cửa sổ đúng tuần trăng, đồng hồ và tờ lịch chạy thật; 15 đồ vật bấm được dẫn tới 15 góc; dải nút "Đi tới các góc" cho điện thoại; bảng tin hôm nay; mỗi góc có thẻ đổi mỗi ngày (kho `js/daily.js`: 28 bài học tế bào, 20 động tác, 20 việc gia đình, 20 nơi khám phá, 20 cuốn sách, 22 câu đố…); "Sáu việc nhỏ hôm nay" và số ngày ghé phòng (lưu trên máy); thêm 3 ứng dụng: Phù thủy Phân kim, The Invisible Flaw, Kiểm Đếm Ca Đêm (kệ 7 ứng dụng); mưa sao băng sắp tới; giữ nguyên mọi địa chỉ cũ (#am-nhac, #bai-viet, #thien, #van-dong, #vi-chat, #bau-troi, #ung-dung, #cai-dat, #nhan-tin, #gioi-thieu, #ung-ho, #huong-dan).
 - **1.5.0** (22/11/2026): bài viết thứ hai **Thở 4–7–8 trước khi ngủ** (`bai-viet/tho-4-7-8-truoc-khi-ngu.html`, có khung thở 4 vòng ngay trong bài); ảnh chia sẻ 1200×630 cho trang chủ và từng bài (`img/og/`, thẻ og:image, twitter card); `sitemap.xml`, `robots.txt` cho Google.
 - **1.4.0** (22/11/2026): bài viết đầu tiên **Người gieo "viên thuốc hiểu biết"** (`bai-viet/nguoi-gieo-vien-thuoc-hieu-biet.html`) – chân dung BS. Trần Văn Phúc và cảm hứng ra đời trang; thẻ bài nổi bật trong mục Bài viết, liên kết trong Giới thiệu; thanh **Lượt xem · Thích · Chia sẻ** dùng chung (`js/post-actions.js`, Facebook, X, email, sao chép link, chia sẻ qua Zalo/Messenger trên điện thoại); cài đặt chung `js/config.js`; Worker bộ đếm thêm `/post/view`, `/post/like`, `/post/stats` và bảng `post_marks`.
