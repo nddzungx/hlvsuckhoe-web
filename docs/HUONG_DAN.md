@@ -311,7 +311,7 @@ Không dùng ảnh vận động viên, logo giải đấu/CLB, tranh hay bản 
 - Bài mới `bai-viet/vong-xoan-ulam-so-nguyen-to.html`: lưới số 3D (three.js, InstancedMesh) với 5 cách xếp – xoắn Ulam, cái bát 3D, tam giác Klauber, xoắn Sacks, “tiếng nhạc” Riemann (ψ(x) và 20 không điểm zeta); tô số chẵn, đa thức Euler / n² + 1, lớp đo “📏 Xếp hạng đường chéo” (máy đếm từng tia và ghi đa thức 4n² + bn + c); được – mất: Xếp từng số, Cược công thức Euler (gãy ở n = 40), Đối chứng ngẫu nhiên. Nội dung `js/guides/vong-xoan-ulam.js`, minh họa `js/guides/stage-vong-xoan-ulam.js`.
 - Có hộp tin mới về chứng minh Lean giả thuyết Riemann (Alpöge, 20/11/2026) **đúng tới 25/11/2026** – khi tình hình thay đổi (bình duyệt, Viện Clay), sửa khối `riemann` và mục `warn` trong tệp nội dung rồi chạy lại `python3 tools/make_guides.py`.
 - Căn phòng có đồ vật mới: **bảng đen nhỏ** (góc `#goc-toan-hoc`, đã thêm vào `tools/room.py`). Mục mới “Góc toán học” ngay sau Góc giải đố, có trò **Đố mắt** (`js/toan-hoc.js`: chọn hình nào là số nguyên tố thật, điểm lưu trong máy). Menu, dải “Đi tới các góc” có thêm “Toán học”. Bàn cờ (Giải đố) giờ cũng tỏa vòng tròn chứa bài Ulam.
-- `posts.js?v=2.4.0`, `home.css?v=2.4.0`, thẻ bài ở mục Bài viết, sitemap 22 địa chỉ, ảnh og `img/og/vong-xoan-ulam-so-nguyen-to.jpg`.
+- `posts.js?v=2.4.0`, `home.css?v=2.4.0`, thẻ bài ở mục Bài viết, sitemap 23 địa chỉ, ảnh og `img/og/vong-xoan-ulam-so-nguyen-to.jpg`.
 
 ## Sự cố thường gặp
 
