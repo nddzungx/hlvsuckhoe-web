@@ -385,3 +385,4 @@ details.vc[open]{padding-bottom:18px}
 .app2.idea{background:var(--card);color:var(--ink);border:1.5px dashed var(--line)}
 .app2.idea h3{color:var(--ink)}
 .app2.idea .btn{background:var(--forest);color:#fff}
+.app2.idea .btn.ghost{background:transparent;color:var(--forest);border:1.5px solid var(--forest)}
