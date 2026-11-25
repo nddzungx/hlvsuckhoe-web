@@ -29,6 +29,7 @@ Trang tĩnh, không cần build: `index.html` (khung trang + SVG căn phòng), `
 - `CLOUDFLARE WEB ANALYTICS` – chỗ dán mã thống kê
 
 ## Phiên bản
+- **2.9.0** (25/11/2026): **Kệ bài viết** – ghim bài (`pin: true` trong `js/posts.js`), chỉ hiện bài ghim + 6 bài mới, phần còn lại vào khung gập “Bài viết cũ” (`js/post-shelf.js`); mở **Góc công nghệ** (robot hút bụi trong phòng, trò “liếc điện thoại bao lâu thì xe đi bao xa”) với bài **FSD v15: khi chiếc xe cho bạn xem nó đang nghĩ gì** (con đường mô phỏng 2D, Reality View, đo phản xạ người giám sát).
 - **2.8.0** (25/11/2026): Góc toán học thêm bài **Hàm số hay Quan số?** – thuật ngữ toán Việt, Nhật, Trung qua chữ Hán (SVG tương tác, đố vui, dòng thời gian 1859–1985).
 - **2.7.2** (25/11/2026): **Kiểm Đếm Ca Đêm Mùa 2** ra mắt trọn Tập 1 · Bãi Bồi (3 màn, 10 kết thúc): sửa mô tả thẻ ở Góc giải đố và kệ ứng dụng.
 - **2.3.1** (25/11/2026): thêm **Kiểm Đếm Ca Đêm · Mùa 2: Phiếu Bàn Giao** (kiemdem2.hlvsuckhoe.com, Tập 1 Bãi Bồi, Màn 1) ở Góc giải đố, kệ ứng dụng, chân trang, liên hệ, hướng dẫn, sitemap; ảnh `img/apps/kiem-dem-mua-2.jpg`; kệ thành 8 ứng dụng.
