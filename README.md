@@ -29,6 +29,7 @@ Trang tĩnh, không cần build: `index.html` (khung trang + SVG căn phòng), `
 - `CLOUDFLARE WEB ANALYTICS` – chỗ dán mã thống kê
 
 ## Phiên bản
+- **2.8.0** (25/11/2026): Góc toán học thêm bài **Hàm số hay Quan số?** – thuật ngữ toán Việt, Nhật, Trung qua chữ Hán (SVG tương tác, đố vui, dòng thời gian 1859–1985).
 - **2.7.2** (25/11/2026): **Kiểm Đếm Ca Đêm Mùa 2** ra mắt trọn Tập 1 · Bãi Bồi (3 màn, 10 kết thúc): sửa mô tả thẻ ở Góc giải đố và kệ ứng dụng.
 - **2.3.1** (25/11/2026): thêm **Kiểm Đếm Ca Đêm · Mùa 2: Phiếu Bàn Giao** (kiemdem2.hlvsuckhoe.com, Tập 1 Bãi Bồi, Màn 1) ở Góc giải đố, kệ ứng dụng, chân trang, liên hệ, hướng dẫn, sitemap; ảnh `img/apps/kiem-dem-mua-2.jpg`; kệ thành 8 ứng dụng.
 - **2.0.0** (24/11/2026): làm lại trang chủ thành **căn phòng** – ánh sáng đổi theo giờ (sáng/trưa/chiều/đêm), trăng trong cửa sổ đúng tuần trăng, đồng hồ và tờ lịch chạy thật; 15 đồ vật bấm được dẫn tới 15 góc; dải nút "Đi tới các góc" cho điện thoại; bảng tin hôm nay; mỗi góc có thẻ đổi mỗi ngày (kho `js/daily.js`: 28 bài học tế bào, 20 động tác, 20 việc gia đình, 20 nơi khám phá, 20 cuốn sách, 22 câu đố…); "Sáu việc nhỏ hôm nay" và số ngày ghé phòng (lưu trên máy); thêm 3 ứng dụng: Phù thủy Phân kim, The Invisible Flaw, Kiểm Đếm Ca Đêm (kệ 7 ứng dụng); mưa sao băng sắp tới; giữ nguyên mọi địa chỉ cũ (#am-nhac, #bai-viet, #thien, #van-dong, #vi-chat, #bau-troi, #ung-dung, #cai-dat, #nhan-tin, #gioi-thieu, #ung-ho, #huong-dan).
